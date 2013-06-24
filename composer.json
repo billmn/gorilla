@@ -3,9 +3,14 @@
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
 	"require": {
-		"laravel/framework": "4.0.*"
+		"laravel/framework": "4.0.*",
+		"rcrowe/twigbridge": "dev-master",
+		"guzzle/guzzle": "3.7.*@dev"
 	},
 	"autoload": {
+		"psr-0": {
+			"Gorilla": "app"
+		},
 		"classmap": [
 			"app/commands",
 			"app/controllers",
