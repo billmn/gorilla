@@ -5,103 +5,42 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Foundation 4</title>
+	<title>@lang('gorilla.app_name')</title>
 
 	{{ HTML::style('static/css/normalize.css') }}
 	{{ HTML::style('static/css/foundation.min.css') }}
 	{{ HTML::style('static/css/admin.css') }}
 
-	<script src="{{ asset('static/js/modernizr.min.js') }}"></script>
-
+	{{ HTML::script('static/js/modernizr.min.js') }}
 </head>
-<body>
-	<div class="row">
-		<div class="large-12 columns">
-			<h2>Welcome to Foundation</h2>
-			<p>This is version 4.2.2.</p>
-			<hr />
-		</div>
+<body id="auth">
+	<div id="sidebar">
+		<h1 class="gorilla text-center">@lang('gorilla.app_name')</h1>
+		<h6 class="gorilla-sub subheader text-center">@lang('gorilla.app_slogan')</h6>
+
+		<ul class="side-nav">
+			<li><a href="#">Link 1</a></li>
+			<li><a href="#">Link 2</a></li>
+			<li><a href="#">Link 3</a></li>
+			<li class="divider"></li>
+			<li><a href="{{ URL::route('logout') }}">Logout</a></li>
+		</ul>
 	</div>
 
-	<div class="row">
-		<div class="large-8 columns">
-			<h3>The Grid</h3>
-
-			<!-- Grid Example -->
-			<div class="row">
-				<div class="large-12 columns">
-					<div class="panel">
-						<p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
-					</div>
-				</div>
+	<div id="contents">
+		<div class="row">
+			<div class="large-12 columns">
+				@yield('content')
 			</div>
-			<div class="row">
-				<div class="large-6 columns">
-					<div class="panel">
-						<p>Six columns</p>
-					</div>
-				</div>
-				<div class="large-6 columns">
-					<div class="panel">
-						<p>Six columns</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="large-4 columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-				<div class="large-4 columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-				<div class="large-4 columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-			</div>
-
-			<h3>Buttons</h3>
-
-			<div class="row">
-				<div class="large-6 columns">
-					<p><a href="#" class="small button">Small Button</a></p>
-					<p><a href="#" class="button">Medium Button</a></p>
-					<p><a href="#" class="large button">Large Button</a></p>
-				</div>
-				<div class="large-6 columns">
-					<p><a href="#" class="small alert button">Small Alert Button</a></p>
-					<p><a href="#" class="success button">Medium Success Button</a></p>
-					<p><a href="#" class="large secondary button">Large Secondary Button</a></p>
-				</div>
-			</div>
-		</div>
-
-		<div class="large-4 columns">
-			<h4>Getting Started</h4>
-			<p>We're stoked you want to try Foundation! To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-
-			<h4>Other Resources</h4>
-			<p>Once you've exhausted the fun in this document, you should check out:</p>
-			<ul class="disc">
-				<li><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</li>
-				<li><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</li>
-				<li><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</li>
-			</ul>
 		</div>
 	</div>
 
 	<!-- scripts -->
 	{{ HTML::script('static/js/jquery.min.js') }}
-	{{ HTML:: script('static/js/foundation.min.js') }}
+	{{ HTML::script('static/js/plugins/foundation/foundation.min.js') }}
+	{{ HTML::script('static/js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ HTML::script('static/js/admin.js') }}
 
-	<script type="text/javascript">
-		$(document).foundation();
-	</script>
-
+	@yield('bottom_scripts')
 </body>
 </html>

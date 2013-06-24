@@ -5,31 +5,28 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Foundation 4</title>
+	<title>@lang('gorilla.app_name')</title>
 
 	{{ HTML::style('static/css/normalize.css') }}
 	{{ HTML::style('static/css/foundation.min.css') }}
 	{{ HTML::style('static/css/admin.css') }}
 
-	<script src="{{ asset('static/js/modernizr.min.js') }}"></script>
-
+	{{ HTML::script('static/js/modernizr.min.js') }}
 </head>
-<body>
+<body id="auth">
 	<div class="row">
-		<div class="large-6 large-offset-3 columns">
-			<div class="panel">
-				@yield('content')
-			</div>
+		<div class="large-4 large-centered columns">
+			<h1 class="gorilla text-center">@lang('gorilla.app_name')</h1>
+			@yield('content')
 		</div>
 	</div>
 
 	<!-- scripts -->
 	{{ HTML::script('static/js/jquery.min.js') }}
-	{{ HTML:: script('static/js/foundation.min.js') }}
+	{{ HTML::script('static/js/plugins/foundation/foundation.min.js') }}
+	{{ HTML::script('static/js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ HTML::script('static/js/admin.js') }}
 
-	<script type="text/javascript">
-		$(document).foundation();
-	</script>
-
+	@yield('bottom_scripts')
 </body>
 </html>

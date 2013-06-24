@@ -19,7 +19,7 @@ Route::group(array('prefix' => 'admin'), function()
 
 	Route::group(array('before' => 'auth'), function()
 	{
-		Route::get('/', function() { return View::make('admin/base'); });
+		Route::any('/', array('as' => 'admin_home', 'uses' => 'AdminHomeController@index'));
 	});
 
 });

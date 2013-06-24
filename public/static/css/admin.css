@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600);
+
+/*
+|--------------------------------------------------------------------------
+| MAIN
+|--------------------------------------------------------------------------
+*/
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+
+#sidebar {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 240px;
+	color: #ffffff;
+	padding: 0 15px;
+	position: fixed;
+	background-color: #18213D;
+}
+#sidebar .side-nav li a {
+	color: #efefef;
+	padding: 5px;
+}
+#sidebar .side-nav li:hover a {
+	background-color: #060D23;
+}
+
+#contents {
+	margin-top: 20px;
+	margin-left: 240px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| GORILLA
+|--------------------------------------------------------------------------
+*/
+.gorilla,
+.gorilla-sub {
+	color: #666666;
+	text-transform: lowercase;
+	font-family: 'Titillium Web', sans-serif;
+}
+#sidebar .gorilla,
+#sidebar .gorilla-sub {
+	color: #efefef;
+	margin-bottom: 0;
+}
+#sidebar .gorilla-sub {
+	margin-bottom: 10px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| UTILITY
+|--------------------------------------------------------------------------
+*/
+.text-alert   { color: #c60f13; }
+.text-muted   { color: #666666; }
+.text-success { color: #5da423; }
+
+input:invalid,
+input:focus:invalid {
+	border-color: #C60F13;
+}
+
+/*
+|--------------------------------------------------------------------------
+| AUTH
+|--------------------------------------------------------------------------
+*/
+#auth {
+	background-color: #f9f9f9;
+}
+
+#auth #remember_label {
+	margin-bottom: 20px;
+}
