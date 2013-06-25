@@ -1,5 +1,1 @@
-<?php
-
-return array(
-
-);
+{"timezone":"Europe\/Rome"}

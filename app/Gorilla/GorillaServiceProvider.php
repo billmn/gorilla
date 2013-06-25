@@ -28,10 +28,15 @@ class GorillaServiceProvider extends ServiceProvider {
 	{
 		include_once __DIR__ . '/Support/helpers.php';
 
-		$this->app['gorilla.paths.assets']   = public_path() . '/g-assets';
-		$this->app['gorilla.paths.config']   = public_path() . '/g-config';
-		$this->app['gorilla.paths.contents'] = public_path() . '/g-contents';
-		$this->app['gorilla.paths.themes']   = public_path() . '/g-contents/themes';
+		$this->app['gorilla.paths.assets']   = $this->app['path.public'] . '/g-assets';
+		$this->app['gorilla.paths.config']   = $this->app['path.public'] . '/g-config';
+		$this->app['gorilla.paths.contents'] = $this->app['path.public'] . '/g-contents';
+		$this->app['gorilla.paths.themes']   = $this->app['path.public'] . '/g-contents/themes';
+
+		$this->app['gorilla.setup'] = $this->app->share(function($app)
+		{
+			return new Support\Setup($app);
+		});
 
 		$this->app['gorilla.asset'] = $this->app->share(function($app)
 		{
