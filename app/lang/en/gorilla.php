@@ -114,6 +114,15 @@ return array(
 		'title' => 'Impostazioni',
 		'sing'  => 'impostazioni',
 		'plur'  => 'impostazione',
+
+		'utc_time'   => 'Orario UTC',
+		'local_time' => 'Orario Locale',
+
+		'fields' => array(
+			'website_title'  => 'Titolo Sito',
+			'website_slogan' => 'Slogan Sito',
+			'timezone'       => 'Fuso orario',
+		),
 	),
 
 );

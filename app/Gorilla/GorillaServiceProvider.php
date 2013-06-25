@@ -3,6 +3,7 @@
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Form;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,6 +27,8 @@ class GorillaServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		include_once __DIR__ . '/Support/helpers.php';
+
+		Config::set('timezone', Settings::give('timezone', 'UTC'));
 
 		$this->registerFormMacro();
 	}
