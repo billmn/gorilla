@@ -101,6 +101,7 @@ return array(
 			'password'              => 'Password',
 			'password_confirmation' => 'Conferma Password',
 			'enabled'               => 'Abilitato',
+			'last_login'            => 'Ultimo accesso',
 		),
 	),
 

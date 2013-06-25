@@ -1,5 +1,7 @@
 <?php
 
+use Gorilla\User;
+
 class UserTableSeeder extends Seeder {
 
 	/**

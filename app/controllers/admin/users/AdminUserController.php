@@ -1,5 +1,7 @@
 <?php
 
+use Gorilla\User;
+
 class AdminUserController extends AdminBaseController {
 
 	public function index()
@@ -24,7 +26,7 @@ class AdminUserController extends AdminBaseController {
 			{
 				$user->email    = Input::get('email');
 				$user->username = Input::get('username');
-				$user->enabled  = Input::get('enabled');
+				$user->enabled  = Input::get('enabled', false);
 				$user->password = Input::get('password');
 				$user->save();
 
@@ -62,7 +64,7 @@ class AdminUserController extends AdminBaseController {
 			{
 				$user->email    = Input::get('email');
 				$user->username = Input::get('username');
-				$user->enabled  = Input::get('enabled');
+				$user->enabled  = Input::get('enabled', false);
 
 				if (Input::has('password'))
 				{

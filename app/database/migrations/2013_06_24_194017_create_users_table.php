@@ -17,7 +17,8 @@ class CreateUsersTable extends Migration {
 			$table->string('username');
 			$table->string('password');
 			$table->string('email');
-			$table->boolean('enabled');
+			$table->boolean('enabled')->default(true);
+			$table->timestamp('last_login');
 			$table->timestamps();
 		});
 	}

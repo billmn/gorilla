@@ -30,3 +30,9 @@
 	</div>
 {{ Form::close() }}
 @stop
+
+@section('bottom_scripts')
+<script type="text/javascript">
+	$('input[name=email]').focus().select();
+</script>
+@stop

@@ -1,7 +1,10 @@
-<?php
+<?php namespace Gorilla;
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+
+use Illuminate\Support\Facades\Hash;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
@@ -49,9 +52,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	/**
+	 * Hash password on set
+	 */
 	public function setPasswordAttribute($password)
 	{
-		$this->attributes['password'] = \Hash::make($password);
+		$this->attributes['password'] = Hash::make($password);
 	}
 
 }

@@ -21,6 +21,8 @@
 		<tr>
 			<th>@lang('gorilla.users.fields.username')</th>
 			<th>@lang('gorilla.users.fields.email')</th>
+			<td class="text-center">@lang('gorilla.users.fields.enabled')</th>
+			<td class="text-center">@lang('gorilla.users.fields.last_login')</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -28,7 +30,19 @@
 		@foreach ($users as $user)
 		<tr>
 			<td><a href="{{ URL::route('admin_user_update', array('id' => $user->id)) }}">{{ $user->username }}</a></td>
-			<td>{{ $user->email }}</td>
+			<td>
+				{{ $user->email }}
+			</td>
+			<td class="text-center">
+				@if ($user->enabled)
+					<i class="foundicon-checkmark text-success"></i>
+				@else
+					<i class="foundicon-remove text-muted"></i>
+				@endif
+			</td>
+			<td class="text-center">
+				{{ $user->last_login }}
+			</td>
 			<td class="actions">
 				<a href="{{ URL::route('admin_user_delete', array('id' => $user->id)) }}" class="tiny alert button confirm">@lang('gorilla.actions.delete')</a>
 			</td>

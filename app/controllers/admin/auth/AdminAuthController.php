@@ -1,5 +1,8 @@
 <?php
 
+use Gorilla\User;
+use Carbon\Carbon;
+
 class AdminAuthController extends Controller {
 
 	public function login()
@@ -8,6 +11,10 @@ class AdminAuthController extends Controller {
 		{
 			if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'), 'enabled'=> true), Input::has('remember')))
 			{
+				$user = Auth::user();
+				$user->last_login = Carbon::now();
+				$user->save();
+
 				return Redirect::intended(URL::route('admin_home'));
 			}
 			else
