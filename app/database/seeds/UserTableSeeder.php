@@ -11,6 +11,8 @@ class UserTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		DB::table(with(new User)->getTable())->delete();
+
 		User::create(array(
 			'username' => 'admin',
 			'password' => 'admin',
