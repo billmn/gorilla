@@ -7,14 +7,14 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>@lang('gorilla.app_name')</title>
 
-	{{ HTML::style('static/css/normalize.css') }}
-	{{ HTML::style('static/css/plugins/foundation/foundation.min.css') }}
-	{{ HTML::style('static/css/plugins/foundation/general_foundicons.css') }}
-	{{ HTML::style('static/css/plugins/foundation/general_foundicons_ie7.css') }}
-	{{ HTML::style('static/css/plugins/select2/select2.css') }}
-	{{ HTML::style('static/css/admin.css') }}
+	{{ HTML::style('g-assets/css/normalize.css') }}
+	{{ HTML::style('g-assets/css/plugins/foundation/foundation.min.css') }}
+	{{ HTML::style('g-assets/css/plugins/foundation/general_foundicons.css') }}
+	{{ HTML::style('g-assets/css/plugins/foundation/general_foundicons_ie7.css') }}
+	{{ HTML::style('g-assets/css/plugins/select2/select2.css') }}
+	{{ HTML::style('g-assets/css/admin.css') }}
 
-	{{ HTML::script('static/js/modernizr.min.js') }}
+	{{ HTML::script('g-assets/js/modernizr.min.js') }}
 </head>
 <body id="auth">
 	<div id="sidebar">
@@ -65,13 +65,13 @@
 		var confirm_question = "@lang('gorilla.questions.confirm')";
 	</script>
 
-	{{ HTML::script('static/js/jquery.min.js') }}
-	{{ HTML::script('static/js/plugins/foundation/foundation.min.js') }}
-	{{ HTML::script('static/js/plugins/placeholder/jquery.placeholder.min.js') }}
-	{{ HTML::script('static/js/plugins/select2/select2.min.js') }}
-	{{ HTML::script('static/js/plugins/select2/select2_locale_it.js') }}
-	{{ HTML::script('static/js/plugins/tinymce/tinymce.min.js') }}
-	{{ HTML::script('static/js/admin.js') }}
+	{{ HTML::script('g-assets/js/jquery.min.js') }}
+	{{ HTML::script('g-assets/js/plugins/foundation/foundation.min.js') }}
+	{{ HTML::script('g-assets/js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ HTML::script('g-assets/js/plugins/select2/select2.min.js') }}
+	{{ HTML::script('g-assets/js/plugins/select2/select2_locale_it.js') }}
+	{{ HTML::script('g-assets/js/plugins/tinymce/tinymce.min.js') }}
+	{{ HTML::script('g-assets/js/admin.js') }}
 
 	@yield('bottom_scripts')
 </body>

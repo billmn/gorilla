@@ -7,11 +7,11 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>@lang('gorilla.app_name')</title>
 
-	{{ HTML::style('static/css/normalize.css') }}
-	{{ HTML::style('static/css/plugins/foundation/foundation.min.css') }}
-	{{ HTML::style('static/css/admin.css') }}
+	{{ HTML::style('g-assets/css/normalize.css') }}
+	{{ HTML::style('g-assets/css/plugins/foundation/foundation.min.css') }}
+	{{ HTML::style('g-assets/css/admin.css') }}
 
-	{{ HTML::script('static/js/modernizr.min.js') }}
+	{{ HTML::script('g-assets/js/modernizr.min.js') }}
 </head>
 <body id="auth">
 	<div class="row">
@@ -22,10 +22,10 @@
 	</div>
 
 	<!-- scripts -->
-	{{ HTML::script('static/js/jquery.min.js') }}
-	{{ HTML::script('static/js/plugins/foundation/foundation.min.js') }}
-	{{ HTML::script('static/js/plugins/placeholder/jquery.placeholder.min.js') }}
-	{{ HTML::script('static/js/admin.js') }}
+	{{ HTML::script('g-assets/js/jquery.min.js') }}
+	{{ HTML::script('g-assets/js/plugins/foundation/foundation.min.js') }}
+	{{ HTML::script('g-assets/js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ HTML::script('g-assets/js/admin.js') }}
 
 	@yield('bottom_scripts')
 </body>
