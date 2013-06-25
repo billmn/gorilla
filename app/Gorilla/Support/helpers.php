@@ -1,20 +1,5 @@
 <?php
 
-if ( ! function_exists('gravatar'))
-{
-	/**
-	 * Generate a URL to a Gravatar profile
-	 *
-	 * @param  string  $email
-	 * @param  integer $size
-	 * @return string
-	 */
-	function gravatar($email, $size = 40)
-	{
-		return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?s=" . $size;;
-	}
-}
-
 if ( ! function_exists('is_iterable'))
 {
 	/**
@@ -70,5 +55,80 @@ if ( ! function_exists('is_html'))
 	function is_html($string)
 	{
 		return strlen(strip_tags($string)) < strlen($string);
+	}
+}
+
+if ( ! function_exists('gravatar'))
+{
+	/**
+	 * Generate a URL to a Gravatar profile
+	 *
+	 * @param  string  $email
+	 * @param  integer $size
+	 * @return string
+	 */
+	function gravatar($email, $size = 40)
+	{
+		return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?s=" . $size;
+	}
+}
+
+if ( ! function_exists('asset'))
+{
+	/**
+	 * Asset URL
+	 *
+	 * @param  string  $url
+	 * @return string
+	 */
+	function asset($url)
+	{
+		return app('gorilla.asset')->url($url);
+	}
+}
+
+if ( ! function_exists('style'))
+{
+	/**
+	 * CSS tag
+	 *
+	 * @param  string  $url
+	 * @param  array   $attributes
+	 * @return string
+	 */
+	function style($url, $attributes = array())
+	{
+		return app('gorilla.asset')->style($url, $attributes);
+	}
+}
+
+if ( ! function_exists('script'))
+{
+	/**
+	 * Javascript tag
+	 *
+	 * @param  string  $url
+	 * @param  array   $attributes
+	 * @return string
+	 */
+	function script($url, $attributes = array())
+	{
+		return app('gorilla.asset')->script($url, $attributes);
+	}
+}
+
+if ( ! function_exists('image'))
+{
+	/**
+	 * Image tag
+	 *
+	 * @param  string  $url
+	 * @param  string  $alt
+	 * @param  array   $attributes
+	 * @return string
+	 */
+	function image($url, $alt = null, $attributes = array())
+	{
+		return app('gorilla.asset')->image($url, $alt, $attributes);
 	}
 }
