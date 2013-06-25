@@ -9,7 +9,6 @@ html, body {
 	height: 100%;
 	min-height: 100%;
 }
-
 #sidebar {
 	top: 0;
 	left: 0;
@@ -19,18 +18,20 @@ html, body {
 	padding: 0 15px;
 	position: fixed;
 	background-color: #18213D;
+	border-right: 1px solid #060D23;
 }
-#sidebar .side-nav li a {
-	color: #efefef;
-	padding: 5px;
-}
-#sidebar .side-nav li:hover a {
-	background-color: #060D23;
+#contents {
+	padding-top: 20px;
+	padding-left: 240px;
 }
 
-#contents {
-	margin-top: 20px;
-	margin-left: 240px;
+/*
+|--------------------------------------------------------------------------
+| RESET
+|--------------------------------------------------------------------------
+*/
+.alert-box p {
+	margin: 0;
 }
 
 /*
@@ -52,6 +53,18 @@ html, body {
 #sidebar .gorilla-sub {
 	margin-bottom: 10px;
 }
+#sidebar a:hover .gorilla {
+	color: #060D23;
+	text-shadow: 0 0 10px #ffffff,
+				 0 0 20px #ffffff,
+				 0 0 30px #ffffff,
+				 0 0 40px #efefef,
+				 0 0 70px #efefef,
+				 0 0 80px #efefef,
+				 0 0 100px #efefef,
+				 0 0 150px #efefef;
+}
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,9 +75,69 @@ html, body {
 .text-muted   { color: #666666; }
 .text-success { color: #5da423; }
 
+.full-width { width: 100%; }
+
 input:invalid,
 input:focus:invalid {
 	border-color: #C60F13;
+}
+
+.circle {
+	display: block;
+	margin: 1em auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	border: 2px solid #eeeeee;
+	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+
+	-webkit-border-radius: 99em;
+	   -moz-border-radius: 99em;
+	        border-radius: 99em;
+}
+
+table .actions {
+	text-align: right;
+}
+table .actions .button {
+	margin-bottom: 0;
+}
+
+.form-actions {
+	margin-top: 20px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| SIDEBAR
+|--------------------------------------------------------------------------
+*/
+#sidebar #copyright {
+	bottom: 1em;
+	font-size: 0.7em;
+	position: absolute;
+}
+#sidebar .side-nav li a {
+	color: #efefef;
+	padding: 5px;
+}
+#sidebar .side-nav li:hover a {
+	background-color: #060D23;
+}
+
+/* User profile */
+#sidebar #profile {
+	border-top: 2px solid #060D23;
+}
+#sidebar #profile .profile-username {
+	margin-bottom: 10px;
+}
+#sidebar #profile .profile-links {
+	font-size: 0.7em;
+}
+#sidebar #profile .profile-links a {
+	margin: 0 5px;
 }
 
 /*
@@ -79,3 +152,27 @@ input:focus:invalid {
 #auth #remember_label {
 	margin-bottom: 20px;
 }
+
+/*
+|--------------------------------------------------------------------------
+| PAGE HEADER
+|--------------------------------------------------------------------------
+*/
+.page-header {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #cccccc;
+}
+.page-header h1,
+.page-header h2,
+.page-header h3,
+.page-header h4,
+.page-header .button {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+
+
+

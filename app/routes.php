@@ -19,7 +19,23 @@ Route::group(array('prefix' => 'admin'), function()
 
 	Route::group(array('before' => 'auth'), function()
 	{
-		Route::any('/', array('as' => 'admin_home', 'uses' => 'AdminHomeController@index'));
+		// Home
+		Route::get('/', array('as' => 'admin_home', 'uses' => 'AdminHomeController@index'));
+
+		// Posts
+		Route::get('posts',            array('as' => 'admin_posts',       'uses' => 'AdminPostController@index'));
+		Route::any('post/create',      array('as' => 'admin_post_create', 'uses' => 'AdminPostController@create'));
+		Route::any('post/update/{id}', array('as' => 'admin_post_update', 'uses' => 'AdminPostController@update'));
+		Route::get('post/delete/{id}', array('as' => 'admin_post_delete', 'uses' => 'AdminPostController@delete'));
+
+		// Users
+		Route::get('users',            array('as' => 'admin_users',       'uses' => 'AdminUserController@index'));
+		Route::any('user/create',      array('as' => 'admin_user_create', 'uses' => 'AdminUserController@create'));
+		Route::any('user/update/{id}', array('as' => 'admin_user_update', 'uses' => 'AdminUserController@update'));
+		Route::get('user/delete/{id}', array('as' => 'admin_user_delete', 'uses' => 'AdminUserController@delete'));
+
+		// Settings
+		Route::any('settings',         array('as' => 'admin_settings',    'uses' => 'AdminSettingsController@index'));
 	});
 
 });

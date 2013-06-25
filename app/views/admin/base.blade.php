@@ -15,16 +15,29 @@
 </head>
 <body id="auth">
 	<div id="sidebar">
-		<h1 class="gorilla text-center">@lang('gorilla.app_name')</h1>
-		<h6 class="gorilla-sub subheader text-center">@lang('gorilla.app_slogan')</h6>
+		<a href="{{ URL::route('admin_home') }}">
+			<h1 class="gorilla text-center">@lang('gorilla.app_name')</h1>
+			<h6 class="gorilla-sub subheader text-center">@lang('gorilla.app_slogan')</h6>
+		</a>
 
 		<ul class="side-nav">
-			<li><a href="#">Link 1</a></li>
-			<li><a href="#">Link 2</a></li>
-			<li><a href="#">Link 3</a></li>
-			<li class="divider"></li>
-			<li><a href="{{ URL::route('logout') }}">Logout</a></li>
+			<li><a href="{{ URL::route('admin_posts') }}">@lang('gorilla.posts.title')</a></li>
+			<li><a href="{{ URL::route('admin_users') }}">@lang('gorilla.users.title')</a></li>
+			<li><a href="{{ URL::route('admin_settings') }}">@lang('gorilla.settings.title')</a></li>
 		</ul>
+
+		<div id="profile" class="text-center">
+			<div class="profile-image"><img class="circle" src="{{ gravatar($logged->email) }}"></div>
+			<div class="profile-username">{{ $logged->username }}</div>
+			<div class="profile-links">
+				<a href="{{ URL::route('admin_user_update', array('id' => $logged->id)) }}">@lang('gorilla.actions.update')</a> &middot;
+				<a href="{{ URL::route('logout') }}">@lang('gorilla.actions.logout')</a>
+			</div>
+		</div>
+
+		<div id="copyright">
+			Created by <a href="https://github.com/billmn" target="_blank">Davide Bellini</a>
+		</div>
 	</div>
 
 	<div id="contents">
@@ -36,6 +49,10 @@
 	</div>
 
 	<!-- scripts -->
+	<script type="text/javascript">
+		var confirm_question = "@lang('gorilla.questions.confirm')";
+	</script>
+
 	{{ HTML::script('static/js/jquery.min.js') }}
 	{{ HTML::script('static/js/plugins/foundation/foundation.min.js') }}
 	{{ HTML::script('static/js/plugins/placeholder/jquery.placeholder.min.js') }}
