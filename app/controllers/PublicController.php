@@ -5,9 +5,16 @@ use Gorilla\Settings;
 
 class PublicController extends Controller {
 
+	protected $theme;
+
+	public function __construct()
+	{
+		$this->theme = app('gorilla.theme');
+	}
+
 	public function home()
 	{
-		return View::make('home');
+		return $this->theme->show('home');
 	}
 
 	public function post($slug)
@@ -16,11 +23,11 @@ class PublicController extends Controller {
 
 		if ($post)
 		{
-			return View::make('post')->with('post', $post);
+			return $this->theme->show('post')->with('post', $post);
 		}
 		else
 		{
-			return View::make('notfound');
+			return $this->theme->show('404');
 		}
 	}
 
