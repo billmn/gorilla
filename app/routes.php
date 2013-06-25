@@ -27,7 +27,7 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::any('posts/create',      array('as' => 'admin_post_create', 'uses' => 'AdminPostController@create'));
 		Route::any('posts/update/{id}', array('as' => 'admin_post_update', 'uses' => 'AdminPostController@update'));
 		Route::get('posts/delete/{id}', array('as' => 'admin_post_delete', 'uses' => 'AdminPostController@delete'));
-		Route::any('posts/slug',       array('as' => 'admin_post_slug',   'uses' => 'AdminPostController@slug'));
+		Route::any('posts/slug',        array('as' => 'admin_post_slug',   'uses' => 'AdminPostController@slug'));
 
 		// Users
 		Route::get('users',             array('as' => 'admin_users',       'uses' => 'AdminUserController@index'));
@@ -36,12 +36,10 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::get('users/delete/{id}', array('as' => 'admin_user_delete', 'uses' => 'AdminUserController@delete'));
 
 		// Settings
-		Route::any('settings',         array('as' => 'admin_settings',    'uses' => 'AdminSettingsController@index'));
+		Route::any('settings',          array('as' => 'admin_settings',    'uses' => 'AdminSettingsController@index'));
 	});
 
 });
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::any('/',           array('as' => 'home', 'uses' => 'PublicController@home'));
+Route::any('post/{slug}', array('as' => 'post', 'uses' => 'PublicController@post'));
