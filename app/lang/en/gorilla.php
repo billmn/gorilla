@@ -83,6 +83,15 @@ return array(
 		'title' => 'Posts',
 		'sing'  => 'post',
 		'plur'  => 'posts',
+
+		'empty' => 'Nessun post inserito',
+
+		'fields' => array(
+			'title'        => 'Titolo',
+			'slug'         => 'Slug',
+			'publish_date' => 'Data pubblicazione',
+			'content'      => 'Contenuto',
+		),
 	),
 
 	/*

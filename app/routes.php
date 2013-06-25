@@ -27,6 +27,7 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::any('posts/create',      array('as' => 'admin_post_create', 'uses' => 'AdminPostController@create'));
 		Route::any('posts/update/{id}', array('as' => 'admin_post_update', 'uses' => 'AdminPostController@update'));
 		Route::get('posts/delete/{id}', array('as' => 'admin_post_delete', 'uses' => 'AdminPostController@delete'));
+		Route::any('posts/slug',       array('as' => 'admin_post_slug',   'uses' => 'AdminPostController@slug'));
 
 		// Users
 		Route::get('users',             array('as' => 'admin_users',       'uses' => 'AdminUserController@index'));
