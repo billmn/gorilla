@@ -43,6 +43,12 @@ class GorillaServiceProvider extends ServiceProvider {
 			return Form::submit($text, $attr);
 		});
 
+		Form::macro('wysi', function($name, $value = null, $attr = array())
+		{
+			$attr = array('class' => 'wysi') + $attr;
+			return Form::textarea($name, $value, $attr);
+		});
+
 		Form::macro('alert', function($type = null, $flash = 'errors')
 		{
 			if (Session::has($flash))
