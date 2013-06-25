@@ -30,9 +30,29 @@ class GorillaServiceProvider extends ServiceProvider {
 
 		Config::set('timezone', Settings::give('timezone', 'UTC'));
 
+		$this->registerPaths();
 		$this->registerFormMacro();
+
+		$this->app['gorilla.theme'] = $this->app->share(function($app) { return Theme::make('default'); });
 	}
 
+	/**
+	 * Register Paths
+	 *
+	 * @return void
+	 */
+	public function registerPaths()
+	{
+		$this->app['gorilla.paths.config']   = public_path() . '/g-config';
+		$this->app['gorilla.paths.contents'] = public_path() . '/g-contents';
+		$this->app['gorilla.paths.themes']   = public_path() . '/g-contents/themes';
+	}
+
+	/**
+	 * Register Form Macros
+	 *
+	 * @return void
+	 */
 	public function registerFormMacro()
 	{
 		Form::macro('save', function($text = null, $attr = array())
