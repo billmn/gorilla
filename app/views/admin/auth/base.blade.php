@@ -8,7 +8,7 @@
 	<title>@lang('gorilla.app_name')</title>
 
 	{{ HTML::style('static/css/normalize.css') }}
-	{{ HTML::style('static/css/foundation.min.css') }}
+	{{ HTML::style('static/css/plugins/foundation/foundation.min.css') }}
 	{{ HTML::style('static/css/admin.css') }}
 
 	{{ HTML::script('static/js/modernizr.min.js') }}
