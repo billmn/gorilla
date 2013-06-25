@@ -28,24 +28,22 @@ class GorillaServiceProvider extends ServiceProvider {
 	{
 		include_once __DIR__ . '/Support/helpers.php';
 
-		Config::set('timezone', Settings::give('timezone', 'UTC'));
-
-		$this->registerPaths();
-		$this->registerFormMacro();
-
-		$this->app['gorilla.theme'] = $this->app->share(function($app) { return Theme::make('default'); });
-	}
-
-	/**
-	 * Register Paths
-	 *
-	 * @return void
-	 */
-	public function registerPaths()
-	{
+		$this->app['gorilla.paths.assets']   = public_path() . '/g-assets';
 		$this->app['gorilla.paths.config']   = public_path() . '/g-config';
 		$this->app['gorilla.paths.contents'] = public_path() . '/g-contents';
 		$this->app['gorilla.paths.themes']   = public_path() . '/g-contents/themes';
+
+		$this->app['gorilla.asset'] = $this->app->share(function($app)
+		{
+			return new Support\Asset($app['gorilla.paths.assets']);
+		});
+
+		$this->app['gorilla.theme'] = $this->app->share(function($app)
+		{
+			return Theme::make('default');
+		});
+
+		$this->registerFormMacro();
 	}
 
 	/**
