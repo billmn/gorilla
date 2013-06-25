@@ -115,6 +115,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Gorilla\GorillaServiceProvider',
+		'TwigBridge\TwigServiceProvider',
 
 	),
 
