@@ -21,9 +21,15 @@
 		</a>
 
 		<ul class="side-nav">
-			<li><a href="{{ URL::route('admin_posts') }}">@lang('gorilla.posts.title')</a></li>
-			<li><a href="{{ URL::route('admin_users') }}">@lang('gorilla.users.title')</a></li>
-			<li><a href="{{ URL::route('admin_settings') }}">@lang('gorilla.settings.title')</a></li>
+			<li class="{{ starts_with(Request::url(), URL::route('admin_posts')) ? 'menu-link active' : 'menu-link' }}">
+				<a href="{{ URL::route('admin_posts') }}">@lang('gorilla.posts.title')</a>
+			</li>
+			<li class="{{ starts_with(Request::url(), URL::route('admin_users')) ? 'menu-link active' : 'menu-link' }}">
+				<a href="{{ URL::route('admin_users') }}">@lang('gorilla.users.title')</a>
+			</li>
+			<li class="{{ starts_with(Request::url(), URL::route('admin_settings')) ? 'menu-link active' : 'menu-link' }}">
+				<a href="{{ URL::route('admin_settings') }}">@lang('gorilla.settings.title')</a>
+			</li>
 		</ul>
 
 		<div id="profile" class="text-center">

@@ -118,10 +118,14 @@ table .actions .button {
 	font-size: 0.7em;
 	position: absolute;
 }
+#sidebar .side-nav li.active a {
+	font-weight: normal;
+}
 #sidebar .side-nav li a {
 	color: #efefef;
 	padding: 5px;
 }
+#sidebar .side-nav li.active,
 #sidebar .side-nav li:hover a {
 	background-color: #060D23;
 }
