@@ -1,5 +1,7 @@
 <?php namespace Gorilla;
 
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Form;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
@@ -23,17 +25,41 @@ class GorillaServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+		include_once __DIR__ . '/Support/helpers.php';
+
 		$this->registerFormMacro();
 	}
 
 	public function registerFormMacro()
 	{
-		Form::macro('alert', function($type = null)
+		Form::macro('save', function($text = null, $attr = array())
 		{
-			if (Session::has('errors'))
+			$text = is_null($text) ? Lang::get('gorilla.actions.save') : Lang::get("{$text}");
+			$attr = array('class' => 'button small') + $attr;
+
+			return Form::submit($text, $attr);
+		});
+
+		Form::macro('alert', function($type = null, $flash = 'errors')
+		{
+			if (Session::has($flash))
 			{
-				$alert  = '<div data-alert class="alert-box ' . $type . '">';
-				$alert .= Session::get('errors');
+				$message = Session::get($flash);
+				$alert   = '<div data-alert class="alert-box ' . $type . '">';
+
+				if (is_iterable($message))
+				{
+					foreach ($message as $error) $alert .= "<p>{$error}</p>";
+				}
+				elseif ($message instanceof MessageBag)
+				{
+					foreach ($message->all('<p>:message</p>') as $error) $alert .= $error;
+				}
+				else
+				{
+					$alert .= $message;
+				}
+
 				$alert .= '<a href="#" class="close">&times;</a>';
 				$alert .= '</div>';
 
