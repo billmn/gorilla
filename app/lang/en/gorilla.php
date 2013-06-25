@@ -10,13 +10,15 @@ return array(
 	| Common
 	|--------------------------------------------------------------------------
 	*/
+	'website_preview' => 'Anteprima Sito',
+
 	'actions' => array(
-		'create' => 'Crea',
-		'update' => 'Modifica',
-		'delete' => 'Elimina',
-		'logout' => 'Logout',
-		'save'   => 'Salva',
-		'back'   => 'Torna indietro',
+		'create'  => 'Crea',
+		'update'  => 'Modifica',
+		'delete'  => 'Elimina',
+		'logout'  => 'Logout',
+		'save'    => 'Salva',
+		'back'    => 'Torna indietro',
 	),
 
 	'questions' => array(

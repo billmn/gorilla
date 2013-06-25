@@ -8,7 +8,9 @@
 	<title>@lang('gorilla.app_name')</title>
 
 	{{ HTML::style('static/css/normalize.css') }}
-	{{ HTML::style('static/css/foundation.min.css') }}
+	{{ HTML::style('static/css/plugins/foundation/foundation.min.css') }}
+	{{ HTML::style('static/css/plugins/foundation/general_foundicons.css') }}
+	{{ HTML::style('static/css/plugins/foundation/general_foundicons_ie7.css') }}
 	{{ HTML::style('static/css/admin.css') }}
 
 	{{ HTML::script('static/js/modernizr.min.js') }}
@@ -22,13 +24,16 @@
 
 		<ul class="side-nav">
 			<li class="{{ starts_with(Request::url(), URL::route('admin_posts')) ? 'menu-link active' : 'menu-link' }}">
-				<a href="{{ URL::route('admin_posts') }}">@lang('gorilla.posts.title')</a>
+				<a href="{{ URL::route('admin_posts') }}"><i class="foundicon-page"></i> @lang('gorilla.posts.title')</a>
 			</li>
 			<li class="{{ starts_with(Request::url(), URL::route('admin_users')) ? 'menu-link active' : 'menu-link' }}">
-				<a href="{{ URL::route('admin_users') }}">@lang('gorilla.users.title')</a>
+				<a href="{{ URL::route('admin_users') }}"><i class="foundicon-lock"></i> @lang('gorilla.users.title')</a>
 			</li>
 			<li class="{{ starts_with(Request::url(), URL::route('admin_settings')) ? 'menu-link active' : 'menu-link' }}">
-				<a href="{{ URL::route('admin_settings') }}">@lang('gorilla.settings.title')</a>
+				<a href="{{ URL::route('admin_settings') }}"><i class="foundicon-settings"></i> @lang('gorilla.settings.title')</a>
+			</li>
+			<li>
+				<a href="/" target="_blank"><i class="foundicon-globe"></i> @lang('gorilla.website_preview')</a>
 			</li>
 		</ul>
 

@@ -118,6 +118,9 @@ table .actions .button {
 	font-size: 0.7em;
 	position: absolute;
 }
+#sidebar [class*="foundicon-"] {
+	margin-right: 5px;
+}
 #sidebar .side-nav li.active a {
 	font-weight: normal;
 }
@@ -129,11 +132,12 @@ table .actions .button {
 #sidebar .side-nav li:hover a {
 	background-color: #060D23;
 }
-
-/* User profile */
-#sidebar #profile {
+#sidebar #profile,
+#sidebar .side-nav li.divider {
 	border-top: 2px solid #060D23;
 }
+
+/* User profile */
 #sidebar #profile .profile-username {
 	margin-bottom: 10px;
 }
