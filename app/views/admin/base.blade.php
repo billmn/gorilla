@@ -70,6 +70,7 @@
 	{{ HTML::script('static/js/plugins/placeholder/jquery.placeholder.min.js') }}
 	{{ HTML::script('static/js/plugins/select2/select2.min.js') }}
 	{{ HTML::script('static/js/plugins/select2/select2_locale_it.js') }}
+	{{ HTML::script('static/js/plugins/tinymce/tinymce.min.js') }}
 	{{ HTML::script('static/js/admin.js') }}
 
 	@yield('bottom_scripts')
