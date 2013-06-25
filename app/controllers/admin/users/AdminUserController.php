@@ -87,12 +87,13 @@ class AdminUserController extends AdminBaseController {
 
 	public function delete($id)
 	{
-		if (User::destroy($id))
+		if ($user = User::find($id))
 		{
+			$user->delete();
 			Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
 		}
 
-		return Redirect::route('admin_users');
+		return Redirect::back();
 	}
 
 }
