@@ -11,6 +11,7 @@
 	{{ HTML::style('static/css/plugins/foundation/foundation.min.css') }}
 	{{ HTML::style('static/css/plugins/foundation/general_foundicons.css') }}
 	{{ HTML::style('static/css/plugins/foundation/general_foundicons_ie7.css') }}
+	{{ HTML::style('static/css/plugins/select2/select2.css') }}
 	{{ HTML::style('static/css/admin.css') }}
 
 	{{ HTML::script('static/js/modernizr.min.js') }}
@@ -67,6 +68,8 @@
 	{{ HTML::script('static/js/jquery.min.js') }}
 	{{ HTML::script('static/js/plugins/foundation/foundation.min.js') }}
 	{{ HTML::script('static/js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ HTML::script('static/js/plugins/select2/select2.min.js') }}
+	{{ HTML::script('static/js/plugins/select2/select2_locale_it.js') }}
 	{{ HTML::script('static/js/admin.js') }}
 
 	@yield('bottom_scripts')

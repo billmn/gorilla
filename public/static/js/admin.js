@@ -10,4 +10,7 @@ $(function()
 		if ( ! answer) return false;
 	});
 
+	// Select 2
+	$('select').select2();
+
 })
