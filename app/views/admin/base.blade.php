@@ -7,14 +7,16 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>@lang('gorilla.app_name')</title>
 
-	{{ HTML::style('g-assets/css/normalize.css') }}
-	{{ HTML::style('g-assets/css/plugins/foundation/foundation.min.css') }}
-	{{ HTML::style('g-assets/css/plugins/foundation/general_foundicons.css') }}
-	{{ HTML::style('g-assets/css/plugins/foundation/general_foundicons_ie7.css') }}
-	{{ HTML::style('g-assets/css/plugins/select2/select2.css') }}
-	{{ HTML::style('g-assets/css/admin.css') }}
+	{{ style('http://fonts.googleapis.com/css?family=Titillium+Web:400,600') }}
 
-	{{ HTML::script('g-assets/js/modernizr.min.js') }}
+	{{ style('css/normalize.css') }}
+	{{ style('css/plugins/foundation/foundation.min.css') }}
+	{{ style('css/plugins/foundation/general_foundicons.css') }}
+	{{ style('css/plugins/foundation/general_foundicons_ie7.css') }}
+	{{ style('css/plugins/select2/select2.css') }}
+	{{ style('css/admin.css') }}
+
+	{{ script('js/modernizr.min.js') }}
 </head>
 <body id="auth">
 	<div id="sidebar">
@@ -65,13 +67,13 @@
 		var confirm_question = "@lang('gorilla.questions.confirm')";
 	</script>
 
-	{{ HTML::script('g-assets/js/jquery.min.js') }}
-	{{ HTML::script('g-assets/js/plugins/foundation/foundation.min.js') }}
-	{{ HTML::script('g-assets/js/plugins/placeholder/jquery.placeholder.min.js') }}
-	{{ HTML::script('g-assets/js/plugins/select2/select2.min.js') }}
-	{{ HTML::script('g-assets/js/plugins/select2/select2_locale_it.js') }}
-	{{ HTML::script('g-assets/js/plugins/tinymce/tinymce.min.js') }}
-	{{ HTML::script('g-assets/js/admin.js') }}
+	{{ script('js/jquery.min.js') }}
+	{{ script('js/plugins/foundation/foundation.min.js') }}
+	{{ script('js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ script('js/plugins/select2/select2.min.js') }}
+	{{ script('js/plugins/select2/select2_locale_it.js') }}
+	{{ script('js/plugins/tinymce/tinymce.min.js') }}
+	{{ script('js/admin.js') }}
 
 	@yield('bottom_scripts')
 </body>
