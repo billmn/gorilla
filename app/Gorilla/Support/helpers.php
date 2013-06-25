@@ -1,6 +1,6 @@
 <?php
 
-if ( ! function_exists('is_iteable'))
+if ( ! function_exists('is_iterable'))
 {
 	/**
 	 * Check if a variable is iterable
