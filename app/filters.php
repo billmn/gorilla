@@ -22,6 +22,14 @@ App::after(function($request, $response)
 	//
 });
 
+App::missing(function($exception)
+{
+	if ( ! Request::is('admin/*') and ! Request::is('api/*'))
+	{
+		return Response::make(app('gorilla.theme')->show('404'), 404);
+	}
+});
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
