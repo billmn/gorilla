@@ -9,7 +9,7 @@ class Asset {
 
 	public function __construct($path = null)
 	{
-		$this->path = str_replace(public_path(), '', $path);
+		$this->path = $path;
 	}
 
 	/**
@@ -76,10 +76,12 @@ class Asset {
 		{
 			$path = "{$this->path}/{$path}";
 
-			if ($timestamp == true and is_file($path) and File::exists($path))
+			if ($timestamp and is_file($path) and File::exists($path))
 			{
-				return '?v=' . File::lastModified($path);
+				$path .= '?v=' . File::lastModified($path);
 			}
+
+			return str_replace(public_path(), '', $path);
 		}
 
 		return $path;
