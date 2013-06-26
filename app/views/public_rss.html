@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ gorilla.settings('website_title')|e }}</title>
+		<link>{{ request_root() }}</link>
+		<atom:link href="http://www.mydomain.com/rss/rss2.xml" rel="self" type="application/rss+xml" />
+		<description>{{ input_server('SERVER_NAME')|upper }} RSS feed</description>
+		<ttl>30</ttl>
+
+		{% for post in posts %}
+		<item>
+			<title>{{ post.title }}</title>
+			<link>{{ url('post/' ~ post.slug) }}</link>
+			<guid isPermaLink="true">{{ url('post/' ~ post.slug) }}</guid>
+			<pubDate>{{ post.publish_date|date('r') }}</pubDate>
+			<description>{{ post.content|e }}</description>
+		</item>
+		{% endfor %}
+	</channel>
+</rss>
