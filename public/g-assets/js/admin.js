@@ -35,10 +35,10 @@ $(function()
 		theme              : 'modern',
 		width              : '100%',
 		menubar            : false,
-		entity_encoding    : false,
+		entity_encoding    : 'raw',
 		plugins            : [
 			"advlist anchor autolink autoresize charmap code contextmenu directionality emoticons",
-			"fullpage fullscreen hr image insertdatetime legacyoutput link lists media nonbreaking noneditable pagebreak",
+			"fullscreen hr image insertdatetime legacyoutput link lists media nonbreaking noneditable pagebreak",
 			"paste preview save searchreplace tabfocus table visualchars wordcount textcolor"
 		],
 
