@@ -103,7 +103,8 @@ class ApiPostController extends ApiBaseController {
 	{
 		if ($post = Post::find($id))
 		{
-			return $post->delete();
+			$post->delete();
+			return Response::json(array('messages' => 'Deleted'));
 		}
 		else
 		{
