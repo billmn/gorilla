@@ -43,3 +43,5 @@ Route::group(array('prefix' => 'admin'), function()
 
 Route::any('/',           array('as' => 'home', 'uses' => 'PublicController@home'));
 Route::any('post/{slug}', array('as' => 'post', 'uses' => 'PublicController@post'));
+
+app('gorilla.theme')->routes();
