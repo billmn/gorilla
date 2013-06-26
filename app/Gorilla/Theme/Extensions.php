@@ -13,11 +13,11 @@ class Extensions extends \TwigBridge\Extension
 	protected $tags;
 	protected $theme;
 
-	public function __construct($params = array())
+	public function __construct(array $params)
 	{
 		$this->app    = app();
 		$this->tags   = new Tags;
-		$this->theme  = $this->app['gorilla.theme'];
+		$this->theme  = $params['theme'];
 	}
 
 	/**

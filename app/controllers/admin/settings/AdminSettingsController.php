@@ -7,6 +7,9 @@ class AdminSettingsController extends AdminBaseController {
 
 	public function index()
 	{
+		$themes = app('gorilla.theme')->all();
+		$themes = array_combine(array_keys($themes), array_keys($themes));
+
 		$timezones = array('UTC' => array('UTC' => 'UTC')) + $this->timezones();
 
 		$settings = array();
@@ -29,7 +32,10 @@ class AdminSettingsController extends AdminBaseController {
 			return Redirect::route('admin_settings');
 		}
 
-		return View::make('admin.settings.index')->with('settings', $settings)->with('timezones', $timezones);
+		return View::make('admin.settings.index')
+				->with('themes', $themes)
+				->with('settings', $settings)
+				->with('timezones', $timezones);
 	}
 
 	/**

@@ -46,13 +46,14 @@
 		</div>
 		<div class="large-9 columns">
 			{{ Form::select('timezone', $timezones) }}
-
-			<br /><br />
-
-			<div class="panel">
-				<h6 class="subheader"><strong>{{ Lang::get('gorilla.settings.utc_time') }} :</strong> {{ Carbon\Carbon::now() }}</h6>
-				<h6 class="subheader"><strong>{{ Lang::get('gorilla.settings.local_time') }} :</strong> {{ Carbon\Carbon::now(Gorilla\Settings::give('timezone')) }}</h6>
-			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-3 columns">
+			<label class="inline">@lang('gorilla.settings.fields.theme')</label>
+		</div>
+		<div class="large-9 columns">
+			{{ Form::select('theme', $themes) }}
 		</div>
 	</div>
 

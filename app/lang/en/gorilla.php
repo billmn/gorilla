@@ -132,6 +132,7 @@ return array(
 			'website_slogan' => 'Slogan Sito',
 			'website_footer' => 'Footer Sito',
 			'timezone'       => 'Fuso orario',
+			'theme'          => 'Tema',
 		),
 	),
 

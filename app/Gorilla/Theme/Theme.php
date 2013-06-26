@@ -7,22 +7,36 @@ use Illuminate\Support\Facades\View;
 
 class Theme {
 
+	protected $app;
 	protected $name;
 	protected $path;
 	protected $info;
 	protected $routes;
 
-	public static function make($name)
+	public function __construct($app, $name = 'default')
 	{
-		return new static($name);
-	}
-
-	protected function __construct($name)
-	{
+		$this->app  = $app;
 		$this->name = $name;
-		$this->path = app('gorilla.paths.themes') . "/{$name}";
+		$this->path = $this->app['gorilla.paths.themes'] . "/{$name}";
 
 		View::getFinder()->addLocation("{$this->path}/views");
+	}
+
+	public function set($name)
+	{
+		return new static($this->app, $name);
+	}
+
+	public function all()
+	{
+		$themes = array();
+		foreach (File::directories($this->app['gorilla.paths.themes']) as $path)
+		{
+			$name = basename($path);
+			$themes[$name] = $path;
+		}
+
+		return $themes;
 	}
 
 	public function path($absolute = false)
