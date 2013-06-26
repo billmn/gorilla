@@ -130,6 +130,7 @@ return array(
 		'fields' => array(
 			'website_title'  => 'Titolo Sito',
 			'website_slogan' => 'Slogan Sito',
+			'website_footer' => 'Footer Sito',
 			'timezone'       => 'Fuso orario',
 		),
 	),

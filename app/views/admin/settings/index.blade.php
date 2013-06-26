@@ -31,6 +31,17 @@
 	</div>
 	<div class="row">
 		<div class="large-3 columns">
+			<label class="inline">@lang('gorilla.settings.fields.website_footer')</label>
+		</div>
+		<div class="large-9 columns">
+			{{ Form::textarea('website_footer') }}
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="large-3 columns">
 			<label class="inline">@lang('gorilla.settings.fields.timezone')</label>
 		</div>
 		<div class="large-9 columns">
@@ -44,6 +55,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="large-9 large-offset-3 columns">
 			{{ Form::save() }}

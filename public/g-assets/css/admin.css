@@ -32,6 +32,9 @@ html, body {
 .alert-box p {
 	margin: 0;
 }
+textarea {
+	height: auto;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -122,10 +125,6 @@ table .actions .button {
 | TINYMCE
 |--------------------------------------------------------------------------
 */
-.wysi {
-	height: auto;
-}
-
 .mce-tinymce button:hover,
 .mce-tinymce button:focus {
 	background-color: inherit;
