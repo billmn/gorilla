@@ -2,7 +2,7 @@
 
 use Gorilla\Post;
 
-class ApiPostController extends Controller {
+class ApiPostController extends ApiBaseController {
 
 	/**
 	 * Display a listing of the resource.
