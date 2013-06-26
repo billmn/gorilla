@@ -45,7 +45,10 @@ class GorillaServiceProvider extends ServiceProvider {
 
 		$this->app['gorilla.theme'] = $this->app->share(function($app)
 		{
-			return new Theme($app, Settings::give('theme', 'default'));
+			// @todo: Da riattivare, non deve eseguire controlli sul DB se non è ancora popolato
+			// return new Theme($app, Settings::give('theme', 'default'));
+
+			return new Theme($app, 'default');
 		});
 
 		$this->registerFormMacro();
