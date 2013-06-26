@@ -1,0 +1,53 @@
+{% extends 'home' %}
+
+{% block title %}
+	Landing page &middot; {{ parent() }}
+{% endblock %}
+
+{% block header %}
+<div class="wrapper wrapper-style1 wrapper-first">
+	<article class="container" id="top">
+		<div class="row">
+			<div class="12u">
+				<header>
+					<h1>Landing page</h1>
+				</header>
+
+				<p>Get in touch ...</p>
+			</div>
+		</div>
+	</article>
+</div>
+{% endblock %}
+
+{% block contents %}
+<div class="wrapper wrapper-style3">
+	<article id="portfolio">
+		<div class="container">
+			{% if session_has('landing_success') %}
+				<div class="alert alert-success">
+					{{ session_get('landing_success') }}
+				</div>
+			{% endif %}
+
+			{{ form_open() }}
+				<div class="row half">
+					<div class="12u">{{ form_text('email', null, { placeholder: 'Email' }) }}</div>
+				</div>
+				<div class="row half">
+					<div class="12u">{{ form_text('name', null, { placeholder: 'Name' }) }}</div>
+				</div>
+				<div class="row half">
+					<div class="12u">{{ form_text('surname', null, { placeholder: 'Surname' }) }}</div>
+				</div>
+				<div class="row half">
+					<div class="12u">{{ form_textarea('text', null, { placeholder: 'Text' }) }}</div>
+				</div>
+				<div class="row half">
+					<div class="12u">{{ form_submit(null, { class: 'button form-button-submit' }) }}</div>
+				</div>
+			{{ form_close() }}
+		</div>
+	</article>
+</div>
+{% endblock %}

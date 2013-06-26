@@ -1,0 +1,31 @@
+{% extends 'home' %}
+
+{% block title %}
+	{{ post.title }} &middot; {{ parent() }}
+{% endblock %}
+
+{% block header %}
+<div class="wrapper wrapper-style1 wrapper-first">
+	<article class="container" id="top">
+		<div class="row">
+			<div class="12u">
+				<header>
+					<h1>{{ post.title }}</h1>
+				</header>
+
+				<p>{{ post.publish_date|date('d/m/Y H:i') }}</p>
+			</div>
+		</div>
+	</article>
+</div>
+{% endblock %}
+
+{% block contents %}
+<div class="wrapper wrapper-style3">
+	<article id="portfolio">
+		<div class="container">
+			{{ post.content|default('No contents ...') }}
+		</div>
+	</article>
+</div>
+{% endblock %}
