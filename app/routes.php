@@ -38,7 +38,11 @@ Route::group(array('prefix' => 'admin'), function()
 		// Settings
 		Route::any('settings',          array('as' => 'admin_settings',    'uses' => 'AdminSettingsController@index'));
 	});
+});
 
+Route::group(array('prefix' => 'api/v1', 'before' => 'auth.api'), function()
+{
+	Route::resource('posts', 'ApiPostController');
 });
 
 app('gorilla.theme')->routes();
