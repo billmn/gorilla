@@ -9,16 +9,7 @@ class PublicController extends Controller {
 
 	public function __construct()
 	{
-		$me = $this;
-
-		$this->theme = app('gorilla.theme')->set(Settings::give('theme', 'default'));
-
-		Event::listen('twigbridge.twig', function($twig) use ($me)
-		{
-			$twig->addExtension(new Gorilla\Theme\Extensions(array(
-				'theme' => $me->theme,
-			)));
-		});
+		$this->theme = app('gorilla.theme');
 	}
 
 	public function home()

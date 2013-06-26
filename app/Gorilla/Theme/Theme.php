@@ -22,11 +22,6 @@ class Theme {
 		View::getFinder()->addLocation("{$this->path}/views");
 	}
 
-	public function set($name)
-	{
-		return new static($this->app, $name);
-	}
-
 	public function all()
 	{
 		$themes = array();

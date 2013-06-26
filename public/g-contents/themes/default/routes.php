@@ -2,7 +2,7 @@
 
 Route::get('landing', function()
 {
-	return Gorilla\Theme::show('landing');
+	return app('gorilla.theme')->show('landing');
 });
 
 Route::post('landing', function()
