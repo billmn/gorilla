@@ -1,8 +1,6 @@
 <?php namespace Gorilla;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
-
-class Settings extends Eloquent {
+class Settings extends Model {
 
 	protected $table = 'settings';
 	protected $primaryKey = 'name';

@@ -1,10 +1,8 @@
 <?php namespace Gorilla;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
-
 use Illuminate\Support\Str;
 
-class Post extends Eloquent {
+class Post extends Model {
 
 	protected $table = 'posts';
 

@@ -17,6 +17,8 @@ class CreateSettingsTable extends Migration {
 			$table->string('name');
 			$table->text('value');
 			$table->timestamps();
+			$table->string('created_by');
+			$table->string('updated_by');
 		});
 	}
 

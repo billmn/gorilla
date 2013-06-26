@@ -2,11 +2,10 @@
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
-use Illuminate\Database\Eloquent\Model as Eloquent;
 
 use Illuminate\Support\Facades\Hash;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Model implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.
