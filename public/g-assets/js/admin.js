@@ -42,8 +42,8 @@ $(function()
 			"paste preview save searchreplace tabfocus table visualchars wordcount textcolor"
 		],
 
-		toolbar1 : "newdocument undo redo | cut copy paste removeformat | searchreplace | charmap emoticons | table | formatselect fontsizeselect | forecolor backcolor",
-		toolbar2 : "bold italic underline strikethrough | hr | superscript subscript | bullist numlist | outdent indent blockquote | alignleft aligncenter alignright alignjustify | link unlink | image media | code fullscreen",
+		toolbar1 : "newdocument undo redo | cut copy paste removeformat | searchreplace | charmap | table | formatselect | forecolor backcolor | code fullscreen",
+		toolbar2 : "bold italic underline strikethrough | hr | superscript subscript blockquote | bullist numlist | alignleft aligncenter alignright alignjustify | link unlink | image media",
 
 		setup : function(editor)
 		{
