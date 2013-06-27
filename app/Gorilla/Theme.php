@@ -13,13 +13,19 @@ class Theme {
 	protected $info;
 	protected $routes;
 
-	public function __construct($app, $name = 'default')
+	public function __construct($app)
 	{
-		$this->app  = $app;
+		$this->app = $app;
+	}
+
+	public function set($name)
+	{
 		$this->name = $name;
 		$this->path = $this->app['gorilla.paths.themes'] . "/{$name}";
 
 		View::getFinder()->addLocation("{$this->path}/views");
+
+		return $this;
 	}
 
 	public function all()

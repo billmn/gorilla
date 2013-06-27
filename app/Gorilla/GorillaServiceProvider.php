@@ -26,7 +26,7 @@ class GorillaServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		include_once __DIR__ . '/Support/helpers.php';
+		include_once app('path') . '/helpers.php';
 
 		$this->app['gorilla.paths.assets']   = $this->app['path.public'] . '/g-assets';
 		$this->app['gorilla.paths.config']   = $this->app['path.public'] . '/g-config';
@@ -43,12 +43,9 @@ class GorillaServiceProvider extends ServiceProvider {
 			return new Support\Asset($app['gorilla.paths.assets']);
 		});
 
-		$this->app['gorilla.theme'] = $this->app->share(function($app)
+		$this->app->singleton('gorilla.theme', function($app)
 		{
-			// @todo: Da riattivare, non deve eseguire controlli sul DB se non è ancora popolato
-			// return new Theme($app, Settings::give('theme', 'default'));
-
-			return new Theme($app, 'default');
+			return new Theme($app);
 		});
 
 		$this->registerFormMacro();
