@@ -18,12 +18,6 @@ class SettingsTableSeeder extends Seeder {
 
 		Settings::insert(array(
 			array(
-				'name'       => 'timezone',
-				'value'      => 'UTC',
-				'created_at' => $now,
-				'updated_at' => $now,
-			),
-			array(
 				'name'       => 'website_title',
 				'value'      => 'Titolo sito',
 				'created_at' => $now,
@@ -32,6 +26,24 @@ class SettingsTableSeeder extends Seeder {
 			array(
 				'name'       => 'website_slogan',
 				'value'      => 'Il mio nuovo microblog',
+				'created_at' => $now,
+				'updated_at' => $now,
+			),
+			array(
+				'name'       => 'website_footer',
+				'value'      => 'Footer del sito',
+				'created_at' => $now,
+				'updated_at' => $now,
+			),
+			array(
+				'name'       => 'timezone',
+				'value'      => 'UTC',
+				'created_at' => $now,
+				'updated_at' => $now,
+			),
+			array(
+				'name'       => 'theme',
+				'value'      => 'default',
 				'created_at' => $now,
 				'updated_at' => $now,
 			),
