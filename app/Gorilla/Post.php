@@ -1,5 +1,6 @@
 <?php namespace Gorilla;
 
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class Post extends Model {
@@ -18,7 +19,12 @@ class Post extends Model {
 		static::saving(function($model)
 		{
 			$model->title = trim($model->title);
-			$model->slug  = static::sluggify($model->title, $model->exists ? $model->id : null);
+			$model->slug  = $model->sluggify($model);
+
+			if ( ! $model->publish_date)
+			{
+				$model->publish_date = Carbon::now();
+			}
 		});
 	}
 
@@ -30,14 +36,13 @@ class Post extends Model {
 	/**
 	 * Generate Slug by checking if already exists
 	 *
-	 * @param  string  $title
-	 * @param  integer $postId  Post ID if already exists
+	 * @param  Post $model
 	 * @return string
 	 */
-	public static function sluggify($title, $postId = null)
+	public function sluggify(Post $model)
 	{
-		$slug = Str::slug(trim($title), '-');
-		$others = static::select('slug')->where('slug', 'like', "{$slug}%")->where('id', '!=', $postId)->lists('slug');
+		$slug   = Str::slug(trim($model->slug)) ?: Str::slug(trim($model->title));
+		$others = $this->select('slug')->where('slug', 'like', "{$slug}%")->where('id', '!=', $model->id)->lists('slug');
 
 		// This Slug already exists ... increment !
 		if (in_array($slug, $others))

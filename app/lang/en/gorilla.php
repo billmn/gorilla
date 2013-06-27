@@ -84,7 +84,8 @@ return array(
 		'sing'  => 'post',
 		'plur'  => 'posts',
 
-		'empty' => 'Nessun post inserito',
+		'empty'     => 'Nessun post inserito',
+		'slug_auto' => 'Automatico ...',
 
 		'fields' => array(
 			'title'        => 'Titolo',

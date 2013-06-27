@@ -19,16 +19,15 @@ class AdminPostController extends AdminBaseController {
 		if ($_POST)
 		{
 			$validator = Validator::make(Input::get(), array(
-				'title'        => 'required',
-				'slug'         => 'required',
-				'publish_date' => 'required',
+				'title' => 'required',
 			));
 
 			if ($validator->passes())
 			{
-				$post->title   = Input::get('title');
-				$post->slug    = Input::get('slug');
-				$post->content = Input::get('content');
+				$post->title        = Input::get('title');
+				$post->slug         = Input::get('slug');
+				$post->content      = Input::get('content');
+				$post->publish_date = Input::get('publish_date');
 				$post->save();
 
 				Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
@@ -51,15 +50,15 @@ class AdminPostController extends AdminBaseController {
 		{
 			$validator = Validator::make(Input::get(), array(
 				'title'        => 'required',
-				'slug'         => 'required',
 				'publish_date' => 'required',
 			));
 
 			if ($validator->passes())
 			{
-				$post->title   = Input::get('title');
-				$post->slug    = Input::get('slug');
-				$post->content = Input::get('content');
+				$post->title        = Input::get('title');
+				$post->slug         = Input::get('slug');
+				$post->content      = Input::get('content');
+				$post->publish_date = Input::get('publish_date');
 				$post->save();
 
 				Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
