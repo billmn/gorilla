@@ -25,7 +25,8 @@
 		</div>
 		<div class="large-6 columns">
 			<label>@lang('gorilla.posts.fields.publish_date')</label>
-			{{ Form::text('publish_date') }}
+			{{ Form::text('publish_date', $post->publish_date->toDateString(), array('class' => 'datepicker')) }}
+			{{ Form::text('publish_time', $post->publish_date->toTimeString(), array('class' => 'timepicker')) }}
 		</div>
 	</div>
 

@@ -7,6 +7,11 @@ class Post extends Model {
 
 	protected $table = 'posts';
 
+	public function getDates()
+	{
+		return array(static::CREATED_AT, static::UPDATED_AT, static::DELETED_AT, 'publish_date');
+	}
+
 	/*
 	|--------------------------------------------------------------------------
 	| EVENTS

@@ -14,6 +14,9 @@
 	{{ style('css/plugins/foundation/general_foundicons.css') }}
 	{{ style('css/plugins/foundation/general_foundicons_ie7.css') }}
 	{{ style('css/plugins/select2/select2.css') }}
+	{{ style('js/plugins/pickadate/themes/classic.css') }}
+	{{ style('js/plugins/pickadate/themes/classic.date.css') }}
+	{{ style('js/plugins/pickadate/themes/classic.time.css') }}
 	{{ style('css/admin.css') }}
 
 	{{ script('js/modernizr.min.js') }}
@@ -72,6 +75,10 @@
 	{{ script('js/plugins/placeholder/jquery.placeholder.min.js') }}
 	{{ script('js/plugins/select2/select2.min.js') }}
 	{{ script('js/plugins/select2/select2_locale_it.js') }}
+	{{ script('js/plugins/pickadate/picker.js') }}
+	{{ script('js/plugins/pickadate/picker.date.js') }}
+	{{ script('js/plugins/pickadate/picker.time.js') }}
+	{{ script('js/plugins/pickadate/legacy.js') }}
 	{{ script('js/plugins/tinymce/tinymce.min.js') }}
 	{{ script('js/admin.js') }}
 
