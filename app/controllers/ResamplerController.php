@@ -22,17 +22,23 @@ class ResamplerController extends Controller {
 		$allowed = array('resize', 'grab', 'crop', 'mask', 'opacity', 'brightness', 'contrast', 'greyscale', 'grayscale', 'invert', 'pixelate', 'blur', 'flip', 'rotate', 'text');
 		$params  = array_only($params, $allowed);
 
-
 		$image = Image::open($path);
 
 		foreach ($params as $name => $value)
 		{
-			var_dump($value);
+			try
+			{
+				@call_user_func_array(array($image, $name), explode(',', $value));
+			}
+			catch (Exception $e)
+			{
+				// do nothing ...
+			}
 		}
 
-		// return Response::make($image->encode(), 200, array(
-		// 	'Content-Type' => $image->mime
-		// ));
+		return Response::make($image->encode(), 200, array(
+			'Content-Type' => $image->mime
+		));
 	}
 
 }
