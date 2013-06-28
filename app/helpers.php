@@ -132,3 +132,17 @@ if ( ! function_exists('image'))
 		return app('gorilla.asset')->image($url, $alt, $attributes);
 	}
 }
+
+if ( ! function_exists('format_size'))
+{
+	/**
+	 * Format Size Unit
+	 *
+	 * @param  int $bytes
+	 * @return string
+	 */
+	function format_size($bytes)
+	{
+		return Gorilla\Media::formatSize($bytes);
+	}
+}
