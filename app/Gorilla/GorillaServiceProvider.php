@@ -32,6 +32,7 @@ class GorillaServiceProvider extends ServiceProvider {
 		$this->app['gorilla.paths.config']   = $this->app['path.public'] . '/g-config';
 		$this->app['gorilla.paths.contents'] = $this->app['path.public'] . '/g-contents';
 		$this->app['gorilla.paths.themes']   = $this->app['path.public'] . '/g-contents/themes';
+		$this->app['gorilla.paths.uploads']  = $this->app['path.public'] . '/g-contents/uploads';
 
 		$this->app['gorilla.setup'] = $this->app->share(function($app)
 		{
