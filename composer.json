@@ -4,8 +4,9 @@
 	"keywords": ["framework", "laravel"],
 	"require": {
 		"laravel/framework": "4.0.*",
+		"guzzle/guzzle": "3.7.*@dev",
 		"rcrowe/twigbridge": "dev-master",
-		"guzzle/guzzle": "3.7.*@dev"
+		"intervention/image": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {
