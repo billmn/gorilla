@@ -25,8 +25,15 @@
 		</div>
 		<div class="large-6 columns">
 			<label>@lang('gorilla.posts.fields.publish_date')</label>
-			{{ Form::text('publish_date', $post->publish_date->toDateString(), array('class' => 'datepicker')) }}
-			{{ Form::text('publish_time', $post->publish_date->toTimeString(), array('class' => 'timepicker')) }}
+
+			<div class="row">
+				<div class="large-6 columns">
+					{{ Form::text('publish_date', $post->publish_date->format('Y-m-d'), array('class' => 'datepicker')) }}
+				</div>
+				<div class="large-6 columns">
+					{{ Form::text('publish_time', $post->publish_date->format('H:i'), array('class' => 'timepicker')) }}
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -40,7 +47,14 @@
 
 @section('bottom_scripts')
 <script type="text/javascript">
+
 	$('input[name=title]').focus().select();
+
+	// Force submit ( pickadate cause problems ... )
+	$('input').on('keypress', function(e)
+	{
+		if (e.which == 13) $(this).parents('form:first').submit();
+	});
 
 	// Disallow blacklisted chars in Slug field
 	$('input[name=slug]').on('keypress', function(e)
