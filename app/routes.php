@@ -22,6 +22,10 @@ Route::group(array('prefix' => 'admin'), function()
 		// Home
 		Route::get('/', array('as' => 'admin_home', 'uses' => 'AdminHomeController@index'));
 
+		// Media
+		Route::get('media',             array('as' => 'admin_media',        'uses' => 'AdminMediaController@index'));
+		Route::any('media/upload',      array('as' => 'admin_media_upload', 'uses' => 'AdminMediaController@upload'));
+
 		// Posts
 		Route::get('posts',             array('as' => 'admin_posts',       'uses' => 'AdminPostController@index'));
 		Route::any('posts/create',      array('as' => 'admin_post_create', 'uses' => 'AdminPostController@create'));

@@ -14,9 +14,12 @@
 	{{ style('css/plugins/foundation/general_foundicons.css') }}
 	{{ style('css/plugins/foundation/general_foundicons_ie7.css') }}
 	{{ style('css/plugins/select2/select2.css') }}
+	{{ style('css/plugins/dropzone/dropzone.css') }}
+
 	{{ style('js/plugins/pickadate/themes/default.css') }}
 	{{ style('js/plugins/pickadate/themes/default.date.css') }}
 	{{ style('js/plugins/pickadate/themes/default.time.css') }}
+
 	{{ style('css/admin.css') }}
 
 	{{ script('js/modernizr.min.js') }}
@@ -31,6 +34,9 @@
 		<ul class="side-nav">
 			<li class="{{ starts_with(Request::url(), URL::route('admin_posts')) ? 'menu-link active' : 'menu-link' }}">
 				<a href="{{ URL::route('admin_posts') }}"><i class="foundicon-page"></i> @lang('gorilla.posts.title')</a>
+			</li>
+			<li class="{{ starts_with(Request::url(), URL::route('admin_media')) ? 'menu-link active' : 'menu-link' }}">
+				<a href="{{ URL::route('admin_media') }}"><i class="foundicon-video"></i> @lang('gorilla.media.title')</a>
 			</li>
 			<li class="{{ starts_with(Request::url(), URL::route('admin_users')) ? 'menu-link active' : 'menu-link' }}">
 				<a href="{{ URL::route('admin_users') }}"><i class="foundicon-lock"></i> @lang('gorilla.users.title')</a>
@@ -75,6 +81,7 @@
 	{{ script('js/plugins/placeholder/jquery.placeholder.min.js') }}
 	{{ script('js/plugins/select2/select2.min.js') }}
 	{{ script('js/plugins/select2/select2_locale_it.js') }}
+	{{ script('js/plugins/dropzone/dropzone.min.js') }}
 
 	{{ script('js/plugins/pickadate/picker.js') }}
 	{{ script('js/plugins/pickadate/picker.date.js') }}
