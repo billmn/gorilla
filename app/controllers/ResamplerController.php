@@ -19,7 +19,7 @@ class ResamplerController extends Controller {
 		parse_str(Input::server('QUERY_STRING'), $params);
 
 		// Resampler allowed methods
-		$allowed = array('resize', 'grab', 'crop', 'mask', 'opacity', 'brightness', 'contrast', 'greyscale', 'grayscale', 'invert', 'pixelate', 'blur', 'flip', 'rotate', 'text');
+		$allowed = array('resize', 'grab', 'crop', 'opacity', 'brightness', 'contrast', 'greyscale', 'grayscale', 'invert', 'pixelate', 'blur', 'flip', 'rotate', 'text');
 		$params  = array_only($params, $allowed);
 
 		$image = Image::open($path);

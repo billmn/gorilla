@@ -6,6 +6,7 @@ use Twig_SimpleFunction;
 use Twig_ExpressionParser;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\URL;
 
 class Extensions extends \TwigBridge\Extension
 {
@@ -48,6 +49,7 @@ class Extensions extends \TwigBridge\Extension
 			new Twig_SimpleFilter('dump',     array($this, 'twig_filter_dump')),
 			new Twig_SimpleFilter('words',    array($this, 'twig_filter_words')),
 			new Twig_SimpleFilter('truncate', array($this, 'twig_filter_truncate')),
+			new Twig_SimpleFilter('resample', array($this, 'twig_filter_resample')),
 		);
 	}
 
@@ -97,6 +99,16 @@ class Extensions extends \TwigBridge\Extension
 	public function twig_filter_truncate($value, $limit = 100, $end = '...')
 	{
 		return Str::limit($value, $limit, $end);
+	}
+
+	public function twig_filter_resample($url, array $params = array())
+	{
+		foreach ($params as $name => $value)
+		{
+			$params[$name] = is_array($value) ? implode(',', $value) : $value;
+		}
+
+		return urldecode(URL::route('resampler', array('url' => $url) + $params));
 	}
 
 
