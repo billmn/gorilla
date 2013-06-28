@@ -202,7 +202,32 @@ table .actions .button {
 	margin-bottom: 0;
 }
 
-
-
-
+/*
+|--------------------------------------------------------------------------
+| MEDIA
+|--------------------------------------------------------------------------
+*/
+.media-item {
+	position: relative;
+	text-align: center;
+}
+.media-delete {
+	top: 0;
+	right: 30px;
+	width: 30px;
+	height: 30px;
+	display: none;
+	line-height: 25px;
+	position: absolute;
+}
+.media-item:hover .media-delete {
+	display: block;
+}
+.media-name,
+.media-size {
+	font-size: 0.6em;
+}
+.image-thumb {
+	border: 2px solid #dddddd;
+}
 

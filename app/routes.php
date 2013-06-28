@@ -25,6 +25,7 @@ Route::group(array('prefix' => 'admin'), function()
 		// Media
 		Route::get('media',             array('as' => 'admin_media',        'uses' => 'AdminMediaController@index'));
 		Route::any('media/upload',      array('as' => 'admin_media_upload', 'uses' => 'AdminMediaController@upload'));
+		Route::any('media/delete/{id}', array('as' => 'admin_media_delete', 'uses' => 'AdminMediaController@delete'));
 
 		// Posts
 		Route::get('posts',             array('as' => 'admin_posts',       'uses' => 'AdminPostController@index'));
@@ -51,6 +52,7 @@ Route::group(array('prefix' => 'api/v1', 'before' => 'auth.api'), function()
 
 app('gorilla.theme')->routes();
 
-Route::any('/',           array('as' => 'home', 'uses' => 'PublicController@home'));
-Route::any('rss',         array('as' => 'rss',  'uses' => 'PublicController@rss'));
-Route::any('post/{slug}', array('as' => 'post', 'uses' => 'PublicController@post'));
+Route::any('/',           array('as' => 'home',      'uses' => 'PublicController@home'));
+Route::any('rss',         array('as' => 'rss',       'uses' => 'PublicController@rss'));
+Route::any('post/{slug}', array('as' => 'post',      'uses' => 'PublicController@post'));
+Route::any('resample',    array('as' => 'resampler', 'uses' => 'ResamplerController@resample'));

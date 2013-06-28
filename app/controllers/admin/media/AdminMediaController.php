@@ -6,7 +6,8 @@ class AdminMediaController extends AdminBaseController {
 
 	public function index()
 	{
-		return View::make('admin.media.index');
+		$files = Media::orderBy('created_at')->get();
+		return View::make('admin.media.index')->with('files', $files);
 	}
 
 	public function upload()
@@ -17,6 +18,17 @@ class AdminMediaController extends AdminBaseController {
 		}
 
 		return View::make('admin.media.upload');
+	}
+
+	public function delete($id)
+	{
+		if ($file = Media::find($id))
+		{
+			$file->delete();
+			Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
+		}
+
+		return Redirect::back();
 	}
 
 }
