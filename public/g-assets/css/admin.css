@@ -23,6 +23,9 @@ html, body {
 	padding-top: 20px;
 	padding-left: 240px;
 }
+body.without-sidebar #contents {
+	padding-left: 0;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -132,6 +135,15 @@ table .actions .button {
 
 /*
 |--------------------------------------------------------------------------
+| PICKADATE
+|--------------------------------------------------------------------------
+*/
+.picker__footer button {
+	color: #000000;
+}
+
+/*
+|--------------------------------------------------------------------------
 | SIDEBAR
 |--------------------------------------------------------------------------
 */
@@ -207,13 +219,17 @@ table .actions .button {
 | MEDIA
 |--------------------------------------------------------------------------
 */
+body.without-sidebar .upload.button {
+	display: none;
+}
 .media-item {
 	position: relative;
 	text-align: center;
+	border: 1px solid #efefef;
 }
 .media-delete {
-	top: 0;
-	right: 30px;
+	top: 2px;
+	right: 2px;
 	width: 30px;
 	height: 30px;
 	display: none;
@@ -223,11 +239,51 @@ table .actions .button {
 .media-item:hover .media-delete {
 	display: block;
 }
+.media-item .media-delete:hover {
+	background-color: #A8080B;
+}
+.media-use {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	color: #ffffff;
+	font-size: 100px;
+	text-align: center;
+	position: absolute;
+	background: rgba(93, 164, 35, 0.5);
+}
+.media-item:hover .media-use {
+	display: block;
+	color: #ffffff;
+}
 .media-name,
 .media-size {
 	font-size: 0.6em;
 }
 .image-thumb {
 	border: 2px solid #dddddd;
+}
+
+/* Modal */
+#mediaModal {
+	padding: 0;
+	height: 80%;
+}
+#mediaModal ul {
+	padding: 0 1em;
+}
+#mediaModal .close-reveal-modal {
+	top: 0.3em;
+}
+#mediaModal .modal-title {
+	text-align: center;
+	border-bottom: 1px solid #efefef;
+}
+#mediaModal .modal-content {
+	height: 90%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 

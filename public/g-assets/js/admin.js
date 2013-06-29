@@ -55,11 +55,13 @@ $(function()
 		plugins            : [
 			"advlist anchor autolink autoresize charmap code contextmenu directionality emoticons",
 			"fullscreen hr image insertdatetime legacyoutput link lists media nonbreaking noneditable pagebreak",
-			"paste preview save searchreplace tabfocus table visualchars wordcount textcolor"
+			"paste preview save searchreplace tabfocus table visualchars wordcount textcolor",
+			"_GORILLA_media",
 		],
 
 		toolbar1 : "newdocument undo redo | cut copy paste removeformat | searchreplace | charmap | table | formatselect | forecolor backcolor | code fullscreen",
 		toolbar2 : "bold italic underline strikethrough | hr | superscript subscript blockquote | bullist numlist | alignleft aligncenter alignright alignjustify | link unlink | image media",
+		toolbar3 : "_GORILLA_media",
 
 		setup : function(editor)
 		{
@@ -68,3 +70,19 @@ $(function()
 	});
 
 })
+
+/*
+|--------------------------------------------------------------------------
+| Open Media management in a Modal
+|--------------------------------------------------------------------------
+*/
+function open_media_modal()
+{
+	$('#mediaModal').foundation('reveal', 'open', {
+		url: media_modal_url,
+		data: {
+			param1: 'value1',
+			param2: 'value2'
+		}
+	})
+}

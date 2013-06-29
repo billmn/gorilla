@@ -24,7 +24,9 @@
 
 	{{ script('js/modernizr.min.js') }}
 </head>
-<body id="auth">
+<body class="{{ Input::has('no-sidebar') ? 'without-sidebar' : 'with-sidebar' }}">
+
+	@section('sidebar')
 	<div id="sidebar">
 		<a href="{{ URL::route('admin_home') }}">
 			<h1 class="gorilla text-center">@lang('gorilla.app_name')</h1>
@@ -36,7 +38,7 @@
 				<a href="{{ URL::route('admin_posts') }}"><i class="foundicon-page"></i> @lang('gorilla.posts.title')</a>
 			</li>
 			<li class="{{ starts_with(Request::url(), URL::route('admin_media')) ? 'menu-link active' : 'menu-link' }}">
-				<a href="{{ URL::route('admin_media') }}"><i class="foundicon-video"></i> @lang('gorilla.media.title')</a>
+				<a href="{{ URL::route('admin_media') }}"><i class="foundicon-photo"></i> @lang('gorilla.media.title')</a>
 			</li>
 			<li class="{{ starts_with(Request::url(), URL::route('admin_users')) ? 'menu-link active' : 'menu-link' }}">
 				<a href="{{ URL::route('admin_users') }}"><i class="foundicon-lock"></i> @lang('gorilla.users.title')</a>
@@ -62,6 +64,7 @@
 			Created by <a href="https://github.com/billmn" target="_blank">Davide Bellini</a>
 		</div>
 	</div>
+	@show
 
 	<div id="contents">
 		<div class="row">
@@ -71,9 +74,15 @@
 		</div>
 	</div>
 
+	<!-- media modal -->
+	<div id="mediaModal" class="reveal-modal medium">
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+
 	<!-- scripts -->
 	<script type="text/javascript">
 		var confirm_question = "@lang('gorilla.questions.confirm')";
+		var media_modal_url  = "{{ URL::route('admin_media_modal', array('no-sidebar' => true, 'data-reveal-ajax' => true)) }}";
 	</script>
 
 	{{ script('js/jquery.min.js') }}

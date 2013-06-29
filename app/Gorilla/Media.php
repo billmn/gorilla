@@ -87,7 +87,7 @@ class Media extends Model {
 		if ($isImage->passes())
 		{
 			$info['thumb'] = 'thumb_' . $info['name'];
-			$image = Image::make($info['path'])->grab(120, 120)->save($destination . '/' . $info['thumb']);
+			$image = Image::make($info['path'])->grab(160, 160)->save($destination . '/' . $info['thumb']);
 		}
 
 		// Upload and save to DB

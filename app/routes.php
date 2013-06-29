@@ -24,6 +24,7 @@ Route::group(array('prefix' => 'admin'), function()
 
 		// Media
 		Route::get('media',             array('as' => 'admin_media',        'uses' => 'AdminMediaController@index'));
+		Route::any('media/modal',       array('as' => 'admin_media_modal',  'uses' => 'AdminMediaController@modal'));
 		Route::any('media/upload',      array('as' => 'admin_media_upload', 'uses' => 'AdminMediaController@upload'));
 		Route::any('media/delete/{id}', array('as' => 'admin_media_delete', 'uses' => 'AdminMediaController@delete'));
 
