@@ -46,6 +46,11 @@ class AdminPostController extends AdminBaseController {
 	{
 		$post = Post::find($id);
 
+		if ( ! $post)
+		{
+			return Redirect::route('admin_posts');
+		}
+
 		if ($_POST)
 		{
 			$validator = Validator::make(Input::get(), array(
@@ -82,14 +87,6 @@ class AdminPostController extends AdminBaseController {
 		}
 
 		return Redirect::back();
-	}
-
-	public function slug()
-	{
-		$title  = Input::get('title');
-		$postId = Input::get('post_id');
-
-		return Post::sluggify($title, $postId);
 	}
 
 }

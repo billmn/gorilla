@@ -46,6 +46,11 @@ class AdminUserController extends AdminBaseController {
 	{
 		$user = User::find($id);
 
+		if ( ! $user)
+		{
+			return Redirect::route('admin_users');
+		}
+
 		if ($_POST)
 		{
 			$rules = array(
