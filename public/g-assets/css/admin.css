@@ -270,6 +270,7 @@ body.without-sidebar .upload.button {
 #mediaModal {
 	padding: 0;
 	height: 80%;
+	z-index: 101;
 }
 #mediaModal ul {
 	padding: 0 1em;
@@ -287,3 +288,11 @@ body.without-sidebar .upload.button {
 	overflow-x: hidden;
 }
 
+/*
+|--------------------------------------------------------------------------
+| POSTS
+|--------------------------------------------------------------------------
+*/
+.post-form input[name="title"] {
+	font-size: 1.2em;
+}

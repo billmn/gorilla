@@ -76,13 +76,15 @@ $(function()
 | Open Media management in a Modal
 |--------------------------------------------------------------------------
 */
-function open_media_modal()
+function open_media_modal(input_id, input_type)
 {
+	if ( ! input_type) input_type = 'text';
+
 	$('#mediaModal').foundation('reveal', 'open', {
 		url: media_modal_url,
 		data: {
-			param1: 'value1',
-			param2: 'value2'
+			from: input_id,
+			type: input_type,
 		}
 	})
 }

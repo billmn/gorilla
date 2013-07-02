@@ -124,6 +124,16 @@ class Media extends Model {
 	}
 
 	/**
+	 * Check if a file is an image
+	 *
+	 * @return bool
+	 */
+	public function isImage()
+	{
+		return in_array($this->extension, array('jpeg', 'png', 'bmp', 'gif'));
+	}
+
+	/**
 	 * Format Size Unit
 	 *
 	 * @param  int $bytes
