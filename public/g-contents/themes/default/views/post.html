@@ -8,12 +8,15 @@
 <div class="wrapper wrapper-style1 wrapper-first">
 	<article class="container" id="top">
 		<div class="row">
-			<div class="12u">
+			<div class="8u">
 				<header>
 					<h1>{{ post.title }}</h1>
 				</header>
 
 				<p>{{ post.publish_date|date('d/m/Y H:i') }}</p>
+			</div>
+			<div class="4u">
+				<div class="image text-right">{{ image(post.image.url) }}</div>
 			</div>
 		</div>
 	</article>

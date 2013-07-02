@@ -57,14 +57,15 @@
 					</a>
 
 					<a href="#" class="media-reset label alert @if( ! $post->media_id)hide@endif" data-input="media_id"><i class="foundicon-remove"></i></a>
-
 					<div class="hide">{{ Form::media('media_id') }}</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<h4 class="subheader">@lang('gorilla.posts.fields.content')</h4>
+	<hr>
+
+	<h5 class="subheader">@lang('gorilla.posts.fields.content')</h5>
 	{{ Form::wysi('content') }}
 
 	<div class="form-actions">

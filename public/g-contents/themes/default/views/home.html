@@ -74,7 +74,7 @@
 							<div class="4u">
 								<article class="box box-style2">
 									<a href="post/{{ post.slug }}">
-										<div class="image image-full">{{ image("assets/images/portfolio01.jpg") }}</div>
+										<div class="image image-full">{{ image(post.image.url) }}</div>
 										<h3>{{ post.title }}</h3>
 
 										<p>{{ post.publish_date|date('d/m/Y H:i') }}</p>
