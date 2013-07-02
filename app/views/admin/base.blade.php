@@ -81,8 +81,9 @@
 
 	<!-- scripts -->
 	<script type="text/javascript">
-		var confirm_question = "@lang('gorilla.questions.confirm')";
-		var media_modal_url  = "{{ URL::route('admin_media_modal', array('no-sidebar' => true, 'data-reveal-ajax' => true)) }}";
+		var confirm_question   = "@lang('gorilla.questions.confirm')";
+		var media_modal_url    = "{{ URL::route('admin_media_modal', array('no-sidebar' => true, 'data-reveal-ajax' => true)) }}";
+		var image_fallback_url = "{{ g_asset('img/media-image.jpg') }}";
 	</script>
 
 	{{ script('js/jquery.min.js') }}

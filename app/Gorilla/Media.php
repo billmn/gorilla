@@ -8,8 +8,19 @@ use Illuminate\Support\Facades\Validator;
 
 class Media extends Model {
 
-	protected $table = 'media';
+	protected $table  = 'media';
+	protected $imgext = array('jpeg', 'png', 'bmp', 'gif');
 
+	public function scopeImages($query)
+	{
+		return $query->whereIn('extension', $this->imgext);
+	}
+
+	/*
+	|--------------------------------------------------------------------------
+	| ACCESSORS
+	|--------------------------------------------------------------------------
+	*/
 	public function getPathAttribute()
 	{
 		return app('gorilla.paths.uploads') . '/' . $this->name;
@@ -18,6 +29,11 @@ class Media extends Model {
 	public function getUrlAttribute()
 	{
 		return $this->buildUrl($this->name);
+	}
+
+	public function getBaseUrlAttribute()
+	{
+		return $this->buildUrl($this->name, false);
 	}
 
 	public function getThumbPathAttribute()
@@ -31,6 +47,11 @@ class Media extends Model {
 	public function getThumbUrlAttribute()
 	{
 		return $this->buildUrl($this->thumb);
+	}
+
+	public function getThumbBaseUrlAttribute()
+	{
+		return $this->buildUrl($this->thumb, false);
 	}
 
 	/*
@@ -111,16 +132,25 @@ class Media extends Model {
 	| UTILITY
 	|--------------------------------------------------------------------------
 	*/
+	public static function emptyFolder()
+	{
+		$folder = app('gorilla.paths.uploads');
+
+		File::cleanDirectory($folder);
+		touch("{$folder}/.gitkeep");
+	}
+
 	/**
 	 * Build URL from file name
 	 *
-	 * @param  string $file File name
+	 * @param  string $file     File name
+	 * @param  string $absolute URL including Domain name
 	 * @return string
 	 */
-	public function buildUrl($file)
+	public function buildUrl($file, $absolute = true)
 	{
 		$basePath = str_replace(app('path.public'), '', app('gorilla.paths.uploads'));
-		return URL::to("{$basePath}/{$file}");
+		return $absolute ? URL::to("{$basePath}/{$file}") : "{$basePath}/{$file}";
 	}
 
 	/**
@@ -130,7 +160,7 @@ class Media extends Model {
 	 */
 	public function isImage()
 	{
-		return in_array($this->extension, array('jpeg', 'png', 'bmp', 'gif'));
+		return in_array($this->extension, $this->imgext);
 	}
 
 	/**

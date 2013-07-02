@@ -20,7 +20,7 @@
 	{{ Form::text('title', null, array('placeholder' => Lang::get('gorilla.posts.fields.title'), 'autocomplete' => 'off')) }}
 
 	<div class="row">
-		<div class="large-6 columns">
+		<div class="large-10 columns">
 			<div class="row collapse">
 				<div class="small-3 large-2 columns">
 					<span class="prefix">@lang('gorilla.posts.fields.slug')</span>
@@ -29,8 +29,6 @@
 					{{ Form::text('slug', null, array('placeholder' => Lang::get('gorilla.posts.slug_auto'), 'autocomplete' => 'off')) }}
 				</div>
 			</div>
-		</div>
-		<div class="large-6 columns">
 			<div class="row collapse">
 				<div class="small-3 large-2 columns">
 					<span class="prefix">@lang('gorilla.posts.fields.publish_date')</span>
@@ -44,6 +42,23 @@
 							{{ Form::text('publish_time', $post->publish_date->format('H:i'), array('class' => 'timepicker')) }}
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-2 columns">
+			<div class="row collapse">
+				<div class="small-12 large-12 columns text-center">
+					<a href="#" class="th media-open" data-input="media_id">
+						@if($post->media_id)
+							<img src="{{ $post->image->thumb_url }}">
+						@else
+							{{ image('img/media-image.jpg') }}
+						@endif
+					</a>
+
+					<a href="#" class="media-reset label alert @if( ! $post->media_id)hide@endif" data-input="media_id"><i class="foundicon-remove"></i></a>
+
+					<div class="hide">{{ Form::media('media_id') }}</div>
 				</div>
 			</div>
 		</div>

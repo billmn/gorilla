@@ -27,6 +27,7 @@ class AdminPostController extends AdminBaseController {
 				$post->title        = Input::get('title');
 				$post->slug         = Input::get('slug');
 				$post->content      = Input::get('content');
+				$post->media_id     = Input::get('media_id');
 				$post->publish_date = Input::get('publish_date');
 				$post->save();
 
@@ -63,6 +64,7 @@ class AdminPostController extends AdminBaseController {
 				$post->title        = Input::get('title');
 				$post->slug         = Input::get('slug');
 				$post->content      = Input::get('content');
+				$post->media_id     = Input::get('media_id');
 				$post->publish_date = Input::get('publish_date');
 				$post->save();
 

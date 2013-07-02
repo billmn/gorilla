@@ -3,26 +3,30 @@
 <h4 class="modal-title">@lang('gorilla.media.title')</h4>
 
 <div class="modal-content">
-	<ul class="small-block-grid-2 large-block-grid-6">
-		@foreach($files as $file)
-		<li>
-			<div class="media-item" data-url="{{ $file->url }}" data-name="{{ $file->name }}" data-type="{{ $file->isImage() ? 'image' : 'other' }}">
-				@if($file->thumb)
-					<img src="{{ $file->thumb_url }}" class="image-thumb">
-				@else
-					{{ image('img/image-fallback.jpg', null, array('class' => 'image-thumb')) }}
-				@endif
+	@if ($files->count())
+		<ul class="small-block-grid-2 large-block-grid-6">
+			@foreach($files as $file)
+			<li>
+				<div class="media-item" data-id="{{ $file->id }}" data-url="{{ $file->base_url }}" data-thumb-url="{{ $file->thumb_url }}" data-name="{{ $file->name }}" data-type="{{ $file->isImage() ? 'image' : 'other' }}">
+					@if($file->thumb)
+						<img src="{{ $file->thumb_url }}" class="image-thumb">
+					@else
+						{{ image('img/media-doc.jpg', null, array('class' => 'image-thumb')) }}
+					@endif
 
-				<a href="javascript:;" class="media-use"><i class="foundicon-checkmark"></i></a>
+					<a href="javascript:;" class="media-use"><i class="foundicon-checkmark"></i></a>
 
-				<div class="media-info">
-					<div class="media-size round label">{{ format_size($file->size) }}</div>
-					<div class="media-name">{{ $file->name }}</div>
+					<div class="media-info">
+						<div class="media-size round label">{{ format_size($file->size) }}</div>
+						<div class="media-name">{{ $file->name }}</div>
+					</div>
 				</div>
-			</div>
-		</li>
-		@endforeach
-	</ul>
+			</li>
+			@endforeach
+		</ul>
+	@else
+		<h3 class="text-center subheader">@lang('gorilla.media.empty')</h3>
+	@endif
 </div>
 
 <script type="text/javascript">
@@ -53,7 +57,10 @@ $(function()
 		}
 		else
 		{
-			parent.$('#' + from).val(media.attr('data-url'));
+			parent.$('.media-reset[data-input=' + from + ']').css('visibility', 'visible');
+			parent.$('.media-open[data-input=' + from + '] img').attr('src', media.attr('data-thumb-url'));
+
+			parent.$('[name=' + from + ']').val(media.attr('data-id'));
 		}
 
 		parent.$('#mediaModal').foundation('reveal', 'close');

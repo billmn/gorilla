@@ -86,11 +86,13 @@ return array(
 
 		'empty'     => 'Nessun post inserito',
 		'slug_auto' => 'Automatico ...',
+		'image'     => 'Seleziona un\'immagine ...',
 
 		'fields' => array(
 			'title'        => 'Titolo',
 			'slug'         => 'Slug',
-			'publish_date' => 'Data pubblicazione',
+			'image'        => 'Immag.',
+			'publish_date' => 'Pubblicazione',
 			'content'      => 'Contenuto',
 		),
 	),
@@ -105,6 +107,8 @@ return array(
 		'sing'   => 'media',
 		'plur'   => 'media',
 		'upload' => 'Carica files',
+
+		'empty'  => 'Nessun file inserito',
 
 		'fields' => array(
 

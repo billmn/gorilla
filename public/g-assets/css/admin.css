@@ -99,7 +99,7 @@ input:focus:invalid {
 
 	-webkit-border-radius: 99em;
 	   -moz-border-radius: 99em;
-	        border-radius: 99em;
+			border-radius: 99em;
 }
 
 table .actions {
@@ -111,6 +111,30 @@ table .actions .button {
 
 .form-actions {
 	margin-top: 20px;
+}
+
+.button.prefix.media-button {
+	width: auto;
+	float: right;
+	padding: 0 10px;
+	margin-top: -46px;
+}
+
+.media-open {
+	width: 80px;
+}
+.media-reset {
+	padding: 0;
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	font-size: 0.6em;
+	line-height: 20px;
+	position: absolute;
+}
+.media-reset.hide {
+	visibility: hidden;
 }
 
 /*
@@ -296,3 +320,5 @@ body.without-sidebar .upload.button {
 .post-form input[name="title"] {
 	font-size: 1.2em;
 }
+
+

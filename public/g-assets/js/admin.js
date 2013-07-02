@@ -69,6 +69,26 @@ $(function()
 		}
 	});
 
+	/*
+	|--------------------------------------------------------------------------
+	| Open Media Modal from a link (eg Click on a thumb)
+	|--------------------------------------------------------------------------
+	*/
+	$('.media-open').on('click', function()
+	{
+		var show = $(this).attr('data-show') ? $(this).attr('data-show') : 'images';
+		open_media_modal($(this).attr('data-input'), 'text', show);
+	});
+
+	$('.media-reset').on('click', function()
+	{
+		$('.media-open img').attr('src', image_fallback_url);
+		$('input[name=' + $(this).attr('data-input') + ']').val('');
+
+		$(this).css('visibility', 'hidden');
+
+		return false;
+	})
 })
 
 /*
@@ -76,8 +96,9 @@ $(function()
 | Open Media management in a Modal
 |--------------------------------------------------------------------------
 */
-function open_media_modal(input_id, input_type)
+function open_media_modal(input_id, input_type, show)
 {
+	if ( ! show) show = 'all';
 	if ( ! input_type) input_type = 'text';
 
 	$('#mediaModal').foundation('reveal', 'open', {
@@ -85,6 +106,7 @@ function open_media_modal(input_id, input_type)
 		data: {
 			from: input_id,
 			type: input_type,
+			show: show,
 		}
 	})
 }

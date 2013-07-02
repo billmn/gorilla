@@ -12,6 +12,11 @@ class Post extends Model {
 		return array(static::CREATED_AT, static::UPDATED_AT, static::DELETED_AT, 'publish_date');
 	}
 
+	public function image()
+	{
+		return $this->belongsTo(__NAMESPACE__ . '\Media', 'media_id');
+	}
+
 	/*
 	|--------------------------------------------------------------------------
 	| EVENTS

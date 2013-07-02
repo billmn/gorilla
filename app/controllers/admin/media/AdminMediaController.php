@@ -12,8 +12,14 @@ class AdminMediaController extends AdminBaseController {
 
 	public function modal()
 	{
-		$files = Media::orderBy('created_at')->get();
-		return View::make('admin.media.modal')->with('files', $files);
+		$files = Media::orderBy('created_at');
+
+		if (Input::get('show') == 'images')
+		{
+			$files->images();
+		}
+
+		return View::make('admin.media.modal')->with('files', $files->get());
 	}
 
 	public function upload()

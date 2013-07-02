@@ -73,7 +73,7 @@ if ( ! function_exists('gravatar'))
 	}
 }
 
-if ( ! function_exists('asset'))
+if ( ! function_exists('g_asset'))
 {
 	/**
 	 * Asset URL
@@ -81,7 +81,7 @@ if ( ! function_exists('asset'))
 	 * @param  string  $url
 	 * @return string
 	 */
-	function asset($url)
+	function g_asset($url)
 	{
 		return app('gorilla.asset')->url($url);
 	}

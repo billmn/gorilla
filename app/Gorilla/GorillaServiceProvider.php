@@ -73,6 +73,14 @@ class GorillaServiceProvider extends ServiceProvider {
 			return Form::textarea($name, $value, $attr);
 		});
 
+		Form::macro('media', function($name, $value = null, $attr = array())
+		{
+			$button = "<a href=\"#\" class=\"button prefix media-button\" onclick=\"open_media_modal('{$name}', 'text', 'images')\">...</a>";
+			$attr   = array('class' => 'media-input') + $attr;
+
+			return Form::text($name, $value, $attr) . $button;
+		});
+
 		Form::macro('alert', function($type = null, $flash = 'errors')
 		{
 			if (Session::has($flash))

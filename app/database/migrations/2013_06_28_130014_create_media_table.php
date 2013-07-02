@@ -1,5 +1,6 @@
 <?php
 
+use Gorilla\Media;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateMediaTable extends Migration {
@@ -14,7 +15,7 @@ class CreateMediaTable extends Migration {
 		Schema::create('media', function($table)
 		{
 			$table->increments('id');
-			$table->string('name');
+			$table->string('name')->unique();
 			$table->string('extension', 10);
 			$table->string('mimetype', 100);
 			$table->string('thumb', 255)->nullable();
@@ -33,6 +34,7 @@ class CreateMediaTable extends Migration {
 	public function down()
 	{
 		Schema::dropIfExists('media');
+		Media::emptyFolder();
 	}
 
 }
