@@ -23,6 +23,16 @@ class CreatePostsTable extends Migration {
 			$table->string('created_by');
 			$table->string('updated_by');
 		});
+
+		Schema::create('tags', function($table)
+		{
+			$table->increments('id');
+			$table->string('post_id');
+			$table->string('name');
+			$table->timestamps();
+			$table->string('created_by');
+			$table->string('updated_by');
+		});
 	}
 
 	/**
@@ -32,6 +42,7 @@ class CreatePostsTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::dropIfExists('tags');
 		Schema::dropIfExists('posts');
 	}
 

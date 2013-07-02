@@ -31,6 +31,14 @@
 			</div>
 			<div class="row collapse">
 				<div class="small-3 large-2 columns">
+					<span class="prefix">@lang('gorilla.posts.fields.tags')</span>
+				</div>
+				<div class="small-9 large-10 columns">
+					{{ Form::text('tags') }}
+				</div>
+			</div>
+			<div class="row collapse">
+				<div class="small-3 large-2 columns">
 					<span class="prefix">@lang('gorilla.posts.fields.publish_date')</span>
 				</div>
 				<div class="small-9 large-10 columns">
@@ -93,6 +101,33 @@
 		// Blacklist : '/' (47), '\' (92)
 		if (charCode == 47 || charCode == 92) return false;
 	});
+
+	/*
+	|--------------------------------------------------------------------------
+	| TAGS
+	|--------------------------------------------------------------------------
+	*/
+	$('input[name=tags]').select2({
+		tags: true,
+		width: '100%',
+		multiple: true,
+		placeholder: "@lang('gorilla.posts.fields.tags')",
+		ajax: {
+			url      : '{{ URL::route("admin_tags_query") }}',
+			dataType : 'json',
+			data     : function (term, page) { return { q: term }; },
+			results  : function (data, page) { return { results: data }; }
+		},
+		createSearchChoice: function(term, data) {
+			if ($(data).filter(function() {
+				return this.text.localeCompare(term) === 0;
+			}).length === 0) {
+				return { id: term, text: term };
+			}
+		}
+	});
+
+	$('input[name=tags]').select2("data", {{ $post_tags }});
 
 </script>
 @stop

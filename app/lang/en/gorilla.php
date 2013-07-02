@@ -94,6 +94,26 @@ return array(
 			'image'        => 'Immag.',
 			'publish_date' => 'Pubblicazione',
 			'content'      => 'Contenuto',
+			'tags'         => 'Tags',
+		),
+	),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Tags
+	|--------------------------------------------------------------------------
+	*/
+	'tags' => array(
+		'title' => 'Tags',
+		'sing'  => 'tag',
+		'plur'  => 'tags',
+
+		'empty'       => 'Nessun tag inserito',
+		'placeholder' => 'Inserisci i tags ...',
+
+		'fields' => array(
+			'name'       => 'Nome',
+			'occurrence' => 'Occorrenze',
 		),
 	),
 

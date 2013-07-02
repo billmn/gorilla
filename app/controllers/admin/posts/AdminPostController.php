@@ -31,6 +31,9 @@ class AdminPostController extends AdminBaseController {
 				$post->publish_date = Input::get('publish_date');
 				$post->save();
 
+				// Update Tags
+				$post->syncTags(explode(',', Input::get('tags')));
+
 				Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
 				return Redirect::route('admin_post_update', array('id' => $post->id));
 			}
@@ -40,7 +43,7 @@ class AdminPostController extends AdminBaseController {
 			}
 		}
 
-		return View::make('admin.posts.form')->with('post', $post);
+		return View::make('admin.posts.form')->with('post', $post)->with('post_tags', '[]');
 	}
 
 	public function update($id)
@@ -51,6 +54,11 @@ class AdminPostController extends AdminBaseController {
 		{
 			return Redirect::route('admin_posts');
 		}
+
+		$postTags = $post->tags()->orderBy('name')->get()->map(function($item)
+		{
+			return array('id' => $item->name, 'text' => $item->name);
+		})->toJson();
 
 		if ($_POST)
 		{
@@ -68,6 +76,9 @@ class AdminPostController extends AdminBaseController {
 				$post->publish_date = Input::get('publish_date');
 				$post->save();
 
+				// Update Tags
+				$post->syncTags(explode(',', Input::get('tags')));
+
 				Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
 				return Redirect::route('admin_post_update', array('id' => $post->id));
 			}
@@ -77,7 +88,7 @@ class AdminPostController extends AdminBaseController {
 			}
 		}
 
-		return View::make('admin.posts.form')->with('post', $post);
+		return View::make('admin.posts.form')->with('post', $post)->with('post_tags', $postTags);
 	}
 
 	public function delete($id)

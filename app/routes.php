@@ -35,6 +35,11 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::get('posts/delete/{id}', array('as' => 'admin_post_delete', 'uses' => 'AdminPostController@delete'));
 		Route::any('posts/slug',        array('as' => 'admin_post_slug',   'uses' => 'AdminPostController@slug'));
 
+		// Tags
+		Route::get('tags',               array('as' => 'admin_tags',        'uses' => 'AdminTagController@index'));
+		Route::get('tags/query',         array('as' => 'admin_tags_query',  'uses' => 'AdminTagController@query'));
+		Route::get('tags/delete/{name}', array('as' => 'admin_tag_delete',  'uses' => 'AdminTagController@delete'));
+
 		// Users
 		Route::get('users',             array('as' => 'admin_users',       'uses' => 'AdminUserController@index'));
 		Route::any('users/create',      array('as' => 'admin_user_create', 'uses' => 'AdminUserController@create'));

@@ -17,6 +17,11 @@ class Post extends Model {
 		return $this->belongsTo(__NAMESPACE__ . '\Media', 'media_id');
 	}
 
+	public function tags()
+	{
+		return $this->hasMany(__NAMESPACE__ . '\Tag');
+	}
+
 	/*
 	|--------------------------------------------------------------------------
 	| EVENTS
@@ -82,6 +87,30 @@ class Post extends Model {
 		else
 		{
 			return $slug;
+		}
+	}
+
+	/**
+	 * Create/Delete related post Tags
+	 *
+	 * @param  array  $input
+	 * @return string
+	 */
+	public function syncTags(array $input)
+	{
+		$tags = $this->tags()->lists('name');
+
+		$toDelete = array_filter(array_diff($tags, $input));
+		$toInsert = array_filter(array_diff($input, $tags));
+
+		if ($toDelete)
+		{
+			$this->tags()->whereIn('name', $toDelete)->delete();
+		}
+
+		foreach ($toInsert as $name)
+		{
+			$this->tags()->create(array('post_id' => $this->id, 'name' => $name));
 		}
 	}
 

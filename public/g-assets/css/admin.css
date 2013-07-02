@@ -121,7 +121,7 @@ table .actions .button {
 }
 
 .media-open {
-	width: 80px;
+	width: 100%;
 }
 .media-reset {
 	padding: 0;
@@ -145,6 +145,33 @@ table .actions .button {
 .select2-container .select2-choice {
 	height: 32px;
 	line-height: 32px;
+}
+.select2-container-multi .select2-choices {
+	margin: 0 0 1em;
+	background-image: none;
+	border: 1px solid #cccccc;
+}
+.select2-container-multi .select2-choices .select2-search-field input {
+	margin: 0;
+	font-size: 0.82em;
+}
+.select2-container-multi.select2-container-active .select2-choices {
+	border-color: #999999;
+}
+
+/* Choice Dropdown */
+.select2-drop {
+	font-size: 0.8em;
+	margin-top: -1.1em;
+}
+
+/* Single Choice */
+.select2-container-multi .select2-choices .select2-search-choice {
+	font-size: 0.8em;
+	margin: 4px 0 4px 5px;
+}
+.select2-search-choice-close {
+	top: 3px;
 }
 
 /*

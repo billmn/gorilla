@@ -37,6 +37,9 @@
 			<li class="{{ starts_with(Request::url(), URL::route('admin_posts')) ? 'menu-link active' : 'menu-link' }}">
 				<a href="{{ URL::route('admin_posts') }}"><i class="foundicon-page"></i> @lang('gorilla.posts.title')</a>
 			</li>
+			<li class="{{ starts_with(Request::url(), URL::route('admin_tags')) ? 'menu-link active' : 'menu-link' }}">
+				<a href="{{ URL::route('admin_tags') }}"><i class="foundicon-flag"></i> @lang('gorilla.tags.title')</a>
+			</li>
 			<li class="{{ starts_with(Request::url(), URL::route('admin_media')) ? 'menu-link active' : 'menu-link' }}">
 				<a href="{{ URL::route('admin_media') }}"><i class="foundicon-photo"></i> @lang('gorilla.media.title')</a>
 			</li>
