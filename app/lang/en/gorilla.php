@@ -31,6 +31,65 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
+	| Install
+	|--------------------------------------------------------------------------
+	*/
+	'install' => array(
+		'next' => 'Avanti &raquo;',
+
+		// Checl requirements
+		'check' => array(
+			'title'    => 'Requisiti',
+			'subtitle' => 'Verifica requisiti di sistema',
+			'repeat'   => 'Ripeti verifica',
+
+			'requirements' => array(
+				'php_version'  => 'Versione PHP',
+				'ext_pdo'      => 'PDO',
+				'ext_mcrypt'   => 'Mcrypt',
+				'ext_fileinfo' => 'Fileinfo',
+				'ext_gd'       => 'GD',
+			),
+		),
+
+		// Step 1
+		'step1' => array(
+			'title'    => 'Step 1',
+			'subtitle' => 'Connessione al database',
+
+			'fields' => array(
+				'host'     => 'Host',
+				'name'     => 'Nome database',
+				'username' => 'Username',
+				'password' => 'Password',
+			),
+		),
+
+		// Step 2
+		'step2' => array(
+			'title'       => 'Step 2',
+			'subtitle'    => 'Configurazione utente Admin',
+			'description' => 'Imposta la password per l\'utente amministratore del sito.',
+
+			'fields' => array(
+				'username' => 'Username',
+				'email'    => 'Email',
+				'password' => 'Password',
+				'password_confirmation' => 'Ripeti Password',
+			),
+		),
+
+		// Step 3
+		'step3' => array(
+			'title'       => 'Congratulazioni !',
+			'subtitle'    => 'Installazione completata',
+			'description' => 'E\' andato tutto secondo i piani !<br />Ora puoi accedere al pannello e configurare il tuo nuovo sito',
+			'go_to_admin' => 'Vai al pannello',
+		),
+	),
+
+	/*
+	|--------------------------------------------------------------------------
 	| Authentication
 	|--------------------------------------------------------------------------
 	*/

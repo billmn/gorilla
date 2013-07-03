@@ -49,7 +49,21 @@ class GorillaServiceProvider extends ServiceProvider {
 			return new Theme($app);
 		});
 
+		$this->dbConnect();
 		$this->registerFormMacro();
+	}
+
+	/**
+	 * Connect to Database
+	 *
+	 * @return void
+	 */
+	public function dbConnect()
+	{
+		if ($dbconfig = $this->app['gorilla.setup']->getConfig('db'))
+		{
+			Config::set('database.connections.mysql', $dbconfig);
+		}
 	}
 
 	/**

@@ -10,6 +10,12 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN
+|--------------------------------------------------------------------------
+*/
 Route::group(array('prefix' => 'admin'), function()
 {
 	Route::any('login',  array('as' => 'login',  'uses' => 'AdminAuthController@login'));
@@ -51,10 +57,23 @@ Route::group(array('prefix' => 'admin'), function()
 	});
 });
 
+/*
+|--------------------------------------------------------------------------
+| API
+|--------------------------------------------------------------------------
+*/
 Route::group(array('prefix' => 'api/v1', 'before' => 'auth.api'), function()
 {
 	Route::resource('posts', 'ApiPostController');
 });
+
+/*
+|--------------------------------------------------------------------------
+| INSTALL
+|--------------------------------------------------------------------------
+*/
+Route::controller('install', 'InstallController');
+
 
 app('gorilla.theme')->routes();
 
@@ -62,3 +81,12 @@ Route::any('/',           array('as' => 'home',      'uses' => 'PublicController
 Route::any('rss',         array('as' => 'rss',       'uses' => 'PublicController@rss'));
 Route::any('post/{slug}', array('as' => 'post',      'uses' => 'PublicController@post'));
 Route::any('resample',    array('as' => 'resampler', 'uses' => 'ResamplerController@resample'));
+
+
+
+
+
+
+
+
+

@@ -76,6 +76,7 @@ textarea {
 | UTILITY
 |--------------------------------------------------------------------------
 */
+.text-info    { color: #2BA6CB; }
 .text-alert   { color: #c60f13; }
 .text-muted   { color: #666666; }
 .text-success { color: #5da423; }
@@ -237,13 +238,26 @@ table .actions .button {
 
 /*
 |--------------------------------------------------------------------------
+| INSTALL
+|--------------------------------------------------------------------------
+*/
+#install {
+	background-color: #f9f9f9;
+}
+#install .install-cont {
+	padding: 1.5em;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+}
+
+/*
+|--------------------------------------------------------------------------
 | AUTH
 |--------------------------------------------------------------------------
 */
 #auth {
 	background-color: #f9f9f9;
 }
-
 #auth #remember_label {
 	margin-bottom: 20px;
 }
