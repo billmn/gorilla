@@ -87,7 +87,7 @@ if ( ! function_exists('g_asset'))
 	}
 }
 
-if ( ! function_exists('style'))
+if ( ! function_exists('g_style'))
 {
 	/**
 	 * CSS tag
@@ -96,13 +96,13 @@ if ( ! function_exists('style'))
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	function style($url, $attributes = array())
+	function g_style($url, $attributes = array())
 	{
 		return app('gorilla.asset')->style($url, $attributes);
 	}
 }
 
-if ( ! function_exists('script'))
+if ( ! function_exists('g_script'))
 {
 	/**
 	 * Javascript tag
@@ -111,13 +111,13 @@ if ( ! function_exists('script'))
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	function script($url, $attributes = array())
+	function g_script($url, $attributes = array())
 	{
 		return app('gorilla.asset')->script($url, $attributes);
 	}
 }
 
-if ( ! function_exists('image'))
+if ( ! function_exists('g_image'))
 {
 	/**
 	 * Image tag
@@ -127,7 +127,7 @@ if ( ! function_exists('image'))
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	function image($url, $alt = null, $attributes = array())
+	function g_image($url, $alt = null, $attributes = array())
 	{
 		return app('gorilla.asset')->image($url, $alt, $attributes);
 	}

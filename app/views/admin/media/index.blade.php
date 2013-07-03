@@ -20,7 +20,7 @@
 				@if($file->thumb)
 					<img src="{{ $file->thumb_url }}" class="image-thumb">
 				@else
-					{{ image('img/media-doc.jpg', null, array('class' => 'image-thumb')) }}
+					{{ g_image('img/media-doc.jpg', null, array('class' => 'image-thumb')) }}
 				@endif
 
 				<a href="{{ URL::route('admin_media_delete', array('id' => $file->id)) }}" class="confirm media-delete label alert"><i class="foundicon-remove"></i></a>

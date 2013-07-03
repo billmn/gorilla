@@ -11,7 +11,7 @@
 					@if($file->thumb)
 						<img src="{{ $file->thumb_url }}" class="image-thumb">
 					@else
-						{{ image('img/media-doc.jpg', null, array('class' => 'image-thumb')) }}
+						{{ g_image('img/media-doc.jpg', null, array('class' => 'image-thumb')) }}
 					@endif
 
 					<a href="javascript:;" class="media-use"><i class="foundicon-checkmark"></i></a>

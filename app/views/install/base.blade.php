@@ -7,13 +7,13 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>@lang('gorilla.app_name')</title>
 
-	{{ style('http://fonts.googleapis.com/css?family=Titillium+Web:400,600') }}
+	{{ g_style('http://fonts.googleapis.com/css?family=Titillium+Web:400,600') }}
 
-	{{ style('css/normalize.css') }}
-	{{ style('css/plugins/foundation/foundation.min.css') }}
-	{{ style('css/admin.css') }}
+	{{ g_style('css/normalize.css') }}
+	{{ g_style('css/plugins/foundation/foundation.min.css') }}
+	{{ g_style('css/admin.css') }}
 
-	{{ script('js/modernizr.min.js') }}
+	{{ g_script('js/modernizr.min.js') }}
 </head>
 <body id="install">
 	<div class="row">
@@ -26,10 +26,10 @@
 	</div>
 
 	<!-- scripts -->
-	{{ script('js/jquery.min.js') }}
-	{{ script('js/plugins/foundation/foundation.min.js') }}
-	{{ script('js/plugins/placeholder/jquery.placeholder.min.js') }}
-	{{ script('js/admin.js') }}
+	{{ g_script('js/jquery.min.js') }}
+	{{ g_script('js/plugins/foundation/foundation.min.js') }}
+	{{ g_script('js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ g_script('js/admin.js') }}
 
 	@yield('bottom_scripts')
 </body>

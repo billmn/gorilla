@@ -60,7 +60,7 @@
 						@if($post->media_id)
 							<img src="{{ $post->image->thumb_url }}">
 						@else
-							{{ image('img/media-image.jpg') }}
+							{{ g_image('img/media-image.jpg') }}
 						@endif
 					</a>
 
