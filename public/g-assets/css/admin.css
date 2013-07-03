@@ -160,8 +160,10 @@ table .actions .button {
 }
 
 /* Choice Dropdown */
-.select2-drop {
-	font-size: 0.8em;
+.select2-results {
+	font-size: 0.9em;
+}
+.select2-drop-multi {
 	margin-top: -1.1em;
 }
 
@@ -170,7 +172,7 @@ table .actions .button {
 	font-size: 0.8em;
 	margin: 4px 0 4px 5px;
 }
-.select2-search-choice-close {
+.select2-container-multi .select2-search-choice-close {
 	top: 3px;
 }
 
