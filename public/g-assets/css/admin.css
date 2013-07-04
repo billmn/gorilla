@@ -38,6 +38,12 @@ body.without-sidebar #contents {
 textarea {
 	height: auto;
 }
+input[readonly], select[readonly], textarea[readonly], fieldset[readonly] input,
+input[disabled], select[disabled], textarea[disabled], fieldset[disabled] input {
+	color: #999999;
+	cursor: not-allowed;
+	background-color: #eeeeee !important;
+}
 
 /*
 |--------------------------------------------------------------------------

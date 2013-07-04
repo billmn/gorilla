@@ -1,6 +1,7 @@
 <?php
 
 use Gorilla\User;
+use Gorilla\UserChangeNotAllowed;
 
 class AdminUserController extends AdminBaseController {
 
@@ -67,19 +68,26 @@ class AdminUserController extends AdminBaseController {
 
 			if ($validator->passes())
 			{
-				$user->email    = Input::get('email');
-				$user->username = Input::get('username');
-				$user->enabled  = Input::get('enabled', false);
-
-				if (Input::has('password'))
+				try
 				{
-					$user->password = Input::get('password');
+					$user->email    = Input::get('email');
+					$user->username = Input::get('username');
+					$user->enabled  = Input::get('enabled', false);
+
+					if (Input::has('password'))
+					{
+						$user->password = Input::get('password');
+					}
+
+					$user->save();
+
+					Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
+					return Redirect::route('admin_users');
 				}
-
-				$user->save();
-
-				Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
-				return Redirect::route('admin_users');
+				catch (UserChangeNotAllowed $e)
+				{
+					return Redirect::back()->withInput()->with('errors', $e->getMessage());
+				}
 			}
 			else
 			{
@@ -94,8 +102,15 @@ class AdminUserController extends AdminBaseController {
 	{
 		if ($user = User::find($id))
 		{
-			$user->delete();
-			Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
+			try
+			{
+				$user->delete();
+				Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
+			}
+			catch (UserChangeNotAllowed $e)
+			{
+				return Redirect::back()->withInput()->with('errors', $e->getMessage());
+			}
 		}
 
 		return Redirect::back();

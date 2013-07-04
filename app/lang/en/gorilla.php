@@ -212,6 +212,12 @@ return array(
 			'enabled'               => 'Abilitato',
 			'last_login'            => 'Ultimo accesso',
 		),
+
+		'msg' => array(
+			'admin_username_error' => "Lo username dell'utente :username non può essere modificato",
+			'admin_disable_error'  => "L'utente :username non può essere disabilitato",
+			'admin_delete_error'   => "L'utente :username non può essere eliminato",
+		),
 	),
 
 	/*

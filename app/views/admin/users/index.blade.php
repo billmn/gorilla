@@ -14,6 +14,7 @@
 	</div>
 </div>
 
+{{ Form::alert('alert') }}
 {{ Form::alert('success', 'notify_confirm') }}
 
 <table class="full-width">
