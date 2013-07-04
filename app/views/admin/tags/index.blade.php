@@ -26,7 +26,9 @@
 		<tbody>
 			@foreach ($tags as $tag)
 			<tr>
-				<td>{{ $tag->name }}</td>
+				<td>
+					<a href="{{ URL::route('admin_tag_update', array('name' => $tag->name)) }}">{{ $tag->name }}</a>
+				</td>
 				<td class="text-center">
 					{{ $tag->occurrence }}
 				</td>

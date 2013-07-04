@@ -44,6 +44,7 @@ Route::group(array('prefix' => 'admin'), function()
 		// Tags
 		Route::get('tags',               array('as' => 'admin_tags',        'uses' => 'AdminTagController@index'));
 		Route::get('tags/query',         array('as' => 'admin_tags_query',  'uses' => 'AdminTagController@query'));
+		Route::any('tags/update/{name}', array('as' => 'admin_tag_update',  'uses' => 'AdminTagController@update'));
 		Route::get('tags/delete/{name}', array('as' => 'admin_tag_delete',  'uses' => 'AdminTagController@delete'));
 
 		// Users

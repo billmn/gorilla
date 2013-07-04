@@ -24,6 +24,42 @@ class AdminTagController extends AdminBaseController {
 		return $tags->toJson();
 	}
 
+	public function update($name)
+	{
+		$tag = Tag::whereName($name)->first();
+		$tagsTable = with(new Tag)->getTable();
+
+		if ($_POST)
+		{
+			if (Input::get('name') != $name)
+			{
+				$validator = Validator::make(Input::get(), array(
+					'name' => "required|unique:{$tagsTable}",
+				));
+
+				if ($validator->passes())
+				{
+					Tag::whereName($name)->update(array(
+						'name' => trim(Input::get('name')),
+					));
+
+					Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
+					return Redirect::route('admin_tags');
+				}
+				else
+				{
+					return Redirect::back()->withInput()->withErrors($validator);
+				}
+			}
+			else
+			{
+				return Redirect::route('admin_tags');
+			}
+		}
+
+		return View::make('admin.tags.form')->with('tag', $tag);
+	}
+
 	public function delete($name)
 	{
 		if ($tag = Tag::whereName($name))
