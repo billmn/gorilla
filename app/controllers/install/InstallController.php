@@ -90,7 +90,7 @@ class InstallController extends Controller {
 	{
 		$validator = Validator::make(Input::get(), array(
 			'email'    => 'required|email',
-			'password' => 'required|min:5|confirmed',
+			'password' => 'required|min:6|confirmed',
 		));
 
 		if ($validator->passes())

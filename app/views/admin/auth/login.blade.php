@@ -4,6 +4,7 @@
 {{ Form::open(array('class' => 'custom')) }}
 
 	{{ Form::alert('alert') }}
+	{{ Form::alert('success', 'success') }}
 
 	<div class="row">
 		<div class="large-12 columns">

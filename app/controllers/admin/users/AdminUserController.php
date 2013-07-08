@@ -20,7 +20,7 @@ class AdminUserController extends AdminBaseController {
 			$validator = Validator::make(Input::get(), array(
 				'email'    => "required|email|unique:{$user->getTable()}",
 				'username' => "required|unique:{$user->getTable()}",
-				'password' => "required|confirmed|min:5",
+				'password' => "required|confirmed|min:6",
 			));
 
 			if ($validator->passes())
@@ -61,7 +61,7 @@ class AdminUserController extends AdminBaseController {
 
 			if (Input::has('password'))
 			{
-				$rules['password'] = 'required|confirmed|min:5';
+				$rules['password'] = 'required|confirmed|min:6';
 			}
 
 			$validator = Validator::make(Input::get(), $rules);

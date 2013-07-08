@@ -30,9 +30,9 @@ return array(
 	),
 
 	'reminders' => array(
-		'password' => 'Passwords must be six characters and match the confirmation.',
 		'user'     => 'Indirizzo email non trovato.',
 		'token'    => 'Token per il reset della password non valido.',
+		'password' => 'La password deve essere di almeno 6 caratteri e corrispondere al campo di conferma.',
 	),
 
 	/*
@@ -135,7 +135,7 @@ return array(
 
 			'msg' => array(
 				'failed'  => 'Utente o password errati',
-				'success' => 'Richiesta di reset spedita! Controlla la tua casella email.',
+				'success' => 'Fatto! Controlla la casella email.',
 			),
 
 			'email' => array(
@@ -162,75 +162,10 @@ return array(
 			),
 
 			'msg' => array(
-				'failed'  => 'Utente o password errati',
-				'success' => 'Richiesta di reset spedita! Controlla la tua casella email.',
-			),
-
-			'email' => array(
-				'title'   => 'Richiesta reset password',
-				'subject' => 'Richiesta reset password',
-				'body'    => 'Ciao :display_name,<br /> hai richiesto il reset della password dal sito <a href=":domain" target="_blank">:domain</a> ... non preoccuparti, succede anche ai migliori ! ;)<br /><br />Se vuoi procedere al cambio password clicca sul pulsante qui sotto.',
-				'btn'     => 'Cambia la password',
+				'success' => 'Password aggiornata.',
 			),
 		),
 	),
-
-	// =========================================================================
-	// AUTH FORGOT
-	// =========================================================================
-	'auth_forgot' => array(
-		'title' => 'Dimenticato la password ?',
-
-		'field' => array(
-			'email' => 'Inserisci il tuo indirizzo e-mail',
-		),
-		'button' => array(
-			'submit' => 'Reset password',
-			'login'  => 'Torna al login',
-		),
-		'errors' => array(
-			'reminders' => array(
-				'user' => 'Indirizzo email non trovato',
-			),
-		),
-		'success' => array(
-			'sent' => 'Richiesta inviata! Controlla la tua casella email.',
-		),
-		'email' => array(
-			'title'   => 'Richiesta reset password',
-			'subject' => 'Richiesta reset password',
-			'body'    => 'Ciao :display_name,<br /> hai richiesto il reset della password dal sito <a href=":domain" target="_blank">:domain</a> ... non preoccuparti, succede anche ai migliori ! ;)<br /><br />Se vuoi procedere al cambio password clicca sul pulsante qui sotto.',
-			'btn'     => 'Cambia la password',
-		),
-	),
-
-	// =========================================================================
-	// AUTH RESET
-	// =========================================================================
-	'auth_reset' => array(
-		'title' => 'Inserisci nuova password',
-
-		'field' => array(
-			'email'            => 'Inserisci il tuo indirizzo e-mail',
-			'password'         => 'Inserisci la nuova password',
-			'password_confirm' => 'Ripeti la nuova password',
-		),
-		'button' => array(
-			'submit' => 'Salva',
-			'login'  => 'Torna al login',
-		),
-		'errors' => array(
-			'reminders' => array(
-				'user' => 'Indirizzo email non trovato',
-			),
-		),
-		'success' => array(
-			'changed' => 'La password è stata aggiornata.',
-		),
-	),
-
-
-
 
 	/*
 	|--------------------------------------------------------------------------

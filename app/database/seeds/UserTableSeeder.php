@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder {
 
 		User::create(array(
 			'username' => 'admin',
-			'password' => 'admin',
+			'password' => 'admin1',
 			'email'    => 'admin@gorilla.dev',
 			'enabled'  => true,
 		));

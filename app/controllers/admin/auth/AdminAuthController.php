@@ -73,7 +73,7 @@ class AdminAuthController extends Controller {
 	{
 		$validator = Validator::make(Input::get(), array(
 			'email'                 => 'required|email',
-			'password'              => 'required|confirmed',
+			'password'              => 'required|min:6|confirmed',
 			'password_confirmation' => 'required',
 		));
 
@@ -88,12 +88,12 @@ class AdminAuthController extends Controller {
 					$user->password = $password;
 					$user->save();
 
-					return Redirect::route('login')->with('password_changed', Lang::get('cms::admin.auth_reset.success.changed'));
+					return Redirect::route('login')->with('success', Lang::get('gorilla.auth.reset.msg.success'));
 				});
 
 				if (Session::has('error'))
 				{
-					Session::flash('errors', Lang::get(Session::get('reason')));
+					Session::flash('errors', Lang::get('gorilla.' . Session::get('reason')));
 				}
 
 				return $reset;
