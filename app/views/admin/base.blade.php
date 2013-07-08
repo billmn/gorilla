@@ -21,6 +21,7 @@
 	{{ g_style('js/plugins/pickadate/themes/default.time.css') }}
 
 	{{ g_style('css/admin.css') }}
+	{{ g_style('css/admin-responsive.css') }}
 
 	{{ g_script('js/modernizr.min.js') }}
 </head>
@@ -61,10 +62,6 @@
 				<a href="{{ URL::route('admin_user_update', array('id' => $logged->id)) }}">@lang('gorilla.actions.update')</a> &middot;
 				<a href="{{ URL::route('logout') }}">@lang('gorilla.actions.logout')</a>
 			</div>
-		</div>
-
-		<div id="copyright">
-			Created by <a href="https://github.com/billmn" target="_blank">Davide Bellini</a>
 		</div>
 	</div>
 	@show

@@ -14,6 +14,7 @@ html, body {
 	bottom: 0;
 	width: 240px;
 	color: #ffffff;
+	overflow: auto;
 	padding: 0 15px;
 	position: fixed;
 	background-color: #18213D;
@@ -207,11 +208,6 @@ table .actions .button {
 | SIDEBAR
 |--------------------------------------------------------------------------
 */
-#sidebar #copyright {
-	bottom: 1em;
-	font-size: 0.7em;
-	position: absolute;
-}
 #sidebar [class*="foundicon-"] {
 	margin-right: 5px;
 }
