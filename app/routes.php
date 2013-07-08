@@ -18,10 +18,10 @@
 */
 Route::group(array('prefix' => 'admin'), function()
 {
-	Route::any('login',  array('as' => 'login',  'uses' => 'AdminAuthController@login'));
-	Route::get('logout', array('as' => 'logout', 'uses' => 'AdminAuthController@logout'));
-	Route::any('forgot', array('as' => 'forgot', 'uses' => 'AdminAuthController@forgot'));
-	Route::any('reset',  array('as' => 'reset',  'uses' => 'AdminAuthController@reset'));
+	Route::any('login',          array('as' => 'login',  'uses' => 'AdminAuthController@login'));
+	Route::get('logout',         array('as' => 'logout', 'uses' => 'AdminAuthController@logout'));
+	Route::any('forgot',         array('as' => 'forgot', 'uses' => 'AdminAuthController@forgot'));
+	Route::any('reset/{token}',  array('as' => 'reset',  'uses' => 'AdminAuthController@reset'));
 
 	Route::group(array('before' => 'auth'), function()
 	{

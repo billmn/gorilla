@@ -19,8 +19,7 @@ class AdminAuthController extends Controller {
 			}
 			else
 			{
-				Session::flash('errors', Lang::get('gorilla.auth.login.msg.failed'));
-				return Redirect::back()->withInput();
+				return Redirect::back()->withInput()->with('errors', Lang::get('gorilla.auth.login.msg.failed'));
 			}
 		}
 
@@ -35,12 +34,77 @@ class AdminAuthController extends Controller {
 
 	public function forgot()
 	{
+		$validator = Validator::make(Input::get(), array(
+			'email' => 'required|email',
+		));
+
+		if ($_POST)
+		{
+			if ($validator->passes())
+			{
+				$credentials = array('email' => Input::get('email'));
+
+				$reminder = Password::remind($credentials, function($mail)
+				{
+					$mail->subject(Lang::get('gorilla.auth.forgot.email.subject'));
+				});
+
+				if (Session::has('error'))
+				{
+					Session::flash('errors', Lang::get('gorilla.' . Session::get('reason')));
+				}
+				elseif (Session::has('success'))
+				{
+					Session::flash('success', Lang::get('gorilla.auth.forgot.msg.success'));
+				}
+
+				return $reminder;
+			}
+			else
+			{
+				return Redirect::back()->withInput()->withErrors($validator);
+			}
+		}
+
 		return View::make('admin.auth.forgot');
 	}
 
-	public function reset()
+	public function reset($token)
 	{
-		return View::make('admin.auth.reset');
+		$validator = Validator::make(Input::get(), array(
+			'email'                 => 'required|email',
+			'password'              => 'required|confirmed',
+			'password_confirmation' => 'required',
+		));
+
+		if ($_POST)
+		{
+			$credentials = array('email' => Input::get('email'));
+
+			if ($validator->passes())
+			{
+				$reset = Password::reset($credentials, function($user, $password)
+				{
+					$user->password = $password;
+					$user->save();
+
+					return Redirect::route('login')->with('password_changed', Lang::get('cms::admin.auth_reset.success.changed'));
+				});
+
+				if (Session::has('error'))
+				{
+					Session::flash('errors', Lang::get(Session::get('reason')));
+				}
+
+				return $reset;
+			}
+			else
+			{
+				return Redirect::back()->withInput($credentials)->withErrors($validator);
+			}
+		}
+
+		return View::make('admin.auth.reset')->with('token', $token);
 	}
 
 }
