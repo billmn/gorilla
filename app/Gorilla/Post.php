@@ -22,6 +22,11 @@ class Post extends Model {
 		return $this->hasMany(__NAMESPACE__ . '\Tag');
 	}
 
+	public function author()
+	{
+		return $this->belongsTo(__NAMESPACE__ . '\User', 'created_by');
+	}
+
 	/*
 	|--------------------------------------------------------------------------
 	| EVENTS

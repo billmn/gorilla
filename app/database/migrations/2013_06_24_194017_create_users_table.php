@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration {
 			$table->boolean('enabled')->default(true);
 			$table->timestamp('last_login');
 			$table->timestamps();
-			$table->string('created_by');
-			$table->string('updated_by');
+			$table->integer('created_by')->unsigned()->nullable();
+			$table->integer('updated_by')->unsigned()->nullable();
 		});
 	}
 

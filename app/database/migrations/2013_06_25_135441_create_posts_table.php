@@ -20,8 +20,8 @@ class CreatePostsTable extends Migration {
 			$table->text('content');
 			$table->timestamp('publish_date');
 			$table->timestamps();
-			$table->string('created_by');
-			$table->string('updated_by');
+			$table->integer('created_by')->unsigned()->nullable();
+			$table->integer('updated_by')->unsigned()->nullable();
 		});
 
 		Schema::create('tags', function($table)
@@ -30,8 +30,8 @@ class CreatePostsTable extends Migration {
 			$table->string('post_id');
 			$table->string('name');
 			$table->timestamps();
-			$table->string('created_by');
-			$table->string('updated_by');
+			$table->integer('created_by')->unsigned()->nullable();
+			$table->integer('updated_by')->unsigned()->nullable();
 		});
 	}
 

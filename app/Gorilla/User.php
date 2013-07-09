@@ -59,6 +59,12 @@ class User extends Model implements UserInterface, RemindableInterface {
 	}
 
 
+	public function posts()
+	{
+		return $this->hasMany(__NAMESPACE__ . '\Post', 'created_by');
+	}
+
+
 	/*
 	|--------------------------------------------------------------------------
 	| EVENTS

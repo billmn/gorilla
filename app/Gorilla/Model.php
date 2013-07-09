@@ -48,15 +48,15 @@ abstract class Model extends Eloquent {
 	 */
 	public function registerAuthor()
 	{
-		$username = Auth::check() ? Auth::user()->username : 'anonymous';
+		$userId = Auth::check() ? Auth::user()->id : null;
 
 		if ( ! $this->exists)
 		{
-			$this->{static::CREATED_BY} = $this->{static::UPDATED_BY} = $username;
+			$this->{static::CREATED_BY} = $this->{static::UPDATED_BY} = $userId;
 		}
 		else
 		{
-			$this->{static::UPDATED_BY} = $username;
+			$this->{static::UPDATED_BY} = $userId;
 		}
 	}
 

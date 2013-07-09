@@ -245,6 +245,7 @@ return array(
 			'password_confirmation' => 'Conferma Password',
 			'enabled'               => 'Abilitato',
 			'last_login'            => 'Ultimo accesso',
+			'posts'                 => 'Posts',
 		),
 
 		'msg' => array(

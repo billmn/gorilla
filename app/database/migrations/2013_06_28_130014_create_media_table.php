@@ -21,8 +21,8 @@ class CreateMediaTable extends Migration {
 			$table->string('thumb', 255)->nullable();
 			$table->integer('size')->unsigned();
 			$table->timestamps();
-			$table->string('created_by');
-			$table->string('updated_by');
+			$table->integer('created_by')->unsigned()->nullable();
+			$table->integer('updated_by')->unsigned()->nullable();
 		});
 	}
 
