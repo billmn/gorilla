@@ -50,6 +50,7 @@ class Extensions extends \TwigBridge\Extension
 			new Twig_SimpleFilter('words',    array($this, 'twig_filter_words')),
 			new Twig_SimpleFilter('truncate', array($this, 'twig_filter_truncate')),
 			new Twig_SimpleFilter('resample', array($this, 'twig_filter_resample')),
+			new Twig_SimpleFilter('gravatar', array($this, 'twig_filter_gravatar')),
 		);
 	}
 
@@ -111,6 +112,20 @@ class Extensions extends \TwigBridge\Extension
 		return urldecode(URL::route('resampler', array('url' => $url) + $params));
 	}
 
+	/**
+	 * Gravatar URL from Email address
+	 *
+	 * @param string $email   Email address
+	 * @param string $size    Size in pixels
+	 * @param string $default Default image [ 404 | mm | identicon | monsterid | wavatar ]
+	 * @param string $rating  Max rating [ g | pg | r | x ]
+	 *
+	 * @return string
+	 */
+	public function twig_filter_gravatar($email, $size = 60, $default = 'mm', $rating = 'g')
+	{
+		return 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . "?s={$size}&d={$default}&r={$rating}";
+	}
 
 	/*
 	|--------------------------------------------------------------------------
