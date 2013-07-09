@@ -1,6 +1,8 @@
 @extends('admin.auth.base')
 
 @section('content')
+<h4 class="gorilla-sub text-center">@lang('gorilla.auth.forgot.title')</h4>
+
 {{ Form::open(array('class' => 'custom')) }}
 
 	{{ Form::alert('alert') }}

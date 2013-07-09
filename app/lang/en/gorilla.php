@@ -158,7 +158,7 @@ return array(
 
 			'actions' => array(
 				'login' => 'Torna al Login',
-				'reset' => 'RESET',
+				'reset' => 'Reset password',
 			),
 
 			'msg' => array(
