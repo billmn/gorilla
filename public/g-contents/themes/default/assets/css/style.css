@@ -118,6 +118,10 @@ footer > .container {
 	overflow: hidden;
 	max-height: 150px;
 }
+.post-image-cont:hover,
+.post-image-cont:focus {
+	background-color: transparent;
+}
 .post-image {
 	margin-bottom: 10px;
 }
