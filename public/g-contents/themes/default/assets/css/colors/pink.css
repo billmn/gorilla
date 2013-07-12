@@ -1,0 +1,54 @@
+
+#wrap > .container {
+	border-top-color: #f43059;
+}
+
+a {
+	color: #f43059;
+}
+a:hover,
+a:focus {
+	background-color: #f43059;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+*/
+.header-menu > li > a {
+	color: #666666;
+}
+.header-menu > li > a:hover,
+.header-menu > li > a:focus,
+.header-menu > li.active > a,
+.header-menu > li.active > a:hover,
+.header-menu > li.active > a:focus {
+	color: #ffffff;
+	background-color: #f43059;
+}
+.header-title a:hover,
+.header-title a:focus {
+	color: #f43059;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Footer
+|--------------------------------------------------------------------------
+*/
+footer {
+	background-color: #f43059;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Posts
+|--------------------------------------------------------------------------
+*/
+.post {
+	border-top-color: #f43059;
+}
+.post-tags > a {
+	background-color: #f43059;
+}

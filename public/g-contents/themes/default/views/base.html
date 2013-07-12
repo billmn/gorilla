@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Gorilla</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+
+		{{ style("assets/css/bootstrap.min.css") }}
+		{{ style("assets/css/bootstrap-responsive.min.css") }}
+		{{ style("assets/css/plugins/magnific/magnific-popup.css") }}
+		{{ style("assets/css/style.css") }}
+		{{ style("assets/css/colors/green.css") }}
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!--[if IE 7]>
+			{{ style("assets/css/font-awesome-ie7.min.css") }}
+		<![endif]-->
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="container">
+				<header>
+					<div class="row">
+						<div class="span3">
+							<h1 class="header-title">
+								<a href="/">gorilla</a>
+							</h1>
+						</div>
+						<div class="span9">
+							<ul class="header-menu nav nav-pills pull-right">
+								<li class="active"><a href="#">Home</a></li>
+								<li><a href="/rss">RSS</a></li>
+							</ul>
+						</div>
+					</div>
+				</header>
+
+				{% block contents %}{% endblock %}
+			</div>
+
+			<div id="push"></div>
+		</div>
+
+		<footer>
+			<div class="container">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			</div>
+		</footer>
+
+		<!-- scripts -->
+		{{ script("assets/js/jquery.min.js") }}
+		{{ script("assets/js/bootstrap.min.js") }}
+		{{ script("assets/js/plugins/magnific/jquery.magnific-popup.min.js") }}
+		{{ script("assets/js/scripts.js") }}
+	</body>
+</html>

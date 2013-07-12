@@ -1,120 +1,32 @@
-<!DOCTYPE HTML>
-<!--
-	Miniport 2.0 by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>{% block title %}{{ gorilla.settings('website_title') }}{% endblock %}</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+{% extends 'base' %}
 
-		{{ style('//fonts.googleapis.com/css?family=Open+Sans:300,600,700') }}
-
-		<script type="text/javascript">
-			var theme_path = '{{ theme.path }}';
-		</script>
-
-		{{ script('assets/js/jquery.min.js') }}
-		{{ script('assets/js/config.js') }}
-		{{ script('assets/js/skel.min.js') }}
-
-		<noscript>
-			{{ style('assets/css/skel-noscript.css') }}
-			{{ style('assets/css/style.css') }}
-			{{ style('assets/css/style-desktop.css') }}
-		</noscript>
-
-		<!--[if lte IE 9]>{{ style('assets/css/ie9.css') }} <![endif]-->
-		<!--[if lte IE 8]>{{ script('assets/js/html5shiv.js') }}{{ style('assets/css/ie8.css') }} <![endif]-->
-		<!--[if lte IE 7]>{{ style('assets/css/ie7.css') }}'<![endif]-->
-	</head>
-	<body>
-
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li><a href="{{ url('/') }}">Home</a></li>
-				<li><a href="{{ url('/landing') }}">Landing</a></li>
-				<li><a href="{{ url('/rss') }}">RSS</a></li>
-			</ul>
-		</nav>
-
-		<!-- Home -->
-		{% block header %}
-		<div class="wrapper wrapper-style1 wrapper-first">
-			<article class="container" id="top">
-				<div class="row">
-					<div class="4u">
-						<span class="me image image-full">{{ image("http://www.gravatar.com/avatar/e8f46a74ec2c705a8db1e92257b5d625?s=300") }}</span>
-					</div>
-					<div class="8u">
-						<header>
-							<h1>{{ gorilla.settings('website_title') }}</h1>
-						</header>
-
-						<p>{{ gorilla.settings('website_slogan') }}</p>
-						<a href="/landing" class="button button-big">Landing page</a>
-					</div>
+{% block contents %}
+<section id="content">
+	{% for post in gorilla.posts() %}
+	<article class="post">
+		<div class="row">
+			<div class="span3">
+				<div class="post-info">
+					<strong>{{ post.author.username }}</strong>
+					<p>{{ post.publish_date|date('d M Y H:i')|upper }}</p>
 				</div>
-			</article>
-		</div>
-		{% endblock %}
 
-		<!-- Portfolio -->
-		{% block contents %}
-		<div class="wrapper wrapper-style3">
-			<article id="portfolio">
-				<div class="container">
-					{% for post in gorilla.posts() %}
-						{% if loop.first or loop.index0 is divisibleby(3) %}
-						<div class="row">
-						{% endif %}
-
-							<div class="4u">
-								<article class="box box-style2">
-									<a href="post/{{ post.slug }}">
-										<div class="image image-full">{{ image(post.image.url) }}</div>
-										<h3>{{ post.title }}</h3>
-
-										<p>{{ post.publish_date|date('d/m/Y H:i') }}</p>
-										<p class="excerpt">{{ post.content|striptags|truncate(60) }}</p>
-									</a>
-								</article>
-							</div>
-
-						{% if not loop.first and loop.index is divisibleby(3) %}
-						</div>
-						{% endif %}
-					{% endfor %}
+				{% if post.image %}
+				<a href="{{ post.url }}">
+					<img class="post-image" src="{{ post.image.url|resample({ resize: 270 }) }}" alt="{{ post.image.name }}">
+				</a>
+				{% endif %}
+			</div>
+			<div class="span9">
+				<h3 class="post-title">
+					<a href="{{ post.url }}">{{ post.title }}</a>
+				</h3>
+				<div class="post-content">
+					{{ post.content|truncate(800) }}
 				</div>
-			</article>
+			</div>
 		</div>
-		{% endblock %}
-
-		<!-- Contact -->
-		{% block footer %}
-		<div class="wrapper wrapper-style4">
-			<article id="contact">
-				<div>
-					<div class="row row-special">
-						<div class="12u">
-							<h3>Social</h3>
-							<ul class="social">
-								<li class="twitter"><a href="http://twitter.com/billmn" class="icon icon-twitter"><span>Twitter</span></a></li>
-								<li class="facebook"><a href="http://facebook.com/billmn83" class="icon icon-facebook"><span>Facebook</span></a></li>
-								<li class="github"><a href="http://github.com/billmn/gorilla" class="icon icon-github"><span>Github</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<footer>
-					<p id="copyright">
-						{{ gorilla.settings('website_footer') }} | Images: <a href="http://fotogrph.com">fotogrph</a> | Design: <a href="http://html5up.net/">HTML5 UP</a>
-					</p>
-				</footer>
-			</article>
-		</div>
-		{% endblock %}
-	</body>
-</html>
+	</article>
+	{% endfor %}
+</section>
+{% endblock %}
