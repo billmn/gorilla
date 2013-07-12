@@ -1,5 +1,8 @@
 <?php namespace Gorilla;
 
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\URL;
+
 class Tag extends Model {
 
 	protected $table = 'tags';
@@ -8,6 +11,16 @@ class Tag extends Model {
 	public function posts()
 	{
 		return $this->belongsTo(__NAMESPACE__ . '\Post');
+	}
+
+	/*
+	|--------------------------------------------------------------------------
+	| ACCESSORS
+	|--------------------------------------------------------------------------
+	*/
+	public function getUrlAttribute()
+	{
+		return URL::route('tags', array('name' => Str::slug($this->name)));
 	}
 
 }

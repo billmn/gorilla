@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\URL;
 
 class Post extends Model {
 
@@ -25,6 +26,16 @@ class Post extends Model {
 	public function author()
 	{
 		return $this->belongsTo(__NAMESPACE__ . '\User', 'created_by');
+	}
+
+	/*
+	|--------------------------------------------------------------------------
+	| ACCESSORS
+	|--------------------------------------------------------------------------
+	*/
+	public function getUrlAttribute()
+	{
+		return URL::route('post', array('slug' => $this->slug));
 	}
 
 	/*

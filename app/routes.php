@@ -75,12 +75,17 @@ Route::group(array('prefix' => 'api/v1', 'before' => 'auth.api'), function()
 */
 Route::controller('install', 'InstallController');
 
-
+/*
+|--------------------------------------------------------------------------
+| FRONTEND
+|--------------------------------------------------------------------------
+*/
 app('gorilla.theme')->routes();
 
 Route::any('/',           array('as' => 'home',      'uses' => 'PublicController@home'));
 Route::any('rss',         array('as' => 'rss',       'uses' => 'PublicController@rss'));
 Route::any('post/{slug}', array('as' => 'post',      'uses' => 'PublicController@post'));
+Route::any('tags/{name}', array('as' => 'tags',      'uses' => 'PublicController@tags'));
 Route::any('resample',    array('as' => 'resampler', 'uses' => 'ResamplerController@resample'));
 
 

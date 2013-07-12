@@ -97,7 +97,7 @@ class Extensions extends \TwigBridge\Extension
 		return Str::words($value, $words, $end);
 	}
 
-	public function twig_filter_truncate($value, $limit = 100, $end = '...')
+	public function twig_filter_truncate($value, $limit = 100, $end = ' ...')
 	{
 		return Str::limit($value, $limit, $end);
 	}
