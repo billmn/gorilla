@@ -24,11 +24,13 @@ class AdminPostController extends AdminBaseController {
 
 			if ($validator->passes())
 			{
+				$publishDate = Carbon::createFromFormat('Y-m-d H:i', Input::get('publish_date') . ' ' . Input::get('publish_time'));
+
 				$post->title        = Input::get('title');
 				$post->slug         = Input::get('slug');
 				$post->content      = Input::get('content');
 				$post->media_id     = Input::get('media_id');
-				$post->publish_date = Input::get('publish_date');
+				$post->publish_date = $publishDate;
 				$post->save();
 
 				// Update Tags
@@ -69,11 +71,13 @@ class AdminPostController extends AdminBaseController {
 
 			if ($validator->passes())
 			{
+				$publishDate = Carbon::createFromFormat('Y-m-d H:i', Input::get('publish_date') . ' ' . Input::get('publish_time'));
+
 				$post->title        = Input::get('title');
 				$post->slug         = Input::get('slug');
 				$post->content      = Input::get('content');
 				$post->media_id     = Input::get('media_id');
-				$post->publish_date = Input::get('publish_date');
+				$post->publish_date = $publishDate;
 				$post->save();
 
 				// Update Tags
