@@ -87,6 +87,10 @@ footer {
 	overflow: hidden;
 	background-color: #666666;
 }
+footer a {
+	color: #ffffff;
+	text-decoration: underline;
+}
 footer > .container {
 	padding: 8px 0;
 }

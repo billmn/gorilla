@@ -2,11 +2,11 @@
 
 {% block contents %}
 <section id="content">
-	<div class="tag-filter">
-		<h3>TAG &raquo; <span>{{ tag.name }}</span></h3>
-	</div>
-
 	{% set posts = gorilla.posts({ with_tag: tag.slug, paginate: 5 }) %}
+
+	<div class="tag-filter">
+		<h3>TAG &raquo; <span>{{ tag.name }} &emsp; ( {{ posts.count() }} )</span></h3>
+	</div>
 
 	{% for post in posts %}
 	<article class="post">

@@ -25,6 +25,8 @@ class Theme {
 
 		View::getFinder()->addLocation("{$this->path}/views");
 
+		$this->info();
+
 		return $this;
 	}
 
