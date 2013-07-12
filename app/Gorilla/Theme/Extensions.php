@@ -60,6 +60,7 @@ class Extensions extends \TwigBridge\Extension
 	public function getFunctions()
 	{
 		return array(
+			new Twig_SimpleFunction('url',    array($this, 'twig_function_url'),    array('is_safe' => array('html'))),
 			new Twig_SimpleFunction('asset',  array($this, 'twig_function_asset'),  array('is_safe' => array('html'))),
 			new Twig_SimpleFunction('style',  array($this, 'twig_function_style'),  array('is_safe' => array('html'))),
 			new Twig_SimpleFunction('image',  array($this, 'twig_function_image'),  array('is_safe' => array('html'))),
@@ -132,6 +133,11 @@ class Extensions extends \TwigBridge\Extension
 	| FUNCTIONS
 	|--------------------------------------------------------------------------
 	*/
+	public function twig_function_url($route, $params = array())
+	{
+		return URL::route($route, $params);
+	}
+
 	public function twig_function_asset($url)
 	{
 		return $this->theme->assets()->url($url);
