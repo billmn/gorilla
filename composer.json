@@ -5,6 +5,7 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"guzzle/guzzle": "3.7.*@dev",
+		"loic-sharma/profiler": "1.1.*",
 		"rcrowe/twigbridge": "dev-master",
 		"intervention/image": "dev-master"
 	},
