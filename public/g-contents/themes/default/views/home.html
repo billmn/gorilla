@@ -2,7 +2,9 @@
 
 {% block contents %}
 <section id="content">
-	{% for post in gorilla.posts() %}
+	{% set posts = gorilla.posts({ paginate: 5 }) %}
+
+	{% for post in posts %}
 	<article class="post">
 		<div class="row">
 			<div class="span3">
@@ -28,5 +30,11 @@
 		</div>
 	</article>
 	{% endfor %}
+
+	{% if posts.links|trim %}
+	<div class="post-pagination pagination-centered">
+		{{ posts.links }}
+	</div>
+	{% endif %}
 </section>
 {% endblock %}

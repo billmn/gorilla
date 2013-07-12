@@ -5,9 +5,10 @@ use Gorilla\Settings;
 
 class Tags {
 
-	public function posts()
+	public function posts($params = array())
 	{
-		return Post::orderBy('publish_date', 'desc')->get();
+		$posts = Post::orderBy('publish_date', 'desc');
+		return isset($params['paginate']) ? $posts->paginate($params['paginate']) : $posts->get();
 	}
 
 	public function settings($name, $default = null)
