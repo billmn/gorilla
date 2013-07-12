@@ -28,10 +28,13 @@ class CreatePostsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('post_id');
+			$table->string('slug');
 			$table->string('name');
 			$table->timestamps();
 			$table->integer('created_by')->unsigned()->nullable();
 			$table->integer('updated_by')->unsigned()->nullable();
+
+			$table->unique(array('post_id', 'name'));
 		});
 	}
 

@@ -1,5 +1,6 @@
 <?php
 
+use Gorilla\Tag;
 use Gorilla\Post;
 use Gorilla\Settings;
 
@@ -29,6 +30,12 @@ class PublicController extends Controller {
 		{
 			return $this->theme->show('404');
 		}
+	}
+
+	public function tag($slug)
+	{
+		$tag = Tag::whereSlug($slug)->first();
+		return $this->theme->show('tags')->with('tag', $tag);
 	}
 
 	public function rss()

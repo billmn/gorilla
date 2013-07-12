@@ -85,7 +85,7 @@ app('gorilla.theme')->routes();
 Route::any('/',           array('as' => 'home',      'uses' => 'PublicController@home'));
 Route::any('rss',         array('as' => 'rss',       'uses' => 'PublicController@rss'));
 Route::any('post/{slug}', array('as' => 'post',      'uses' => 'PublicController@post'));
-Route::any('tags/{name}', array('as' => 'tags',      'uses' => 'PublicController@tags'));
+Route::any('tag/{name}',  array('as' => 'tag',       'uses' => 'PublicController@tag'));
 Route::any('resample',    array('as' => 'resampler', 'uses' => 'ResamplerController@resample'));
 
 

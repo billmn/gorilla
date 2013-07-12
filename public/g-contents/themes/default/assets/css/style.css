@@ -52,6 +52,7 @@ a:focus {
 */
 header {
 	padding: 10px 0;
+	border-bottom: 1px solid #efefef;
 }
 .header-menu {
 	padding-top: 15px;
@@ -100,6 +101,10 @@ footer > .container {
 	padding: 10px 0;
 	margin-bottom: 20px;
 	border-top: 1px solid #efefef;
+}
+.post:first-child,
+.post-single:first-child {
+	border-top: none;
 }
 .post-avatar {
 	margin: 1em auto;
@@ -153,7 +158,23 @@ footer > .container {
 	color: #333333;
 }
 
-
+/*
+|--------------------------------------------------------------------------
+| Tags
+|--------------------------------------------------------------------------
+*/
+.tag-filter {
+	padding: 10px;
+	margin-top: 20px;
+	background-color: #f9f9f9;
+}
+.tag-filter h3 {
+	margin: 0;
+	color: #999999;
+}
+.tag-filter h3 span{
+	color: #666666;
+}
 
 
 

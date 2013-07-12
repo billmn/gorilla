@@ -1,0 +1,44 @@
+{% extends 'base' %}
+
+{% block contents %}
+<section id="content">
+	<div class="tag-filter">
+		<h3>TAG &raquo; <span>{{ tag.name }}</span></h3>
+	</div>
+
+	{% set posts = gorilla.posts({ with_tag: tag.slug, paginate: 5 }) %}
+
+	{% for post in posts %}
+	<article class="post">
+		<div class="row">
+			<div class="span3">
+				<div class="post-info">
+					<strong>{{ post.author.username }}</strong>
+					<p>{{ post.publish_date|date('d M Y H:i')|upper }}</p>
+				</div>
+
+				{% if post.image %}
+				<a href="{{ post.url }}">
+					<img class="post-image" src="{{ post.image.url|resample({ resize: 270 }) }}" alt="{{ post.image.name }}">
+				</a>
+				{% endif %}
+			</div>
+			<div class="span9">
+				<h3 class="post-title">
+					<a href="{{ post.url }}">{{ post.title }}</a>
+				</h3>
+				<div class="post-content">
+					{{ post.content|truncate(800) }}
+				</div>
+			</div>
+		</div>
+	</article>
+	{% endfor %}
+
+	{% if posts.links|trim %}
+	<div class="post-pagination pagination-centered">
+		{{ posts.links }}
+	</div>
+	{% endif %}
+</section>
+{% endblock %}
