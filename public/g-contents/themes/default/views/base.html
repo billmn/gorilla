@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Gorilla</title>
+		<title>{{ gorilla.settings('website_title') }}</title>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -28,15 +29,18 @@
 			<div class="container">
 				<header>
 					<div class="row">
-						<div class="span3">
+						<div class="span6">
 							<h1 class="header-title">
-								<a href="/">gorilla</a>
+								<a href="/">{{ gorilla.settings('website_title') }}</a>
+
+								{% set slogan = gorilla.settings('website_slogan') %}
+								{% if slogan %}<small>&emsp; {{ slogan }}</small>{% endif %}
 							</h1>
 						</div>
-						<div class="span9">
+						<div class="span6">
 							<ul class="header-menu nav nav-pills pull-right">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="/rss">RSS</a></li>
+								<li class="active"><a href="{{ url('home') }}">Home</a></li>
+								<li><a href="{{ url('rss') }}">RSS</a></li>
 							</ul>
 						</div>
 					</div>
@@ -50,10 +54,7 @@
 
 		<footer>
 			<div class="container">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				{{ gorilla.settings('website_footer') }}
 			</div>
 		</footer>
 
