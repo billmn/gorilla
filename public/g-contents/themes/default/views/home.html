@@ -14,7 +14,7 @@
 				</div>
 
 				{% if post.image %}
-				<a href="{{ post.url }}">
+				<a href="{{ post.url }}" class="post-image-cont">
 					<img class="post-image" src="{{ post.image.url|resample({ resize: 270 }) }}" alt="{{ post.image.name }}">
 				</a>
 				{% endif %}

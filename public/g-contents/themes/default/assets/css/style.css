@@ -113,6 +113,11 @@ footer > .container {
 .post-avatar {
 	margin: 1em auto;
 }
+.post-image-cont {
+	display: block;
+	overflow: hidden;
+	max-height: 150px;
+}
 .post-image {
 	margin-bottom: 10px;
 }
