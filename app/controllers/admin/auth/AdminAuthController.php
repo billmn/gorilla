@@ -1,7 +1,9 @@
 <?php
 
-use Gorilla\User;
 use Carbon\Carbon;
+
+use Gorilla\User;
+use Gorilla\Settings;
 
 class AdminAuthController extends Controller {
 
@@ -12,7 +14,9 @@ class AdminAuthController extends Controller {
 			if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'), 'enabled'=> true), Input::has('remember')))
 			{
 				$user = Auth::user();
-				$user->last_login = Carbon::now();
+				$timezone = Settings::give('timezone', 'UTC');
+
+				$user->last_login = Carbon::now($timezone);
 				$user->save();
 
 				return Redirect::intended(URL::route('admin_home'));

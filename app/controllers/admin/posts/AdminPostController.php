@@ -14,7 +14,7 @@ class AdminPostController extends AdminBaseController {
 	public function create()
 	{
 		$post = new Post;
-		$post->publish_date = Carbon::now();
+		$post->publish_date = $this->now;
 
 		if ($_POST)
 		{
