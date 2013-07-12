@@ -110,7 +110,7 @@ class Extensions extends \TwigBridge\Extension
 			$params[$name] = is_array($value) ? implode(',', $value) : $value;
 		}
 
-		return urldecode(URL::route('resampler', array('url' => $url) + $params));
+		return URL::route('resampler', array('url' => $url) + $params);
 	}
 
 	/**
