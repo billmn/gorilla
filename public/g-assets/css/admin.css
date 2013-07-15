@@ -111,6 +111,7 @@ input:focus:invalid {
 }
 
 table .actions {
+	width: 150px;
 	text-align: right;
 }
 table .actions .button {
@@ -362,6 +363,9 @@ body.without-sidebar .upload.button {
 | POSTS
 |--------------------------------------------------------------------------
 */
+.post-title-cell {
+	width: 300px;
+}
 .post-form input[name="title"] {
 	font-size: 1.2em;
 }

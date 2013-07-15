@@ -20,8 +20,8 @@
 	<table class="full-width">
 		<thead>
 			<tr>
-				<th>@lang('gorilla.posts.fields.title')</th>
-				<th>@lang('gorilla.posts.fields.slug')</th>
+				<th class="post-title-cell">@lang('gorilla.posts.fields.title')</th>
+				<td class="text-center">@lang('gorilla.posts.fields.slug')</th>
 				<td class="text-center">@lang('gorilla.posts.fields.publish_date')</th>
 				<th></th>
 			</tr>
@@ -29,12 +29,14 @@
 		<tbody>
 			@foreach ($posts as $post)
 			<tr>
-				<td><a href="{{ URL::route('admin_post_update', array('id' => $post->id)) }}">{{ $post->title }}</a></td>
 				<td>
-					{{ $post->slug }}
+					<a href="{{ URL::route('admin_post_update', array('id' => $post->id)) }}">{{ $post->title }}</a>
 				</td>
 				<td class="text-center">
-					{{ $post->publish_date }}
+					{{ $post->author->username }}
+				</td>
+				<td class="text-center">
+					{{ $post->publish_date->format('d/m/Y H:i') }} <span class="text-muted">( {{ $post->publish_date->diffForHumans() }} )</span>
 				</td>
 				<td class="actions">
 					<a href="{{ URL::route('admin_post_delete', array('id' => $post->id)) }}" class="tiny alert button confirm">@lang('gorilla.actions.delete')</a>

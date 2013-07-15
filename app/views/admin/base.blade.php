@@ -89,6 +89,7 @@
 	{{ g_script('js/jquery.min.js') }}
 	{{ g_script('js/plugins/foundation/foundation.min.js') }}
 	{{ g_script('js/plugins/placeholder/jquery.placeholder.min.js') }}
+	{{ g_script('js/plugins/moment/moment.min.js') }}
 	{{ g_script('js/plugins/select2/select2.min.js') }}
 	{{ g_script('js/plugins/select2/select2_locale_it.js') }}
 	{{ g_script('js/plugins/dropzone/dropzone.min.js') }}
