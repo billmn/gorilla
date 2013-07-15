@@ -21,8 +21,8 @@
 		<thead>
 			<tr>
 				<th class="post-title-cell">@lang('gorilla.posts.fields.title')</th>
-				<td class="text-center">@lang('gorilla.posts.fields.slug')</th>
-				<td class="text-center">@lang('gorilla.posts.fields.publish_date')</th>
+				<th class="text-center">@lang('gorilla.posts.fields.slug')</th>
+				<th class="text-center">@lang('gorilla.posts.fields.publish_date')</th>
 				<th></th>
 			</tr>
 		</thead>

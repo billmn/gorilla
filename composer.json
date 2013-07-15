@@ -10,10 +10,8 @@
 		"intervention/image": "dev-master"
 	},
 	"autoload": {
-		"psr-0": {
-			"Gorilla": "app"
-		},
 		"classmap": [
+			"app/lib",
 			"app/commands",
 			"app/controllers",
 			"app/models",
