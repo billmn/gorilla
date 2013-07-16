@@ -1,6 +1,7 @@
 <?php namespace Gorilla\Support;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Config;
 
 class Setup {
@@ -56,6 +57,19 @@ class Setup {
 
 		$content = '<?php' . PHP_EOL . 'return ' . $export . ';';
 		return is_numeric(File::put($this->config, $content));
+	}
+
+	public function getBrowserLang($default = 'en')
+	{
+		$browserLang   = strtolower(substr(Input::server('HTTP_ACCEPT_LANGUAGE'), 0, 2));
+		$supportedLang = array('en', 'it');
+
+		if (in_array($browserLang, $supportedLang))
+		{
+			return $browserLang;
+		}
+
+		return $default;
 	}
 
 }

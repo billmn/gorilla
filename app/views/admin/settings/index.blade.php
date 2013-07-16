@@ -11,7 +11,7 @@
 
 {{ Form::alert('success', 'notify_confirm') }}
 
-{{ Form::model($settings) }}
+{{ Form::model($settings, array('class' => 'custom')) }}
 
 	<div class="row">
 		<div class="large-3 columns">
@@ -42,18 +42,18 @@
 
 	<div class="row">
 		<div class="large-3 columns">
-			<label class="inline">@lang('gorilla.settings.fields.timezone')</label>
-		</div>
-		<div class="large-9 columns">
-			{{ Form::select('timezone', $timezones) }}
-		</div>
-	</div>
-	<div class="row">
-		<div class="large-3 columns">
 			<label class="inline">@lang('gorilla.settings.fields.theme')</label>
 		</div>
 		<div class="large-9 columns">
 			{{ Form::select('theme', $themes) }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-3 columns">
+			<label class="inline">@lang('gorilla.settings.fields.timezone')</label>
+		</div>
+		<div class="large-9 columns">
+			{{ Form::select('timezone', $timezones, null, array('data-customforms' => 'disabled', 'class' => 'select2')) }}
 		</div>
 	</div>
 

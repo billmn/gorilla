@@ -10,6 +10,8 @@ class InstallController extends Controller {
 		{
 			return App::abort(404, 'Page not found');
 		}
+
+		Config::set('app.locale', app('gorilla.setup')->getBrowserLang());
 	}
 
 	public function getIndex()

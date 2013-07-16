@@ -7,6 +7,11 @@ use Gorilla\Settings;
 
 class AdminAuthController extends Controller {
 
+	public function __construct()
+	{
+		Config::set('app.locale', app('gorilla.setup')->getBrowserLang());
+	}
+
 	public function login()
 	{
 		if ($_POST)
