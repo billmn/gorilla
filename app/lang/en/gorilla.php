@@ -10,29 +10,29 @@ return array(
 	| Common
 	|--------------------------------------------------------------------------
 	*/
-	'website_preview' => 'Anteprima Sito',
+	'website_preview' => 'Website Preview',
 
 	'actions' => array(
-		'create'  => 'Crea',
-		'update'  => 'Modifica',
-		'delete'  => 'Elimina',
+		'create'  => 'Create',
+		'update'  => 'Update',
+		'delete'  => 'Delete',
 		'logout'  => 'Logout',
-		'save'    => 'Salva',
-		'back'    => 'Torna indietro',
+		'save'    => 'Save',
+		'back'    => 'Back',
 	),
 
 	'questions' => array(
-		'confirm' => 'Sei sicuro di voler procedere ?',
+		'confirm' => 'Are you sure to proceed ?',
 	),
 
 	'messages' => array(
-		'confirm' => 'Operazione completata con successo',
+		'confirm' => 'Operation completed successfully',
 	),
 
 	'reminders' => array(
-		'user'     => 'Indirizzo email non trovato.',
-		'token'    => 'Token per il reset della password non valido.',
-		'password' => 'La password deve essere di almeno 6 caratteri e corrispondere al campo di conferma.',
+		'user'     => 'Email address not found.',
+		'token'    => 'This password reset token is invalid.',
+		'password' => 'Passwords must be six characters and match the confirmation.',
 	),
 
 	/*
@@ -41,16 +41,16 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
 	'install' => array(
-		'next' => 'Avanti &raquo;',
+		'next' => 'Next &raquo;',
 
-		// Checl requirements
+		// Check requirements
 		'check' => array(
-			'title'    => 'Requisiti',
-			'subtitle' => 'Verifica requisiti di sistema',
-			'repeat'   => 'Ripeti verifica',
+			'title'    => 'Requirements',
+			'subtitle' => 'Check system requirements',
+			'repeat'   => 'Repeat',
 
 			'requirements' => array(
-				'php_version'  => 'Versione PHP',
+				'php_version'  => 'PHP Version',
 				'ext_pdo'      => 'PDO',
 				'ext_mcrypt'   => 'Mcrypt',
 				'ext_fileinfo' => 'Fileinfo',
@@ -61,11 +61,11 @@ return array(
 		// Step 1
 		'step1' => array(
 			'title'    => 'Step 1',
-			'subtitle' => 'Connessione al database',
+			'subtitle' => 'Database connection',
 
 			'fields' => array(
 				'host'     => 'Host',
-				'name'     => 'Nome database',
+				'name'     => 'Database name',
 				'username' => 'Username',
 				'password' => 'Password',
 			),
@@ -74,23 +74,23 @@ return array(
 		// Step 2
 		'step2' => array(
 			'title'       => 'Step 2',
-			'subtitle'    => 'Configurazione utente Admin',
-			'description' => 'Imposta la password per l\'utente amministratore del sito.',
+			'subtitle'    => 'Admin user configuration',
+			'description' => 'Set password for the administration user.',
 
 			'fields' => array(
 				'username' => 'Username',
 				'email'    => 'Email',
 				'password' => 'Password',
-				'password_confirmation' => 'Ripeti Password',
+				'password_confirmation' => 'Repeat Password',
 			),
 		),
 
 		// Step 3
 		'step3' => array(
-			'title'       => 'Congratulazioni !',
-			'subtitle'    => 'Installazione completata',
-			'description' => 'E\' andato tutto secondo i piani !<br />Ora puoi accedere al pannello e configurare il tuo nuovo sito',
-			'go_to_admin' => 'Vai al pannello',
+			'title'       => 'Congratulation !',
+			'subtitle'    => 'Installation completed',
+			'description' => 'Everything went according to plan!<br />Now you can access to the administration panel and configure your new website',
+			'go_to_admin' => 'Go to the panel',
 		),
 	),
 
@@ -107,62 +107,62 @@ return array(
 			'fields' => array(
 				'username' => 'Username',
 				'password' => 'Password',
-				'remember' => 'Ricordami',
+				'remember' => 'Remember me',
 			),
 
 			'actions' => array(
-				'login'  => 'Accedi',
-				'forgot' => 'Hai perso la password ?',
+				'login'  => 'Login',
+				'forgot' => 'Lost your password?',
 			),
 
 			'msg' => array(
-				'failed' => 'Utente o password errati',
+				'failed' => 'Wrong username or password',
 			),
 		),
 
 		// Forgot password
 		'forgot' => array(
-			'title' => 'Recupero password',
+			'title' => 'Password recovery',
 
 			'fields' => array(
-				'email' => 'Inserisci il tuo indirizzo Email',
+				'email' => 'Insert your e-mail address',
 			),
 
 			'actions' => array(
-				'login'  => 'Torna al Login',
-				'forgot' => 'Recupera password',
+				'login'  => 'Back to login',
+				'forgot' => 'Recover password',
 			),
 
 			'msg' => array(
-				'failed'  => 'Utente o password errati',
-				'success' => 'Fatto! Controlla la casella email.',
+				'failed'  => 'Wrong username or password',
+				'success' => 'Done! Check your email inbox.',
 			),
 
 			'email' => array(
-				'title'   => 'Richiesta reset password',
-				'subject' => 'Richiesta reset password',
-				'body'    => 'Ciao :display_name,<br /> hai richiesto il reset della password dal sito <a href=":domain" target="_blank">:domain</a> ... non preoccuparti, succede anche ai migliori ! ;)<br /><br />Se vuoi procedere al cambio password clicca sul pulsante qui sotto.',
-				'btn'     => 'Cambia la password',
+				'title'   => 'Password reset request',
+				'subject' => 'Password reset request',
+				'body'    => 'Hello: display_name, <br /> you have requested a password reset from <a href=":domain" target="_blank">: domain </ a> ... don\'t worry, it happens to even the best! ;) <br /> <br /> If you want to proceed to the change of password click on the button below.',
+				'btn'     => 'Change the password',
 			),
 		),
 
 		// Reset password
 		'reset' => array(
-			'title' => 'Reset password',
+			'title' => 'Password reset',
 
 			'fields' => array(
-				'email'                 => 'Inserisci il tuo indirizzo Email',
+				'email'                 => 'Insert your email address',
 				'password'              => 'Password',
-				'password_confirmation' => 'Conferma Password',
+				'password_confirmation' => 'Password confirm',
 			),
 
 			'actions' => array(
-				'login' => 'Torna al Login',
+				'login' => 'Back to login',
 				'reset' => 'Reset password',
 			),
 
 			'msg' => array(
-				'success' => 'Password aggiornata.',
+				'success' => 'Password updated.',
 			),
 		),
 	),
@@ -177,16 +177,16 @@ return array(
 		'sing'  => 'post',
 		'plur'  => 'posts',
 
-		'empty'     => 'Nessun post inserito',
-		'slug_auto' => 'Automatico ...',
-		'image'     => 'Seleziona un\'immagine ...',
+		'empty'     => 'No posts inserted',
+		'slug_auto' => 'Automatic ...',
+		'image'     => 'Select an image ...',
 
 		'fields' => array(
-			'title'        => 'Titolo',
+			'title'        => 'Title',
 			'slug'         => 'Slug',
-			'image'        => 'Immag.',
-			'publish_date' => 'Pubblicazione',
-			'content'      => 'Contenuto',
+			'image'        => 'Image',
+			'publish_date' => 'Publish date',
+			'content'      => 'Content',
 			'tags'         => 'Tags',
 		),
 	),
@@ -201,12 +201,12 @@ return array(
 		'sing'  => 'tag',
 		'plur'  => 'tags',
 
-		'empty'       => 'Nessun tag inserito',
-		'placeholder' => 'Inserisci i tags ...',
+		'empty'       => 'No tags inserted',
+		'placeholder' => 'Insert some tags ...',
 
 		'fields' => array(
-			'name'       => 'Nome',
-			'occurrence' => 'Occorrenze',
+			'name'       => 'Name',
+			'occurrence' => 'Occurrences',
 		),
 	),
 
@@ -219,9 +219,9 @@ return array(
 		'title'  => 'Media',
 		'sing'   => 'media',
 		'plur'   => 'media',
-		'upload' => 'Carica files',
+		'upload' => 'Upload files',
 
-		'empty'  => 'Nessun file inserito',
+		'empty'  => 'No files uploaded',
 
 		'fields' => array(
 
@@ -234,24 +234,26 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
 	'users' => array(
-		'title' => 'Utenti',
-		'sing'  => 'utente',
-		'plur'  => 'utenti',
+		'title' => 'Users',
+		'sing'  => 'user',
+		'plur'  => 'users',
+
+		'profile' => 'Profile',
 
 		'fields' => array(
 			'email'                 => 'Email',
 			'username'              => 'Username',
 			'password'              => 'Password',
-			'password_confirmation' => 'Conferma Password',
-			'enabled'               => 'Abilitato',
-			'last_login'            => 'Ultimo accesso',
+			'password_confirmation' => 'Password confirm',
+			'enabled'               => 'Enabled',
+			'last_login'            => 'Last login',
 			'posts'                 => 'Posts',
 		),
 
 		'msg' => array(
-			'admin_username_error' => "Lo username dell'utente :username non può essere modificato",
-			'admin_disable_error'  => "L'utente :username non può essere disabilitato",
-			'admin_delete_error'   => "L'utente :username non può essere eliminato",
+			'admin_username_error' => "The username of the user :username cannot be changed",
+			'admin_disable_error'  => "The user :username cannot be disabled",
+			'admin_delete_error'   => "The user :username cannot be deleted",
 		),
 	),
 
@@ -261,19 +263,19 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
 	'settings' => array(
-		'title' => 'Impostazioni',
-		'sing'  => 'impostazioni',
-		'plur'  => 'impostazione',
+		'title' => 'Settings',
+		'sing'  => 'settings',
+		'plur'  => 'setting',
 
-		'utc_time'   => 'Orario UTC',
-		'local_time' => 'Orario Locale',
+		'utc_time'   => 'UTC time',
+		'local_time' => 'Local time',
 
 		'fields' => array(
-			'website_title'  => 'Titolo Sito',
-			'website_slogan' => 'Slogan Sito',
-			'website_footer' => 'Footer Sito',
-			'timezone'       => 'Fuso orario',
-			'theme'          => 'Tema',
+			'website_title'  => 'Website title',
+			'website_slogan' => 'Website slogan',
+			'website_footer' => 'Website footer',
+			'timezone'       => 'Timezone',
+			'theme'          => 'Theme',
 		),
 	),
 

@@ -59,7 +59,7 @@
 			<div class="profile-image"><img class="circle" src="{{ gravatar($logged->email) }}"></div>
 			<div class="profile-username">{{ $logged->username }}</div>
 			<div class="profile-links">
-				<a href="{{ URL::route('admin_user_update', array('id' => $logged->id)) }}">@lang('gorilla.actions.update')</a> &middot;
+				<a href="{{ URL::route('admin_user_update', array('id' => $logged->id)) }}">@lang('gorilla.users.profile')</a> &middot;
 				<a href="{{ URL::route('logout') }}">@lang('gorilla.actions.logout')</a>
 			</div>
 		</div>
