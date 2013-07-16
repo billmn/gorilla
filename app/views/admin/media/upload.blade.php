@@ -12,6 +12,9 @@
 	</div>
 </div>
 
-<form action="{{ URL::route('admin_media_upload') }}" class="dropzone"></form>
-
+<form action="{{ URL::route('admin_media_upload') }}" class="dropzone">
+	<div class="fallback">
+		<input name="file" type="file" multiple />
+	</div>
+</form>
 @stop

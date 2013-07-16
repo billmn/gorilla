@@ -92,6 +92,10 @@ class Media extends Model {
 		$file = Input::file('file');
 		$destination = app('gorilla.paths.uploads');
 
+		if (empty($file)) return false;
+
+		$file = reset($file);
+
 		// File info
 		$info = array(
 			'path'      => $file->getRealPath(),
@@ -103,7 +107,7 @@ class Media extends Model {
 		);
 
 		// Thumbnail
-		$isImage = Validator::make(Input::file(), array('file' => 'image'));
+		$isImage = Validator::make(array('file' => $file), array('file' => 'image'));
 
 		if ($isImage->passes())
 		{
