@@ -46,7 +46,6 @@ class Extensions extends \TwigBridge\Extension
 	public function getFilters()
 	{
 		return array(
-			new Twig_SimpleFilter('dump',     array($this, 'twig_filter_dump')),
 			new Twig_SimpleFilter('words',    array($this, 'twig_filter_words')),
 			new Twig_SimpleFilter('truncate', array($this, 'twig_filter_truncate')),
 			new Twig_SimpleFilter('resample', array($this, 'twig_filter_resample')),
@@ -84,15 +83,6 @@ class Extensions extends \TwigBridge\Extension
 	| FILTERS
 	|--------------------------------------------------------------------------
 	*/
-	public function twig_filter_dump($var)
-	{
-		ob_start();
-		var_dump($var);
-		$dump = ob_get_clean();
-
-		return "<pre>{$dump}</pre>";
-	}
-
 	public function twig_filter_words($value, $words = 100, $end = '...')
 	{
 		return Str::words($value, $words, $end);

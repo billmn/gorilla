@@ -39,7 +39,7 @@ return array(
 		// When set to true, the generated templates have a __toString() method
 		// that you can use to display the generated nodes.
 		// default: false
-		'debug' => false,
+		'debug' => true,
 
 		//  The charset used by the templates.
 		// default: utf-8
@@ -86,6 +86,7 @@ return array(
 	*/
 	'extensions' => array(
 		'Twig_Extension_Debug',
+		'Twig_Extension_StringLoader',
 		'TwigBridge\Extensions\AliasLoader',
 		'Gorilla\Theme\Extensions',
 	),
