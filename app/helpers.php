@@ -61,10 +61,13 @@ if ( ! function_exists('is_html'))
 if ( ! function_exists('gravatar'))
 {
 	/**
-	 * Generate a URL to a Gravatar profile
+	 * Gravatar URL from Email address
 	 *
-	 * @param  string  $email
-	 * @param  integer $size
+	 * @param string $email   Email address
+	 * @param string $size    Size in pixels
+	 * @param string $default Default image [ 404 | mm | identicon | monsterid | wavatar ]
+	 * @param string $rating  Max rating [ g | pg | r | x ]
+	 *
 	 * @return string
 	 */
 	function gravatar($email, $size = 60, $default = 'mm', $rating = 'g')

@@ -6,12 +6,22 @@ use Gorilla\Tag;
 use Gorilla\Post;
 use Gorilla\Settings;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+
 class Tags {
 
+	protected $post;
 	protected $settings;
 
 	public function __construct()
 	{
+		if (Request::is('post/*'))
+		{
+			dd(Request::segment(1));
+			$this->post = Post::where('slug', Request::segment(2))->where('publish_date', '>=', Carbon::now())->first();
+		}
+
 		$this->settings = Settings::all()->lists('value', 'name');
 	}
 
@@ -36,6 +46,23 @@ class Tags {
 					->paginate($pagination);
 
 		return $posts;
+	}
+
+	public function meta()
+	{
+		$meta = array();
+
+		if ($this->post)
+		{
+			$meta = array(
+				'charset'     => "utf-8",
+				'title'       => "{$this->post->title}",
+				'keywords'    => "",
+				'description' => "",
+			);
+		}
+
+		return $meta;
 	}
 
 	public function settings($name, $default = null)

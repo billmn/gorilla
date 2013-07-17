@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 use Gorilla\Tag;
 use Gorilla\Post;
 use Gorilla\Settings;
@@ -20,7 +22,7 @@ class PublicController extends Controller {
 
 	public function post($slug)
 	{
-		$post = Post::where('slug', $slug)->first();
+		$post = Post::where('slug', $slug)->where('publish_date', '<=', Carbon::now())->first();
 
 		if ($post)
 		{

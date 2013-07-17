@@ -103,16 +103,6 @@ class Extensions extends \TwigBridge\Extension
 		return URL::route('resampler', array('url' => $url) + $params);
 	}
 
-	/**
-	 * Gravatar URL from Email address
-	 *
-	 * @param string $email   Email address
-	 * @param string $size    Size in pixels
-	 * @param string $default Default image [ 404 | mm | identicon | monsterid | wavatar ]
-	 * @param string $rating  Max rating [ g | pg | r | x ]
-	 *
-	 * @return string
-	 */
 	public function twig_filter_gravatar($email, $size = 60, $default = 'mm', $rating = 'g')
 	{
 		return gravatar($email, $size, $default, $rating);
