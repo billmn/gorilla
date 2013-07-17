@@ -24,6 +24,7 @@
 				<th class="text-center">@lang('gorilla.posts.fields.slug')</th>
 				<th class="text-center">@lang('gorilla.posts.fields.publish_date')</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,7 +37,10 @@
 					{{ $post->author->username }}
 				</td>
 				<td class="text-center">
-					{{ $post->publish_date->format('d/m/Y H:i') }} <span class="text-muted">( {{ $post->publish_date->diffForHumans() }} )</span>
+					{{ $post->publish_date->format('d/m/Y H:i') }}
+				</td>
+				<td>
+					<span class="text-muted">( {{ $post->publish_date->diffForHumans() }} )</span>
 				</td>
 				<td class="actions">
 					<a href="{{ URL::route('admin_post_delete', array('id' => $post->id)) }}" class="tiny alert button confirm">@lang('gorilla.actions.delete')</a>

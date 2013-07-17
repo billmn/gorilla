@@ -17,6 +17,7 @@ class AdminBaseController extends Controller {
 
 		Config::set('app.locale', $this->locale);
 
+		View::share('now', $this->now);
 		View::share('logged', $this->logged);
 	}
 
