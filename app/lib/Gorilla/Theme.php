@@ -4,6 +4,7 @@ use Gorilla\Support\Asset;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Artisan;
 
 class Theme {
 
@@ -81,6 +82,11 @@ class Theme {
 	{
 		$file = "{$this->path}/routes.php";
 		return File::exists($file) ? include_once($file) : array();
+	}
+
+	public function cleanCache()
+	{
+		return Artisan::call('twig:clean');
 	}
 
 }

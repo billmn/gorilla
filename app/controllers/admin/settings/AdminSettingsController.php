@@ -28,6 +28,11 @@ class AdminSettingsController extends AdminBaseController {
 				$setting->save();
 			}
 
+			if ($settings['theme'] != Input::get('theme'))
+			{
+				app('gorilla.theme')->cleanCache();
+			}
+
 			Session::flash('notify_confirm', Lang::get('gorilla.messages.confirm'));
 			return Redirect::route('admin_settings');
 		}
