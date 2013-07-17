@@ -10,7 +10,10 @@ class Tag extends Model {
 
 	public function posts()
 	{
-		return $this->belongsTo(__NAMESPACE__ . '\Post');
+		$tagTable  = $this->getTable();
+		$postTable = with(new Post)->getTable();
+
+		return Post::join($tagTable, "{$postTable}.id", "=", "{$tagTable}.post_id")->where("{$tagTable}.name", $this->name);
 	}
 
 	/*

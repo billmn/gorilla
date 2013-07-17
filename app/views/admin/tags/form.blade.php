@@ -21,6 +21,33 @@
 		{{ Form::save() }}
 	</div>
 {{ Form::close() }}
+
+<!-- Posts that use this Tag -->
+<h5 class="subheader">@lang('gorilla.tags.used_by') :</h5>
+<table class="full-width">
+	<thead>
+		<tr>
+			<th class="post-title-cell">@lang('gorilla.posts.fields.title')</th>
+			<th class="text-center">@lang('gorilla.posts.fields.slug')</th>
+			<th class="text-center">@lang('gorilla.posts.fields.publish_date')</th>
+	</thead>
+	<tbody>
+		@foreach($tag->posts()->get() as $post)
+		<tr>
+			<td>
+				<a href="{{ URL::route('admin_post_update', array('id' => $post->id)) }}">{{ $post->title }}</a>
+			</td>
+			<td class="text-center">
+				{{ $post->author->username }}
+			</td>
+			<td class="text-center">
+				{{ $post->publish_date->format('d/m/Y H:i') }}
+			</td>
+		</tr>
+		@endforeach
+	</tbody>
+</table>
+
 @stop
 
 @section('bottom_scripts')

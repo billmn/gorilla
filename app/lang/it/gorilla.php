@@ -211,6 +211,7 @@ return array(
 		'plur'  => 'tags',
 
 		'empty'       => 'Nessun tag inserito',
+		'used_by'     => 'Utilizzato da',
 		'placeholder' => 'Inserisci i tags ...',
 
 		'fields' => array(
