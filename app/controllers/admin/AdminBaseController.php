@@ -11,12 +11,10 @@ class AdminBaseController extends Controller {
 
 	public function __construct()
 	{
-		$timezone     = Settings::give('timezone', 'UTC');
-		$this->now    = Carbon::now($timezone);
+		$this->now    = Carbon::now();
 		$this->logged = Auth::user();
 		$this->locale = app('gorilla.setup')->getBrowserLang();
 
-		Config::set('timezone', $timezone);
 		Config::set('app.locale', $this->locale);
 
 		View::share('logged', $this->logged);

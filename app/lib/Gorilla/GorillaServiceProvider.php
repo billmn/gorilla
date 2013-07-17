@@ -51,6 +51,8 @@ class GorillaServiceProvider extends ServiceProvider {
 
 		$this->dbConnect();
 		$this->registerFormMacro();
+
+		date_default_timezone_set(Settings::give('timezone', 'UTC'));
 	}
 
 	/**
