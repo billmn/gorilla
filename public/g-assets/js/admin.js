@@ -103,6 +103,9 @@ $(function()
 
 	$('.media-reset').on('click', function()
 	{
+		var answer = confirm(confirm_question);
+		if ( ! answer) return false;
+
 		$('.media-open img').attr('src', image_fallback_url);
 		$('input[name=' + $(this).attr('data-input') + ']').val('');
 
