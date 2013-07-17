@@ -52,7 +52,11 @@ class GorillaServiceProvider extends ServiceProvider {
 		$this->dbConnect();
 		$this->registerFormMacro();
 
-		date_default_timezone_set(Settings::give('timezone', 'UTC'));
+		if ($this->app['gorilla.setup']->getConfig('installed', false))
+		{
+			date_default_timezone_set(Settings::give('timezone', 'UTC'));
+			$this->theme = app('gorilla.theme')->set(Settings::give('theme', 'default'));
+		}
 	}
 
 	/**

@@ -19,19 +19,19 @@ class SettingsTableSeeder extends Seeder {
 		Settings::insert(array(
 			array(
 				'name'       => 'website_title',
-				'value'      => 'Titolo sito',
+				'value'      => 'Website title',
 				'created_at' => $now,
 				'updated_at' => $now,
 			),
 			array(
 				'name'       => 'website_slogan',
-				'value'      => 'Il mio nuovo microblog',
+				'value'      => 'My new Microbolog',
 				'created_at' => $now,
 				'updated_at' => $now,
 			),
 			array(
 				'name'       => 'website_footer',
-				'value'      => 'Footer del sito',
+				'value'      => '&copy; My Website',
 				'created_at' => $now,
 				'updated_at' => $now,
 			),

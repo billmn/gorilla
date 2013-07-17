@@ -10,7 +10,7 @@ class PublicController extends Controller {
 
 	public function __construct()
 	{
-		$this->theme = app('gorilla.theme')->set(Settings::give('theme', 'default'));
+		$this->theme = app('gorilla.theme');
 	}
 
 	public function home()
