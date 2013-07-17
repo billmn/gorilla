@@ -1,5 +1,8 @@
 <?php namespace Gorilla;
 
+use Twig_Loader_String;
+use TwigBridge\TwigBridge;
+
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
@@ -36,6 +39,23 @@ class Post extends Model {
 	public function getUrlAttribute()
 	{
 		return URL::route('post', array('slug' => $this->slug));
+	}
+
+	/**
+	 * Content parsered with Twig
+	 * @return string
+	 */
+	public function getParsedContentAttribute()
+	{
+		$bridge = new TwigBridge(app());
+		$loader = new Twig_Loader_String;
+
+		$twig = $bridge->getTwig();
+		$twig->setLoader($loader);
+
+		return $twig->loadTemplate($this->content)->render(array(
+			'post' => $this
+		));
 	}
 
 	/*
