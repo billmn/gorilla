@@ -33,6 +33,10 @@ class GorillaServiceProvider extends ServiceProvider {
 		$this->app['gorilla.paths.contents'] = $this->app['path.public'] . '/g-contents';
 		$this->app['gorilla.paths.themes']   = $this->app['path.public'] . '/g-contents/themes';
 		$this->app['gorilla.paths.uploads']  = $this->app['path.public'] . '/g-contents/uploads';
+		$this->app['gorilla.paths.storage']  = $this->app['path.public'] . '/g-contents/storage';
+
+		// Override App Storage path
+		$this->app['path.storage'] = $this->app['gorilla.paths.storage'];
 
 		$this->app['gorilla.setup'] = $this->app->share(function($app)
 		{
