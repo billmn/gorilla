@@ -81,6 +81,7 @@
 
 	<!-- scripts -->
 	<script type="text/javascript">
+		var locale             = "{{ $locale }}";
 		var confirm_question   = "@lang('gorilla.questions.confirm')";
 		var media_modal_url    = "{{ URL::route('admin_media_modal', array('no-sidebar' => true, 'data-reveal-ajax' => true)) }}";
 		var image_fallback_url = "{{ g_asset('img/media-image.jpg') }}";
@@ -89,7 +90,10 @@
 	{{ g_script('js/jquery.min.js') }}
 	{{ g_script('js/plugins/foundation/foundation.min.js') }}
 	{{ g_script('js/plugins/placeholder/jquery.placeholder.min.js') }}
+
 	{{ g_script('js/plugins/moment/moment.min.js') }}
+	{{ g_script('js/plugins/moment/langs.min.js') }}
+
 	{{ g_script('js/plugins/select2/select2.min.js') }}
 	{{ g_script('js/plugins/select2/select2_locale_it.js') }}
 	{{ g_script('js/plugins/dropzone/dropzone.min.js') }}

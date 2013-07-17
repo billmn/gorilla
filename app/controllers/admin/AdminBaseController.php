@@ -19,6 +19,7 @@ class AdminBaseController extends Controller {
 
 		View::share('now', $this->now);
 		View::share('logged', $this->logged);
+		View::share('locale', $this->locale);
 	}
 
 }

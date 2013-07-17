@@ -40,7 +40,7 @@
 					{{ $post->publish_date->format('d/m/Y H:i') }}
 				</td>
 				<td>
-					<span class="text-muted">( {{ $post->publish_date->diffForHumans() }} )</span>
+					<span class="publish-from-now text-muted">{{ $post->publish_date }}</span>
 				</td>
 				<td class="actions">
 					<a href="{{ URL::route('admin_post_delete', array('id' => $post->id)) }}" class="tiny alert button confirm">@lang('gorilla.actions.delete')</a>
@@ -53,4 +53,17 @@
 	<h3 class="text-center subheader">@lang('gorilla.posts.empty')</h3>
 @endif
 
+@stop
+
+@section('bottom_scripts')
+<script type="text/javascript">
+$(function() {
+
+	$('.publish-from-now').each(function()
+	{
+		$(this).html(moment($(this).text()).fromNow());
+	});
+
+})
+</script>
 @stop
