@@ -115,7 +115,7 @@ class Extensions extends \TwigBridge\Extension
 	 */
 	public function twig_filter_gravatar($email, $size = 60, $default = 'mm', $rating = 'g')
 	{
-		return 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . "?s={$size}&d={$default}&r={$rating}";
+		return gravatar($email, $size, $default, $rating);
 	}
 
 	/*

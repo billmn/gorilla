@@ -67,9 +67,9 @@ if ( ! function_exists('gravatar'))
 	 * @param  integer $size
 	 * @return string
 	 */
-	function gravatar($email, $size = 40)
+	function gravatar($email, $size = 60, $default = 'mm', $rating = 'g')
 	{
-		return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?s=" . $size;
+		return 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . "?s={$size}&d={$default}&r={$rating}";
 	}
 }
 
