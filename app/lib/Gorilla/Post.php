@@ -31,6 +31,11 @@ class Post extends Model {
 		return $this->belongsTo(__NAMESPACE__ . '\User', 'created_by');
 	}
 
+	public function meta()
+	{
+		return new Post\Meta($this);
+	}
+
 	/*
 	|--------------------------------------------------------------------------
 	| ACCESSORS

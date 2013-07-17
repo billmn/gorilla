@@ -18,8 +18,7 @@ class Tags {
 	{
 		if (Request::is('post/*'))
 		{
-			dd(Request::segment(1));
-			$this->post = Post::where('slug', Request::segment(2))->where('publish_date', '>=', Carbon::now())->first();
+			$this->post = Post::where('slug', Request::segment(2))->where('publish_date', '<=', Carbon::now())->first();
 		}
 
 		$this->settings = Settings::all()->lists('value', 'name');
@@ -46,23 +45,6 @@ class Tags {
 					->paginate($pagination);
 
 		return $posts;
-	}
-
-	public function meta()
-	{
-		$meta = array();
-
-		if ($this->post)
-		{
-			$meta = array(
-				'charset'     => "utf-8",
-				'title'       => "{$this->post->title}",
-				'keywords'    => "",
-				'description' => "",
-			);
-		}
-
-		return $meta;
 	}
 
 	public function settings($name, $default = null)

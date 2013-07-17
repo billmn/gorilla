@@ -7,9 +7,10 @@ use Twig_ExpressionParser;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Request;
 
-class Extensions extends \TwigBridge\Extension
-{
+class Extensions extends \TwigBridge\Extension {
+
 	protected $app;
 	protected $tags;
 	protected $theme;
@@ -59,11 +60,12 @@ class Extensions extends \TwigBridge\Extension
 	public function getFunctions()
 	{
 		return array(
-			new Twig_SimpleFunction('url',    array($this, 'twig_function_url'),    array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('asset',  array($this, 'twig_function_asset'),  array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('style',  array($this, 'twig_function_style'),  array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('image',  array($this, 'twig_function_image'),  array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('script', array($this, 'twig_function_script'), array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('url',     array($this, 'twig_function_url'),     array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('asset',   array($this, 'twig_function_asset'),   array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('style',   array($this, 'twig_function_style'),   array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('image',   array($this, 'twig_function_image'),   array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('script',  array($this, 'twig_function_script'),  array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('is_home', array($this, 'twig_function_is_home'), array('is_safe' => array('html'))),
 		);
 	}
 
@@ -136,6 +138,11 @@ class Extensions extends \TwigBridge\Extension
 	public function twig_function_image($url, $alt = null, $attributes = array())
 	{
 		return $this->theme->assets()->image($url, $alt, $attributes);
+	}
+
+	public function twig_function_is_home()
+	{
+		return Request::is('/');
 	}
 
 

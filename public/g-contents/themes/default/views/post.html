@@ -24,7 +24,7 @@
 
 				{% if post.image %}
 				<a href="{{ post.image.url }}" class="popup-image" title="{{ post.image.name }}">
-					<img class="post-image" src="{{ post.image.url }}" alt="{{ post.image.name }}">
+					<img class="post-image" src="{{ post.image.url|resample({ resize: [400] }) }}" alt="{{ post.image.name }}">
 				</a>
 				{% endif %}
 
