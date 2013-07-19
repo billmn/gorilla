@@ -9,9 +9,10 @@
 
 	{{ g_style('http://fonts.googleapis.com/css?family=Titillium+Web:400,600') }}
 
-	{{ g_style('css/normalize.css') }}
-	{{ g_style('css/plugins/foundation/foundation.min.css') }}
+	{{ g_style('css/normalize.min.css') }}
+	{{ g_style('css/plugins/foundation/almost-flat-ui.min.css') }}
 	{{ g_style('css/admin.css') }}
+	{{ g_style('css/admin-responsive.css') }}
 
 	{{ g_script('js/modernizr.min.js') }}
 </head>
