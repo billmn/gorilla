@@ -42,7 +42,7 @@ class PublicController extends Controller {
 
 	public function rss()
 	{
-		$posts = Post::orderBy('publish_date', 'desc')->take(50)->get();
+		$posts = Post::orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take(50)->get();
 		$view  = $this->theme->show('rss')->with('posts', $posts);
 
 		return Response::make($view, 200, array(

@@ -11,7 +11,7 @@ class ApiPostController extends ApiBaseController {
 	 */
 	public function index()
 	{
-		return Post::orderBy('publish_date', 'desc')->get();
+		return Post::orderBy('publish_date', 'desc')->orderBy('id', 'desc')->get();
 	}
 
 	/**

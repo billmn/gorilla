@@ -41,6 +41,7 @@ class Tags {
 		$posts = $posts
 					->where('publish_date', '<=', Carbon::now())
 					->orderBy('publish_date', 'desc')
+					->orderBy("{$postsTable}.id", 'desc')
 					->distinct()
 					->paginate($pagination);
 
