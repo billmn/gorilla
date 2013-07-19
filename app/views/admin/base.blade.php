@@ -9,8 +9,8 @@
 
 	{{ g_style('http://fonts.googleapis.com/css?family=Titillium+Web:400,600') }}
 
-	{{ g_style('css/normalize.css') }}
-	{{ g_style('css/plugins/foundation/foundation.min.css') }}
+	{{ g_style('css/normalize.min.css') }}
+	{{ g_style('css/plugins/foundation/almost-flat-ui.min.css') }}
 	{{ g_style('css/plugins/foundation/general_foundicons.css') }}
 	{{ g_style('css/plugins/foundation/general_foundicons_ie7.css') }}
 	{{ g_style('css/plugins/select2/select2.css') }}
