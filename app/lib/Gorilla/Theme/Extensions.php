@@ -7,6 +7,7 @@ use Twig_ExpressionParser;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\HTML;
 use Illuminate\Support\Facades\Request;
 
 use Gorilla\Support\TruncateHtmlString;
@@ -49,10 +50,11 @@ class Extensions extends \TwigBridge\Extension {
 	public function getFilters()
 	{
 		return array(
-			new Twig_SimpleFilter('words',    array($this, 'twig_filter_words')),
-			new Twig_SimpleFilter('truncate', array($this, 'twig_filter_truncate')),
-			new Twig_SimpleFilter('resample', array($this, 'twig_filter_resample')),
-			new Twig_SimpleFilter('gravatar', array($this, 'twig_filter_gravatar')),
+			new Twig_SimpleFilter('words',         array($this, 'twig_filter_words')),
+			new Twig_SimpleFilter('truncate',      array($this, 'twig_filter_truncate')),
+			new Twig_SimpleFilter('resample',      array($this, 'twig_filter_resample')),
+			new Twig_SimpleFilter('gravatar',      array($this, 'twig_filter_gravatar')),
+			new Twig_SimpleFilter('email_protect', array($this, 'twig_filter_email_protect')),
 		);
 	}
 
@@ -118,6 +120,20 @@ class Extensions extends \TwigBridge\Extension {
 	public function twig_filter_gravatar($email, $size = 60, $default = 'mm', $rating = 'g')
 	{
 		return gravatar($email, $size, $default, $rating);
+	}
+
+	public function twig_filter_email_protect($string)
+	{
+		preg_match_all("/[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i", $string, $matches);
+
+		if (count($matches))
+		{
+			$matches    = $matches[0];
+			$obfuscated = array_map(function($email) { return HTML::email($email); }, $matches);
+			$string     = str_replace($matches, $obfuscated, $string);
+		}
+
+		return $string;
 	}
 
 	/*

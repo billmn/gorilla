@@ -23,7 +23,7 @@
 				<h3 class="post-title">
 					<a href="{{ post.url }}">{{ post.title }}</a>
 				</h3>
-				<div class="post-content">{{ post.parsed_content|truncate(800) }}</div>
+				<div class="post-content">{{ post.parsed_content|truncate(800)|email_protect }}</div>
 			</div>
 		</div>
 	</article>
