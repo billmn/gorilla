@@ -19,7 +19,6 @@
 		table td {border-collapse:collapse;}
 		.yshortcuts a {border-bottom: none !important;}
 
-
 		/* Constrain email width for small screens */
 		@media screen and (max-width: 600px) {
 			table[class="container"] {
@@ -52,12 +51,23 @@
 						<td class="container-padding" bgcolor="#ffffff" style="background-color: #ffffff; padding-left: 30px; padding-right: 30px; font-size: 14px; line-height: 20px; font-family: Helvetica, sans-serif; color: #333;">
 							<br>
 
+							<div style="font-weight: bold; font-size: 38px; line-height: 24px; color: #666666; border-bottom: 1px solid #efefef; margin-bottom: 20px;">
+								{{ strtolower(Lang::get('gorilla.app_name')) }}
+							</div>
+
 							<!-- ### BEGIN CONTENT ### -->
 							<div style="font-weight: bold; font-size: 18px; line-height: 24px; color: #D03C0F">
-								Password Reset
+								@lang('gorilla.auth.forgot.email.title')
 							</div><br>
 
-							To reset your password, complete this form: {{ URL::route('reset', array('token' => $token)) }}.
+							@lang('gorilla.auth.forgot.email.body', array('username' => $user->username, 'domain' => Input::server('SERVER_NAME')))
+
+							<br><br>
+
+							<a href="{{ URL::route('reset', array('token' => $token)) }}" style="color: #ffffff; padding: 8px 12px; background: #399adb; text-decoration: none; text-align: center;">
+								@lang('gorilla.auth.forgot.email.btn')
+							</a>
+
 							<br><br>
 
 							<!-- ### END CONTENT ### -->

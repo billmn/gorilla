@@ -141,7 +141,7 @@ return array(
 			'email' => array(
 				'title'   => 'Password reset request',
 				'subject' => 'Password reset request',
-				'body'    => 'Hello: display_name, <br /> you have requested a password reset from <a href=":domain" target="_blank">: domain </ a> ... don\'t worry, it happens to even the best! ;) <br /> <br /> If you want to proceed to the change of password click on the button below.',
+				'body'    => 'Hello <strong>:username</strong>, <br /> you have requested a password reset from <a href=":domain" target="_blank">: domain </ a> ... don\'t worry, it happens to even the best! ;) <br /> <br /> If you want to proceed to the change of password click on the button below.',
 				'btn'     => 'Change the password',
 			),
 		),

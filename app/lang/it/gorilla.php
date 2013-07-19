@@ -141,7 +141,7 @@ return array(
 			'email' => array(
 				'title'   => 'Richiesta reset password',
 				'subject' => 'Richiesta reset password',
-				'body'    => 'Ciao :display_name,<br /> hai richiesto il reset della password dal sito <a href=":domain" target="_blank">:domain</a> ... non preoccuparti, succede anche ai migliori ! ;)<br /><br />Se vuoi procedere al cambio password clicca sul pulsante qui sotto.',
+				'body'    => 'Ciao <strong>:username</strong>,<br /> hai richiesto il reset della password dal sito <a href=":domain" target="_blank">:domain</a> ... non preoccuparti, succede anche ai migliori ! ;)<br /><br />Se vuoi procedere al cambio password clicca sul pulsante qui sotto.',
 				'btn'     => 'Cambia la password',
 			),
 		),
