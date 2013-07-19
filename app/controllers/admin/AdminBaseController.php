@@ -16,6 +16,7 @@ class AdminBaseController extends Controller {
 		$this->locale = app('gorilla.setup')->getBrowserLang();
 
 		Config::set('app.locale', $this->locale);
+		Config::set('view.pagination', 'pagination.slider');
 
 		View::share('now', $this->now);
 		View::share('logged', $this->logged);

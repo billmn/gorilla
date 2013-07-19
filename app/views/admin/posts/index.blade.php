@@ -49,6 +49,8 @@
 			@endforeach
 		</tbody>
 	</table>
+
+	{{ $posts->links() }}
 @else
 	<h3 class="text-center subheader">@lang('gorilla.posts.empty')</h3>
 @endif
