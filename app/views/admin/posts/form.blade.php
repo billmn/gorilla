@@ -96,7 +96,7 @@
 	// Disallow blacklisted characters in Slug field
 	$('input[name=slug]').on('keypress', function(e)
 	{
-		var charCode = (e.which) ? e.which : window.event.keyCode;
+		var charCode = e.which;
 
 		// Blacklist : '/' (47), '\' (92)
 		if (charCode == 47 || charCode == 92) return false;
