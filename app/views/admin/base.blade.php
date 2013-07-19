@@ -102,7 +102,10 @@
 	{{ g_script('js/plugins/pickadate/picker.date.js') }}
 	{{ g_script('js/plugins/pickadate/picker.time.js') }}
 	{{ g_script('js/plugins/pickadate/legacy.js') }}
-	{{ g_script('js/plugins/pickadate/translations/it_IT.js') }}
+
+	@if($locale == 'it')
+		{{ g_script('js/plugins/pickadate/translations/it_IT.js') }}
+	@endif
 
 	{{ g_script('js/plugins/tinymce/tinymce.min.js') }}
 	{{ g_script('js/admin.js') }}
