@@ -1,7 +1,8 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "billmn/gorilla",
+	"description": "A microblogging platform built with Laravel 4.",
+	"keywords": ["microblogging", "gorilla", "laravel"],
+	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.0.*",
 		"guzzle/guzzle": "3.7.*@dev",
