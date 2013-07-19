@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Request;
 
+use Gorilla\Support\TruncateHtmlString;
+
 class Extensions extends \TwigBridge\Extension {
 
 	protected $app;
@@ -92,6 +94,14 @@ class Extensions extends \TwigBridge\Extension {
 
 	public function twig_filter_truncate($value, $limit = 100, $end = ' ...')
 	{
+		$value = trim($value);
+
+		if (is_html($value))
+		{
+			$htmlTruncator = new TruncateHtmlString($value, $limit, $end);
+			return $htmlTruncator->cut();
+		}
+
 		return Str::limit($value, $limit, $end);
 	}
 
