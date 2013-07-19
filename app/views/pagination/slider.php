@@ -1,5 +1,5 @@
 <?php
-	$presenter = new Gorilla\Pagination\FoundationPresenter($paginator);
+	$presenter = new Gorilla\Extensions\Pagination\FoundationPresenter($paginator);
 ?>
 
 <?php if ($paginator->getLastPage() > 1): ?>

@@ -1,4 +1,4 @@
-<?php namespace Gorilla\Pagination;
+<?php namespace Gorilla\Extensions\Pagination;
 
 use Illuminate\Pagination\BootstrapPresenter;
 
