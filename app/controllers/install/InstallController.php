@@ -63,7 +63,7 @@ class InstallController extends Controller {
 				app('gorilla.setup')->setConfig('db', $conn)->saveConfig();
 
 				// Migrate database
-				Artisan::call('migrate:reset');
+				//Artisan::call('migrate:reset');
 				$artisan = Artisan::call('migrate', array('--seed' => true));
 
 				if ($artisan)
