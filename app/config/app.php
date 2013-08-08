@@ -114,10 +114,10 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
-		'Gorilla\GorillaServiceProvider',
 		'TwigBridge\TwigServiceProvider',
 		'Profiler\ProfilerServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
+		'Gorilla\GorillaServiceProvider',
 	),
 
 	/*
