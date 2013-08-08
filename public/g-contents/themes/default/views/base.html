@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>{{ gorilla.settings('website_title') }}</title>
-
 		{% if is_home() %}
+			<title>{{ gorilla.settings('website_title') }}</title>
 			<meta name="title" content="{{ gorilla.settings('website_title') }}">
 		{% else %}
+			<title>{{ is_tag_filter() ? tag.name : post.meta.title }} &middot; {{ gorilla.settings('website_title') }}</title>
 			{{ post.meta.render }}
 		{% endif %}
 

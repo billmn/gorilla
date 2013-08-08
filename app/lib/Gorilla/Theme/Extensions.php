@@ -8,6 +8,7 @@ use Twig_ExpressionParser;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\HTML;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 
 use Gorilla\Support\TruncateHtmlString;
@@ -64,12 +65,13 @@ class Extensions extends \TwigBridge\Extension {
 	public function getFunctions()
 	{
 		return array(
-			new Twig_SimpleFunction('url',     array($this, 'twig_function_url'),     array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('asset',   array($this, 'twig_function_asset'),   array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('style',   array($this, 'twig_function_style'),   array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('image',   array($this, 'twig_function_image'),   array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('script',  array($this, 'twig_function_script'),  array('is_safe' => array('html'))),
-			new Twig_SimpleFunction('is_home', array($this, 'twig_function_is_home'), array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('url',           array($this, 'twig_function_url'),           array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('asset',         array($this, 'twig_function_asset'),         array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('style',         array($this, 'twig_function_style'),         array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('image',         array($this, 'twig_function_image'),         array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('script',        array($this, 'twig_function_script'),        array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('is_home',       array($this, 'twig_function_is_home'),       array('is_safe' => array('html'))),
+			new Twig_SimpleFunction('is_tag_filter', array($this, 'twig_function_is_tag_filter'), array('is_safe' => array('html'))),
 		);
 	}
 
@@ -169,6 +171,11 @@ class Extensions extends \TwigBridge\Extension {
 	public function twig_function_is_home()
 	{
 		return Request::is('/');
+	}
+
+	public function twig_function_is_tag_filter()
+	{
+		return Route::currentRouteNamed('tag');
 	}
 
 
