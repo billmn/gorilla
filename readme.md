@@ -15,7 +15,7 @@ On Windows, you can use the Composer [Windows installer](https://getcomposer.org
 
 To install Gorilla clone the project and then running composer install command:
 <pre>
-git clone git@github.com:billmn/gorilla.git && cd gorilla && php composer.phar install
+git clone https://github.com/billmn/gorilla.git && cd gorilla && php composer.phar install
 </pre>
 
 After this open the setup wizard:
